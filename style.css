@@ -1,0 +1,54 @@
+/* Import Font Premium (Cinzel & Lora) */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
+
+/* Pengaturan Dasar Body */
+body { 
+    font-family: 'Lora', serif; 
+    background-color: #050505;
+    color: #d4d4d4;
+    overflow-x: hidden;
+}
+
+/* Pengaturan Font Judul */
+h1, h2, h3, .nav-font {
+    font-family: 'Cinzel', serif;
+}
+
+/* Efek Teks Emas (Gradient) */
+.text-gold {
+    background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Tombol Emas Premium */
+.btn-gold {
+    background: linear-gradient(to bottom, #cfc09f 5%, #ffecb3 100%);
+    color: #3e2723;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-gold:hover {
+    background: linear-gradient(to bottom, #ffecb3 5%, #cfc09f 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(191, 149, 63, 0.4);
+}
+
+/* Background Mistis (Gelap dengan efek cahaya) */
+.mystic-bg {
+    background-image: radial-gradient(circle at 50% 50%, rgba(50, 40, 10, 0.2) 0%, rgba(0, 0, 0, 1) 90%);
+    background-size: cover;
+    background-position: center;
+}
+
+/* Animasi Halus Gambar Produk */
+.product-img {
+    transition: transform 0.5s ease;
+}
+
+/* Saat hover pada grup, gambar zoom sedikit */
+.group:hover .product-img {
+    transform: scale(1.02);
+}
