@@ -11,16 +11,15 @@
     <!-- Load Icon FontAwesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     
-    <!-- Load CSS Buatan Sendiri -->
+    <!-- PANGGIL FILE CSS ANDA DI SINI -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="antialiased">
 
-    <!-- Navbar (Menu Atas) -->
+    <!-- Navbar -->
     <nav class="fixed w-full z-50 bg-black/90 backdrop-blur-md border-b border-white/10 shadow-2xl">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
-            
-            <!-- Logo (DIPERBAIKI: Nama Tampil Penuh) -->
+            <!-- Logo -->
             <a href="#" class="nav-font text-sm md:text-xl tracking-widest text-gold font-bold">
                 DIDIK HENDRANATA
             </a>
@@ -32,14 +31,14 @@
                 <a href="#buhur" class="nav-font text-gray-400 hover:text-yellow-500 transition">ALQOSAM</a>
             </div>
 
-            <!-- Tombol WA Navbar -->
+            <!-- Tombol WA -->
             <a href="https://wa.me/6282210024076" class="nav-font border border-yellow-600 text-yellow-500 px-3 py-2 text-[10px] md:text-xs tracking-widest hover:bg-yellow-600 hover:text-black transition duration-300">
                 WHATSAPP
             </a>
         </div>
     </nav>
 
-    <!-- Hero Section (Tampilan Utama) -->
+    <!-- Hero Section -->
     <section class="relative min-h-screen flex items-center justify-center text-center px-4 mystic-bg pt-20">
         <div class="max-w-4xl z-10">
             <div class="inline-block border-t border-b border-yellow-800 py-1 px-4 mb-6">
@@ -65,7 +64,7 @@
         </div>
     </section>
 
-    <!-- Collection Section (Daftar Produk) -->
+    <!-- Collection Section -->
     <section id="collection" class="py-16 md:py-24 px-4 bg-zinc-900/40">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16 md:mb-24">
@@ -76,11 +75,9 @@
             <!-- Produk 1: GRIMOIRE 1818 -->
             <div id="grimoire" class="flex flex-col md:flex-row items-center gap-8 md:gap-16 mb-20 md:mb-32 border-b border-white/5 pb-12 md:pb-16 last:border-0">
                 <div class="w-full md:w-1/2 relative group px-2 md:px-0">
-                    <div class="absolute inset-0 bg-yellow-600 blur-[40px] opacity-10 group-hover:opacity-25 transition duration-500 rounded-full"></div>
-                    <div class="relative overflow-hidden shadow-2xl border border-white/10 rounded-sm">
-                        <!-- Placeholder Foto -->
-                        <img src="https://via.placeholder.com/800x600/111111/d4af37?text=GRIMOIRE+1818" alt="Grimoire 1818" class="product-img w-full h-auto object-cover grayscale group-hover:grayscale-0 transition duration-700">
-                    </div>
+                    <div class="absolute inset-0 bg-yellow-600 blur-[60px] opacity-20 group-hover:opacity-30 transition duration-500 rounded-full"></div>
+                    <!-- FOTO GRIMOIRE -->
+                    <img src="https://i.postimg.cc/zB5DhtK5/IMG_20240330_WA0002.jpg" alt="Grimoire 1818" class="pro-image relative z-10">
                 </div>
                 <div class="w-full md:w-1/2 text-center md:text-left px-2">
                     <span class="text-yellow-600 text-[10px] md:text-xs tracking-[0.3em] mb-3 block font-bold">THE BOOK OF SHADOWS</span>
@@ -97,11 +94,9 @@
             <!-- Produk 2: QOSAM AMARY -->
             <div id="qosam" class="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-16 mb-20 md:mb-32 border-b border-white/5 pb-12 md:pb-16 last:border-0">
                 <div class="w-full md:w-1/2 relative group px-2 md:px-0">
-                    <div class="absolute inset-0 bg-red-900 blur-[40px] opacity-15 group-hover:opacity-30 transition duration-500 rounded-full"></div>
-                    <div class="relative overflow-hidden shadow-2xl border border-white/10 rounded-sm">
-                        <!-- Placeholder Foto -->
-                        <img src="https://via.placeholder.com/800x600/111111/aa0000?text=QOSAM+AMARY" alt="Qosam Amary" class="product-img w-full h-auto object-cover grayscale group-hover:grayscale-0 transition duration-700">
-                    </div>
+                    <div class="absolute inset-0 bg-red-900 blur-[60px] opacity-20 group-hover:opacity-30 transition duration-500 rounded-full"></div>
+                    <!-- FOTO QOSAM -->
+                    <img src="https://i.postimg.cc/NM4sk6kc/IMG_20231223_WA0015(1).jpg" alt="Qosam Amary" class="pro-image relative z-10">
                 </div>
                 <div class="w-full md:w-1/2 text-center md:text-right px-2">
                     <span class="text-red-500 text-[10px] md:text-xs tracking-[0.3em] mb-3 block font-bold">THE SACRED OATH</span>
@@ -118,11 +113,9 @@
             <!-- Produk 3: BUHUR ALQOSAM -->
             <div id="buhur" class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
                 <div class="w-full md:w-1/2 relative group px-2 md:px-0">
-                    <div class="absolute inset-0 bg-purple-900 blur-[40px] opacity-15 group-hover:opacity-30 transition duration-500 rounded-full"></div>
-                    <div class="relative overflow-hidden shadow-2xl border border-white/10 rounded-sm">
-                        <!-- Placeholder Foto -->
-                        <img src="https://via.placeholder.com/800x600/111111/5500aa?text=BUHUR+ALQOSAM" alt="Buhur Alqosam" class="product-img w-full h-auto object-cover grayscale group-hover:grayscale-0 transition duration-700">
-                    </div>
+                    <div class="absolute inset-0 bg-purple-900 blur-[60px] opacity-20 group-hover:opacity-30 transition duration-500 rounded-full"></div>
+                    <!-- FOTO BUHUR -->
+                    <img src="https://i.postimg.cc/wvVqQXQq/IMG_20231223_WA0014.jpg" alt="Buhur Alqosam" class="pro-image relative z-10">
                 </div>
                 <div class="w-full md:w-1/2 text-center md:text-left px-2">
                     <span class="text-purple-500 text-[10px] md:text-xs tracking-[0.3em] mb-3 block font-bold">RITUAL INCENSE</span>
