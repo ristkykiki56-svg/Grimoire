@@ -63,3 +63,4 @@ h1, h2, h3, .nav-font {
     transform: scale(1.02); /* Zoom sedikit */
     filter: brightness(1.1); /* Lebih terang sedikit */
     box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.9), 0 0 30px rgba(184, 134, 11, 0.3);
+}
