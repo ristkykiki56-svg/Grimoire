@@ -1,37 +1,43 @@
-/* Membuka Modal - Mengubah style display menjadi flex dan opacity 1 */
-function openModal(id) {
-    const modal = document.getElementById(id);
-    if (modal) {
-        modal.style.display = 'flex';
-        setTimeout(() => {
-            modal.style.opacity = '1';
-        }, 10);
-        document.body.style.overflow = 'hidden';
-    }
-}
-
-/* Menutup Modal - Mengubah opacity 0 dulu, baru display none (untuk animasi) */
-function closeModalBtn(id) {
-    const modal = document.getElementById(id);
-    if (modal) {
-        modal.style.opacity = '0';
-        setTimeout(() => {
-            modal.style.display = 'none';
-        }, 300);
+document.addEventListener('DOMContentLoaded', () => {
+  
+  // Ambil semua tombol pembuka modal
+  const triggers = document.querySelectorAll('.trigger-modal');
+  
+  // Ambil semua tombol penutup (X)
+  const closers = document.querySelectorAll('.close-modal');
+  
+  // Ambil semua background modal
+  const modals = document.querySelectorAll('.modal');
+  
+  // Logic Buka
+  triggers.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const targetId = btn.getAttribute('data-target');
+      const targetModal = document.getElementById(targetId);
+      if (targetModal) {
+        targetModal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Kunci scroll
+      }
+    });
+  });
+  
+  // Logic Tutup (Tombol X)
+  closers.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const modal = btn.closest('.modal');
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto'; // Buka kunci scroll
+    });
+  });
+  
+  // Logic Tutup (Klik Background Gelap)
+  modals.forEach(modal => {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('active');
         document.body.style.overflow = 'auto';
-    }
-}
-
-/* Tutup jika klik background gelap */
-function closeModal(event, id) {
-    if (event.target.id === id) {
-        const modal = document.getElementById(id);
-        if (modal) {
-            modal.style.opacity = '0';
-            setTimeout(() => {
-                modal.style.display = 'none';
-            }, 300);
-            document.body.style.overflow = 'auto';
-        }
-    }
-}
+      }
+    });
+  });
+  
+});
