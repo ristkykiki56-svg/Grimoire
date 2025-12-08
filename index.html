@@ -9,14 +9,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     
-    <!-- Link CSS -->
-    <link rel="stylesheet" href="style.css">
-
-    <!-- PENGAMAN POPUP (Agar tidak muncul double di awal) -->
-    <style>
-        .modal { display: none !important; }
-        .modal.show { display: flex !important; }
-    </style>
+    <!-- PANGGIL CSS -->
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body class="antialiased bg-black text-gray-300">
 
@@ -57,25 +51,19 @@
         </div>
     </section>
 
-    <!-- ABOUT ME (Overlap Style) -->
+    <!-- ABOUT ME -->
     <section id="about" class="px-4 relative z-20 -mt-20 md:-mt-24">
         <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-16 bg-[#0a0a0a] p-6 md:p-12 rounded-2xl border border-yellow-600/20 shadow-[0_0_40px_rgba(0,0,0,0.8)]">
-            <!-- Foto Profil -->
             <div class="w-full md:w-1/2 relative">
                 <div class="absolute inset-0 bg-yellow-600 blur-[50px] opacity-10 rounded-full"></div>
-                <!-- Placeholder Foto Profil (Ganti jika ada link foto diri) -->
                 <img src="https://via.placeholder.com/500x500?text=Foto+Didik+Hendranata" alt="Didik Hendranata" class="pro-image grayscale hover:grayscale-0 transition duration-700 relative z-10 h-64 md:h-80 w-full object-cover rounded-xl border border-white/10">
             </div>
-            <!-- Teks -->
             <div class="w-full md:w-1/2 text-center md:text-left">
                 <h2 class="text-yellow-600 text-xs tracking-[0.3em] font-bold mb-3">TENTANG SAYA</h2>
                 <h3 class="text-3xl md:text-4xl text-white font-bold mb-4 nav-font">DIDIK HENDRANATA</h3>
                 <div class="w-16 h-0.5 bg-yellow-600 mx-auto md:mx-0 mb-6"></div>
                 <p class="text-gray-400 mb-4 leading-relaxed text-sm md:text-base">
                     Seorang praktisi spiritual dan penemu metode <strong>Griptology</strong> yang berdedikasi untuk menyelaraskan energi manusia dengan alam semesta.
-                </p>
-                <p class="text-gray-400 mb-6 leading-relaxed text-sm md:text-base">
-                    Melalui riset mendalam terhadap naskah kuno (Grimoire) dan praktik kebatinan, saya menghadirkan sarana spiritual (Masterpiece) yang bernilai seni tinggi dan berenergi terukur.
                 </p>
                 <div class="flex justify-center md:justify-start gap-6 text-xl text-gold">
                     <a href="https://www.facebook.com/share/1AHFUWZ6hg/"><i class="fab fa-facebook hover:text-white transition"></i></a>
@@ -85,7 +73,7 @@
         </div>
     </section>
 
-    <!-- KOLEKSI PRODUK -->
+    <!-- KOLEKSI -->
     <section id="collection" class="pt-16 pb-20 px-4">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-12">
@@ -93,7 +81,7 @@
                 <div class="w-16 md:w-24 h-0.5 bg-yellow-600 mx-auto"></div>
             </div>
 
-            <!-- Produk 1: GRIMOIRE -->
+            <!-- Produk 1 -->
             <div id="grimoire" class="flex flex-col md:flex-row items-center gap-8 md:gap-12 mb-16 border-b border-white/5 pb-10 last:border-0 last:mb-0">
                 <div class="w-full md:w-1/2 relative group px-2 md:px-0">
                     <div class="absolute inset-0 bg-yellow-600 blur-[60px] opacity-10 group-hover:opacity-20 transition duration-500 rounded-full"></div>
@@ -108,12 +96,13 @@
                         Kitab fisik eksklusif berisi catatan perjalanan spiritual, tata cara ritual kuno, sigil, dan mantra yang jarang dipublikasikan.
                     </p>
                     <div class="flex gap-4 justify-center md:justify-start mt-2">
-                        <button onclick="openModal('modal-grimoire')" class="btn-outline-gold px-6 py-2 text-xs md:text-sm tracking-wide rounded-sm">LIHAT DETAIL</button>
+                        <!-- Perhatikan event listener dipindah ke script.js -->
+                        <button class="btn-outline-gold px-6 py-2 text-xs md:text-sm tracking-wide rounded-sm trigger-modal" data-target="modal-grimoire">LIHAT DETAIL</button>
                     </div>
                 </div>
             </div>
 
-            <!-- Produk 2: QOSAM -->
+            <!-- Produk 2 -->
             <div id="qosam" class="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12 mb-16 border-b border-white/5 pb-10 last:border-0 last:mb-0">
                 <div class="w-full md:w-1/2 relative group px-2 md:px-0">
                     <div class="absolute inset-0 bg-red-900 blur-[60px] opacity-10 group-hover:opacity-20 transition duration-500 rounded-full"></div>
@@ -128,12 +117,12 @@
                         Sarana spiritual tingkat tinggi (Minyak/Ageman) untuk vibrasi kewibawaan, otoritas kepemimpinan, dan energi pengasihan yang kuat.
                     </p>
                     <div class="flex gap-4 justify-center md:justify-end mt-2">
-                        <button onclick="openModal('modal-qosam')" class="btn-outline-gold px-6 py-2 text-xs md:text-sm tracking-wide rounded-sm">LIHAT DETAIL</button>
+                        <button class="btn-outline-gold px-6 py-2 text-xs md:text-sm tracking-wide rounded-sm trigger-modal" data-target="modal-qosam">LIHAT DETAIL</button>
                     </div>
                 </div>
             </div>
 
-            <!-- Produk 3: BUHUR -->
+            <!-- Produk 3 -->
             <div id="buhur" class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
                 <div class="w-full md:w-1/2 relative group px-2 md:px-0">
                     <div class="absolute inset-0 bg-purple-900 blur-[60px] opacity-10 group-hover:opacity-20 transition duration-500 rounded-full"></div>
@@ -148,7 +137,7 @@
                         Dupa basah racikan istimewa "Alqosam". Aroma magis yang pekat dan menenangkan. Cocok untuk meditasi mendalam dan ritual khusus.
                     </p>
                     <div class="flex gap-4 justify-center md:justify-start mt-2">
-                        <button onclick="openModal('modal-buhur')" class="btn-outline-gold px-6 py-2 text-xs md:text-sm tracking-wide rounded-sm">LIHAT DETAIL</button>
+                        <button class="btn-outline-gold px-6 py-2 text-xs md:text-sm tracking-wide rounded-sm trigger-modal" data-target="modal-buhur">LIHAT DETAIL</button>
                     </div>
                 </div>
             </div>
@@ -166,17 +155,17 @@
         <p class="text-gray-700 text-[10px] md:text-xs tracking-wider">&copy; 2024. ALL RIGHTS RESERVED.</p>
     </footer>
 
-    <!-- FLOAT WA -->
+    <!-- Floating WA -->
     <a href="https://wa.me/6282210024076" class="fixed bottom-6 right-6 md:hidden z-50 bg-green-600 text-white p-4 rounded-full shadow-lg">
         <i class="fab fa-whatsapp text-3xl"></i>
     </a>
 
-    <!-- === POPUPS (HIDDEN) === -->
+    <!-- === MODALS (POPUPS) === -->
     
-    <!-- Modal Grimoire -->
-    <div id="modal-grimoire" class="modal" onclick="closeModal(event, 'modal-grimoire')">
+    <!-- Modal 1 -->
+    <div id="modal-grimoire" class="modal">
         <div class="modal-content p-6 md:p-8 flex flex-col md:flex-row gap-6">
-            <button onclick="closeModalBtn('modal-grimoire')" class="absolute top-3 right-3 text-gray-500 hover:text-white"><i class="fas fa-times text-xl"></i></button>
+            <button class="close-modal absolute top-3 right-3 text-gray-500 hover:text-white"><i class="fas fa-times text-xl"></i></button>
             <div class="w-full md:w-1/2">
                 <img src="https://i.postimg.cc/zB5DhtK5/IMG_20240330_WA0002.jpg" class="rounded-lg shadow-lg w-full object-cover h-56 md:h-full">
             </div>
@@ -198,10 +187,10 @@
         </div>
     </div>
 
-    <!-- Modal Qosam -->
-    <div id="modal-qosam" class="modal" onclick="closeModal(event, 'modal-qosam')">
+    <!-- Modal 2 -->
+    <div id="modal-qosam" class="modal">
         <div class="modal-content p-6 md:p-8 flex flex-col md:flex-row gap-6">
-            <button onclick="closeModalBtn('modal-qosam')" class="absolute top-3 right-3 text-gray-500 hover:text-white"><i class="fas fa-times text-xl"></i></button>
+            <button class="close-modal absolute top-3 right-3 text-gray-500 hover:text-white"><i class="fas fa-times text-xl"></i></button>
             <div class="w-full md:w-1/2">
                 <img src="https://i.postimg.cc/NM4sk6kc/IMG_20231223_WA0015(1).jpg" class="rounded-lg shadow-lg w-full object-cover h-56 md:h-full">
             </div>
@@ -222,10 +211,10 @@
         </div>
     </div>
 
-    <!-- Modal Buhur -->
-    <div id="modal-buhur" class="modal" onclick="closeModal(event, 'modal-buhur')">
+    <!-- Modal 3 -->
+    <div id="modal-buhur" class="modal">
         <div class="modal-content p-6 md:p-8 flex flex-col md:flex-row gap-6">
-            <button onclick="closeModalBtn('modal-buhur')" class="absolute top-3 right-3 text-gray-500 hover:text-white"><i class="fas fa-times text-xl"></i></button>
+            <button class="close-modal absolute top-3 right-3 text-gray-500 hover:text-white"><i class="fas fa-times text-xl"></i></button>
             <div class="w-full md:w-1/2">
                 <img src="https://i.postimg.cc/wvVqQXQq/IMG_20231223_WA0014.jpg" class="rounded-lg shadow-lg w-full object-cover h-56 md:h-full">
             </div>
@@ -246,28 +235,8 @@
         </div>
     </div>
 
-    <!-- SCRIPT POPUP -->
-    <script>
-        function openModal(id) {
-            const modal = document.getElementById(id);
-            if(modal) {
-                modal.classList.add('show');
-                document.body.style.overflow = 'hidden';
-            }
-        }
-        function closeModalBtn(id) {
-            const modal = document.getElementById(id);
-            if(modal) {
-                modal.classList.remove('show');
-                document.body.style.overflow = 'auto';
-            }
-        }
-        function closeModal(event, id) {
-            if (event.target.id === id) {
-                document.getElementById(id).classList.remove('show');
-                document.body.style.overflow = 'auto';
-            }
-        }
-    </script>
+    <!-- PANGGIL JS -->
+    <script src="./script.js"></script>
+
 </body>
 </html>
