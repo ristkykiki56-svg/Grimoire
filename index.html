@@ -11,121 +11,138 @@
     <!-- Load Icon FontAwesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     
-    <!-- Load CSS Buatan Sendiri -->
+    <!-- LINK KE FILE CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="antialiased">
+<body class="antialiased bg-black">
 
     <!-- Navbar -->
     <nav class="fixed w-full z-50 bg-black/90 backdrop-blur-md border-b border-white/10 shadow-2xl">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
-            <a href="#" class="nav-font text-sm md:text-xl tracking-widest text-gold font-bold">
-                DIDIK HENDRANATA
-            </a>
+            <a href="#" class="nav-font text-sm md:text-xl tracking-widest text-gold font-bold">DIDIK HENDRANATA</a>
             <div class="hidden md:flex space-x-8 text-xs tracking-[0.2em]">
-                <a href="#grimoire" class="nav-font text-gray-400 hover:text-yellow-500 transition">GRIMOIRE</a>
-                <a href="#qosam" class="nav-font text-gray-400 hover:text-yellow-500 transition">QOSAM</a>
-                <a href="#buhur" class="nav-font text-gray-400 hover:text-yellow-500 transition">ALQOSAM</a>
+                <a href="#about" class="nav-font text-gray-400 hover:text-yellow-500 transition">TENTANG</a>
+                <a href="#collection" class="nav-font text-gray-400 hover:text-yellow-500 transition">KOLEKSI</a>
             </div>
-            <a href="https://wa.me/6282210024076" class="nav-font border border-yellow-600 text-yellow-500 px-3 py-2 text-[10px] md:text-xs tracking-widest hover:bg-yellow-600 hover:text-black transition duration-300">
-                WHATSAPP
-            </a>
+            <a href="https://wa.me/6282210024076" class="nav-font border border-yellow-600 text-yellow-500 px-3 py-2 text-[10px] md:text-xs tracking-widest hover:bg-yellow-600 hover:text-black transition duration-300">WHATSAPP</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center text-center px-4 mystic-bg pt-20">
+    <!-- Hero Section (DIPERBAIKI TOTAL) -->
+    <!-- min-h-screen DIHAPUS agar tidak maksa tinggi. Ditambah pb-32 untuk memberi ruang overlap -->
+    <section class="relative flex flex-col justify-start items-center text-center px-4 mystic-bg pt-32 md:pt-44 pb-32 md:pb-40 rounded-b-[3rem] border-b border-white/5">
         <div class="max-w-4xl z-10">
-            <div class="inline-block border-t border-b border-yellow-800 py-1 px-4 mb-6">
+            <div class="inline-block border-t border-b border-yellow-800 py-1 px-4 mb-4">
                 <p class="text-yellow-600 tracking-[0.2em] text-xs md:text-sm uppercase font-semibold">Spiritual & Occult Masterpiece</p>
             </div>
             <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 leading-tight text-white drop-shadow-lg">
                 THE SECRET OF <br> <span class="text-gold">ANCIENT POWER</span>
             </h1>
-            <p class="text-gray-400 text-sm md:text-lg max-w-xl mx-auto mb-10 italic leading-relaxed px-2">
-                "Menggali kembali kebijaksanaan leluhur dan rahasia semesta melalui media sarana berkualitas tinggi. Eksklusif untuk para pencari sejati."
+            <p class="text-gray-400 text-sm md:text-lg max-w-xl mx-auto mb-8 italic leading-relaxed px-2">
+                "Menggali kembali kebijaksanaan leluhur dan rahasia semesta melalui media sarana berkualitas tinggi."
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4 w-full sm:w-auto px-6 sm:px-0">
-                <a href="#collection" class="btn-gold px-8 py-3.5 font-bold tracking-wider rounded-sm text-sm md:text-base inline-block">
-                    LIHAT KOLEKSI
-                </a>
-                <a href="https://www.facebook.com/share/1AHFUWZ6hg/" class="border border-gray-700 text-gray-400 px-8 py-3.5 tracking-wider hover:border-yellow-500 hover:text-yellow-500 transition rounded-sm text-sm md:text-base inline-block">
-                    PROFILE FB
-                </a>
+                <a href="#collection" class="btn-gold px-8 py-3 font-bold tracking-wider rounded-sm text-sm md:text-base inline-block">LIHAT KOLEKSI</a>
+                <a href="https://www.facebook.com/share/1AHFUWZ6hg/" class="border border-gray-700 text-gray-400 px-8 py-3 tracking-wider hover:border-yellow-500 hover:text-yellow-500 transition rounded-sm text-sm md:text-base inline-block">PROFILE FB</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION ABOUT ME (OVERLAP) -->
+    <!-- Menggunakan -mt-20 agar kotak ini NAIK ke atas menutupi bagian bawah Hero -->
+    <section id="about" class="px-4 relative z-20 -mt-20 md:-mt-24">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-16 bg-[#0a0a0a] p-6 md:p-12 rounded-2xl border border-yellow-600/20 shadow-[0_0_40px_rgba(0,0,0,0.8)]">
+            <!-- Foto Profil -->
+            <div class="w-full md:w-1/2 relative">
+                <div class="absolute inset-0 bg-yellow-600 blur-[50px] opacity-10 rounded-full"></div>
+                <!-- GANTI LINK FOTO PROFIL ANDA DI SINI -->
+                <img src="https://via.placeholder.com/500x500?text=Foto+Didik+Hendranata" alt="Didik Hendranata" class="pro-image grayscale hover:grayscale-0 transition duration-700 relative z-10 h-64 md:h-80 w-full object-cover rounded-xl border border-white/10">
+            </div>
+            <!-- Teks -->
+            <div class="w-full md:w-1/2 text-center md:text-left">
+                <h2 class="text-yellow-600 text-xs tracking-[0.3em] font-bold mb-3">TENTANG SAYA</h2>
+                <h3 class="text-3xl md:text-4xl text-white font-bold mb-4 nav-font">DIDIK HENDRANATA</h3>
+                <div class="w-16 h-0.5 bg-yellow-600 mx-auto md:mx-0 mb-6"></div>
+                <p class="text-gray-400 mb-4 leading-relaxed text-sm md:text-base">
+                    Seorang praktisi spiritual dan penemu metode <strong>Griptology</strong> yang berdedikasi untuk menyelaraskan energi manusia dengan alam semesta.
+                </p>
+                <p class="text-gray-400 mb-6 leading-relaxed text-sm md:text-base">
+                    Melalui riset mendalam terhadap naskah kuno (Grimoire) dan praktik kebatinan, saya menghadirkan sarana spiritual (Masterpiece) yang bernilai seni tinggi dan berenergi terukur.
+                </p>
+                
+                <div class="flex justify-center md:justify-start gap-6 text-xl text-gold">
+                    <a href="https://www.facebook.com/share/1AHFUWZ6hg/"><i class="fab fa-facebook hover:text-white transition"></i></a>
+                    <a href="https://www.instagram.com/didikhendranata?igsh=MTY5dzg0bzYwMmVuag=="><i class="fab fa-instagram hover:text-white transition"></i></a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Collection Section -->
-    <section id="collection" class="py-16 md:py-24 px-4 bg-zinc-900/40">
+    <!-- padding top (pt) dikurangi karena sudah dekat dengan About Me -->
+    <section id="collection" class="pt-16 pb-20 px-4">
         <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16 md:mb-24">
+            <div class="text-center mb-12">
                 <h2 class="nav-font text-2xl md:text-4xl text-white mb-3">KOLEKSI MASTERPIECE</h2>
                 <div class="w-16 md:w-24 h-0.5 bg-yellow-600 mx-auto"></div>
             </div>
 
             <!-- Produk 1: GRIMOIRE 1818 -->
-            <div id="grimoire" class="flex flex-col md:flex-row items-center gap-8 md:gap-16 mb-20 md:mb-32 border-b border-white/5 pb-12 md:pb-16 last:border-0">
+            <div id="grimoire" class="flex flex-col md:flex-row items-center gap-8 md:gap-12 mb-16 border-b border-white/5 pb-10 last:border-0 last:mb-0">
                 <div class="w-full md:w-1/2 relative group px-2 md:px-0">
-                    <div class="absolute inset-0 bg-yellow-600 blur-[60px] opacity-20 group-hover:opacity-30 transition duration-500 rounded-full"></div>
-                    
-                    <!-- PERBAIKAN DI SINI: rounded-2xl pada pembungkus -->
-                    <div class="relative overflow-hidden shadow-2xl border border-white/10 rounded-2xl"> 
+                    <div class="absolute inset-0 bg-yellow-600 blur-[60px] opacity-10 group-hover:opacity-20 transition duration-500 rounded-full"></div>
+                    <div class="relative overflow-hidden shadow-2xl border border-white/10 rounded-2xl">
                         <img src="https://i.postimg.cc/zB5DhtK5/IMG_20240330_WA0002.jpg" alt="Grimoire 1818" class="pro-image relative z-10">
                     </div>
                 </div>
                 <div class="w-full md:w-1/2 text-center md:text-left px-2">
-                    <span class="text-yellow-600 text-[10px] md:text-xs tracking-[0.3em] mb-3 block font-bold">THE BOOK OF SHADOWS</span>
-                    <h3 class="text-2xl md:text-4xl text-white mb-4 md:mb-6">GRIMOIRE 1818</h3>
-                    <p class="text-gray-400 mb-6 text-sm md:text-base leading-relaxed">
-                        Sebuah catatan perjalanan spiritual dan keilmuan yang dirangkum dalam satu kitab fisik eksklusif. Berisi tata cara, sigil, mantra, dan pemahaman mendalam okultisme yang jarang dipublikasikan.
+                    <span class="text-yellow-600 text-[10px] md:text-xs tracking-[0.3em] mb-2 block font-bold">THE BOOK OF SHADOWS</span>
+                    <h3 class="text-xl md:text-3xl text-white mb-3 md:mb-4">GRIMOIRE 1818</h3>
+                    <p class="text-gray-400 mb-4 text-sm leading-relaxed">
+                        Kitab fisik eksklusif berisi catatan perjalanan spiritual, tata cara ritual kuno, sigil, dan mantra yang jarang dipublikasikan.
                     </p>
-                    <div class="block mt-2">
-                        <a href="https://wa.me/6282210024076?text=Halo+Master,+saya+tertarik+dengan+Grimoire+1818" class="text-white border-b border-yellow-600 pb-1 hover:text-yellow-500 transition text-sm tracking-wide">Pesan Sekarang &rarr;</a>
+                    <div class="flex gap-4 justify-center md:justify-start mt-2">
+                        <button onclick="openModal('modal-grimoire')" class="btn-outline-gold px-6 py-2 text-xs md:text-sm tracking-wide rounded-sm">LIHAT DETAIL</button>
                     </div>
                 </div>
             </div>
 
             <!-- Produk 2: QOSAM AMARY -->
-            <div id="qosam" class="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-16 mb-20 md:mb-32 border-b border-white/5 pb-12 md:pb-16 last:border-0">
+            <div id="qosam" class="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12 mb-16 border-b border-white/5 pb-10 last:border-0 last:mb-0">
                 <div class="w-full md:w-1/2 relative group px-2 md:px-0">
-                    <div class="absolute inset-0 bg-red-900 blur-[60px] opacity-20 group-hover:opacity-30 transition duration-500 rounded-full"></div>
-                    
-                    <!-- PERBAIKAN DI SINI: rounded-2xl pada pembungkus -->
+                    <div class="absolute inset-0 bg-red-900 blur-[60px] opacity-10 group-hover:opacity-20 transition duration-500 rounded-full"></div>
                     <div class="relative overflow-hidden shadow-2xl border border-white/10 rounded-2xl">
                         <img src="https://i.postimg.cc/NM4sk6kc/IMG_20231223_WA0015(1).jpg" alt="Qosam Amary" class="pro-image relative z-10">
                     </div>
                 </div>
                 <div class="w-full md:w-1/2 text-center md:text-right px-2">
-                    <span class="text-red-500 text-[10px] md:text-xs tracking-[0.3em] mb-3 block font-bold">THE SACRED OATH</span>
-                    <h3 class="text-2xl md:text-4xl text-white mb-4 md:mb-6">QOSAM AMARY</h3>
-                    <p class="text-gray-400 mb-6 text-sm md:text-base leading-relaxed">
-                        Sarana spiritual tingkat tinggi untuk vibrasi kewibawaan, otoritas, dan pengasihan. Dirancang melalui proses ritual panjang untuk memastikan energi selaras dengan pemegangnya.
+                    <span class="text-red-500 text-[10px] md:text-xs tracking-[0.3em] mb-2 block font-bold">THE SACRED OATH</span>
+                    <h3 class="text-xl md:text-3xl text-white mb-3 md:mb-4">QOSAM AMARY</h3>
+                    <p class="text-gray-400 mb-4 text-sm leading-relaxed">
+                        Sarana spiritual tingkat tinggi (Minyak/Ageman) untuk vibrasi kewibawaan, otoritas kepemimpinan, dan energi pengasihan yang kuat.
                     </p>
-                    <div class="block mt-2">
-                        <a href="https://wa.me/6282210024076?text=Halo+Master,+saya+tertarik+dengan+Qosam+Amary" class="text-white border-b border-red-800 pb-1 hover:text-red-500 transition text-sm tracking-wide">Konsultasi Maharr &rarr;</a>
+                    <div class="flex gap-4 justify-center md:justify-end mt-2">
+                        <button onclick="openModal('modal-qosam')" class="btn-outline-gold px-6 py-2 text-xs md:text-sm tracking-wide rounded-sm">LIHAT DETAIL</button>
                     </div>
                 </div>
             </div>
 
             <!-- Produk 3: BUHUR ALQOSAM -->
-            <div id="buhur" class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
+            <div id="buhur" class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
                 <div class="w-full md:w-1/2 relative group px-2 md:px-0">
-                    <div class="absolute inset-0 bg-purple-900 blur-[60px] opacity-20 group-hover:opacity-30 transition duration-500 rounded-full"></div>
-                    
-                    <!-- PERBAIKAN DI SINI: rounded-2xl pada pembungkus -->
+                    <div class="absolute inset-0 bg-purple-900 blur-[60px] opacity-10 group-hover:opacity-20 transition duration-500 rounded-full"></div>
                     <div class="relative overflow-hidden shadow-2xl border border-white/10 rounded-2xl">
                         <img src="https://i.postimg.cc/wvVqQXQq/IMG_20231223_WA0014.jpg" alt="Buhur Alqosam" class="pro-image relative z-10">
                     </div>
                 </div>
                 <div class="w-full md:w-1/2 text-center md:text-left px-2">
-                    <span class="text-purple-500 text-[10px] md:text-xs tracking-[0.3em] mb-3 block font-bold">RITUAL INCENSE</span>
-                    <h3 class="text-2xl md:text-4xl text-white mb-4 md:mb-6">BUHUR ALQOSAM</h3>
-                    <p class="text-gray-400 mb-6 text-sm md:text-base leading-relaxed">
-                        Dupa basah (Buhur) racikan istimewa "Alqosam". Menghadirkan aroma magis yang pekat, menenangkan, dan berkarakter kuat. Cocok untuk meditasi mendalam, zikir, atau ritual khusus.
+                    <span class="text-purple-500 text-[10px] md:text-xs tracking-[0.3em] mb-2 block font-bold">RITUAL INCENSE</span>
+                    <h3 class="text-xl md:text-3xl text-white mb-3 md:mb-4">BUHUR ALQOSAM</h3>
+                    <p class="text-gray-400 mb-4 text-sm leading-relaxed">
+                        Dupa basah racikan istimewa "Alqosam". Aroma magis yang pekat dan menenangkan. Cocok untuk meditasi mendalam dan ritual khusus.
                     </p>
-                    <div class="block mt-2">
-                        <a href="https://wa.me/6282210024076?text=Halo+Master,+saya+tertarik+dengan+Buhur+Alqosam" class="text-white border-b border-purple-800 pb-1 hover:text-purple-500 transition text-sm tracking-wide">Pesan Sekarang &rarr;</a>
+                    <div class="flex gap-4 justify-center md:justify-start mt-2">
+                        <button onclick="openModal('modal-buhur')" class="btn-outline-gold px-6 py-2 text-xs md:text-sm tracking-wide rounded-sm">LIHAT DETAIL</button>
                     </div>
                 </div>
             </div>
@@ -133,21 +150,102 @@
         </div>
     </section>
 
-    <!-- Floating WA Button (Mobile Only) -->
-    <a href="https://wa.me/6282210024076" class="fixed bottom-6 right-6 md:hidden z-50 bg-green-600 text-white p-4 rounded-full shadow-[0_0_20px_rgba(0,255,0,0.3)] hover:bg-green-500 transition">
-        <i class="fab fa-whatsapp text-3xl"></i>
-    </a>
-
     <!-- Footer -->
-    <footer class="bg-black py-10 md:py-12 border-t border-white/10 text-center px-4">
+    <footer class="bg-black py-8 border-t border-white/10 text-center px-4 mt-8">
         <h4 class="text-gold text-base md:text-lg mb-4 font-bold tracking-widest nav-font">DIDIK HENDRANATA</h4>
-        <div class="flex justify-center space-x-8 mb-8">
+        <div class="flex justify-center space-x-8 mb-6">
             <a href="https://www.facebook.com/share/1AHFUWZ6hg/" class="text-gray-600 hover:text-white transition"><i class="fab fa-facebook-f text-xl"></i></a>
             <a href="https://www.instagram.com/didikhendranata?igsh=MTY5dzg0bzYwMmVuag==" class="text-gray-600 hover:text-white transition"><i class="fab fa-instagram text-xl"></i></a>
             <a href="#" class="text-gray-600 hover:text-white transition"><i class="fab fa-tiktok text-xl"></i></a>
         </div>
         <p class="text-gray-700 text-[10px] md:text-xs tracking-wider">&copy; 2024. ALL RIGHTS RESERVED.</p>
     </footer>
+
+    <!-- Floating WA -->
+    <a href="https://wa.me/6282210024076" class="fixed bottom-6 right-6 md:hidden z-50 bg-green-600 text-white p-4 rounded-full shadow-lg">
+        <i class="fab fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- === MODAL POPUPS === -->
+    
+    <!-- Modal Grimoire -->
+    <div id="modal-grimoire" class="modal" onclick="closeModal(event, 'modal-grimoire')">
+        <div class="modal-content p-6 md:p-8 flex flex-col md:flex-row gap-6">
+            <button onclick="closeModalBtn('modal-grimoire')" class="absolute top-3 right-3 text-gray-500 hover:text-white"><i class="fas fa-times text-xl"></i></button>
+            <div class="w-full md:w-1/2">
+                <img src="https://i.postimg.cc/zB5DhtK5/IMG_20240330_WA0002.jpg" class="rounded-lg shadow-lg w-full object-cover h-56 md:h-full">
+            </div>
+            <div class="w-full md:w-1/2 text-left">
+                <h3 class="text-2xl text-gold font-bold mb-3 nav-font">GRIMOIRE 1818</h3>
+                <div class="space-y-3 text-gray-300 text-sm leading-relaxed max-h-60 overflow-y-auto pr-2">
+                    <p><strong>Deskripsi Lengkap:</strong><br>
+                    Grimoire 1818 adalah mahakarya literatur okultisme yang disusun oleh Didik Hendranata.</p>
+                    <ul class="list-disc pl-5 space-y-1 text-xs">
+                        <li>Hardcover Premium dengan Gold Foil</li>
+                        <li>Kertas Bookpaper Import</li>
+                        <li>Full Ilustrasi Simbol & Rajah</li>
+                        <li>Edisi Terbatas</li>
+                    </ul>
+                </div>
+                <div class="mt-6 pt-3 border-t border-white/10">
+                    <a href="https://wa.me/6282210024076?text=Halo+Master,+saya+ingin+memesan+Grimoire+1818" class="btn-gold w-full block text-center py-2 font-bold rounded-sm text-sm">PESAN KITAB INI</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Qosam -->
+    <div id="modal-qosam" class="modal" onclick="closeModal(event, 'modal-qosam')">
+        <div class="modal-content p-6 md:p-8 flex flex-col md:flex-row gap-6">
+            <button onclick="closeModalBtn('modal-qosam')" class="absolute top-3 right-3 text-gray-500 hover:text-white"><i class="fas fa-times text-xl"></i></button>
+            <div class="w-full md:w-1/2">
+                <img src="https://i.postimg.cc/NM4sk6kc/IMG_20231223_WA0015(1).jpg" class="rounded-lg shadow-lg w-full object-cover h-56 md:h-full">
+            </div>
+            <div class="w-full md:w-1/2 text-left">
+                <h3 class="text-2xl text-red-500 font-bold mb-3 nav-font">QOSAM AMARY</h3>
+                <div class="space-y-3 text-gray-300 text-sm leading-relaxed max-h-60 overflow-y-auto pr-2">
+                    <p><strong>Deskripsi Lengkap:</strong><br>
+                    Media spiritual (Minyak/Ageman) melalui proses Riyadhoh untuk kewibawaan tinggi.</p>
+                    <ul class="list-disc pl-5 space-y-1 text-xs">
+                        <li>Booster Aura Kepemimpinan</li>
+                        <li>Daya Tarik & Pengasihan</li>
+                        <li>Proteksi Energi Negatif</li>
+                    </ul>
+                </div>
+                <div class="mt-6 pt-3 border-t border-white/10">
+                    <a href="https://wa.me/6282210024076?text=Halo+Master,+saya+ingin+konsultasi+mahar+Qosam+Amary" class="bg-red-900 hover:bg-red-800 text-white transition w-full block text-center py-2 font-bold rounded-sm border border-red-700 text-sm">KONSULTASI MAHAR</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Buhur -->
+    <div id="modal-buhur" class="modal" onclick="closeModal(event, 'modal-buhur')">
+        <div class="modal-content p-6 md:p-8 flex flex-col md:flex-row gap-6">
+            <button onclick="closeModalBtn('modal-buhur')" class="absolute top-3 right-3 text-gray-500 hover:text-white"><i class="fas fa-times text-xl"></i></button>
+            <div class="w-full md:w-1/2">
+                <img src="https://i.postimg.cc/wvVqQXQq/IMG_20231223_WA0014.jpg" class="rounded-lg shadow-lg w-full object-cover h-56 md:h-full">
+            </div>
+            <div class="w-full md:w-1/2 text-left">
+                <h3 class="text-2xl text-purple-500 font-bold mb-3 nav-font">BUHUR ALQOSAM</h3>
+                <div class="space-y-3 text-gray-300 text-sm leading-relaxed max-h-60 overflow-y-auto pr-2">
+                    <p><strong>Deskripsi Lengkap:</strong><br>
+                    Dupa basah premium dengan racikan rahasia, aroma tahan lama dan magis.</p>
+                    <ul class="list-disc pl-5 space-y-1 text-xs">
+                        <li>Asap Tebal & Putih</li>
+                        <li>Bagus untuk Meditasi Alpha/Theta</li>
+                        <li>Pembersih Energi Ruangan</li>
+                    </ul>
+                </div>
+                <div class="mt-6 pt-3 border-t border-white/10">
+                    <a href="https://wa.me/6282210024076?text=Halo+Master,+saya+ingin+memesan+Buhur+Alqosam" class="bg-purple-900 hover:bg-purple-800 text-white transition w-full block text-center py-2 font-bold rounded-sm border border-purple-700 text-sm">PESAN SEKARANG</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LINK KE FILE JS -->
+    <script src="./script.js"></script>
 
 </body>
 </html>
