@@ -10,6 +10,37 @@ body {
 
 h1, h2, h3, h4, .nav-font { font-family: 'Cinzel', serif; }
 
+/* === VIDEO BACKGROUND SETUP (FIXED POSITION) === */
+.video-container {
+    position: fixed; /* KUNCI: Membuat video tetap diam saat discroll */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1; /* Taruh di paling belakang */
+}
+
+.bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Sentering video */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* KUNCI: Video akan full screen tanpa gepeng di HP/Desktop */
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Gelapkan video 60% agar teks terbaca */
+    z-index: 1;
+}
+
 /* === WARNA & TOMBOL === */
 .text-gold { 
     background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c); 
@@ -32,10 +63,6 @@ h1, h2, h3, h4, .nav-font { font-family: 'Cinzel', serif; }
     background: #b38728; color: #000; box-shadow: 0 0 10px rgba(191, 149, 63, 0.4);
 }
 
-.mystic-bg { 
-    background-image: radial-gradient(circle at 50% 50%, rgba(50, 40, 10, 0.2) 0%, rgba(0, 0, 0, 1) 90%); 
-}
-
 /* === GAMBAR PRODUK === */
 .pro-image {
     width: 100%; height: 350px; object-fit: cover; border-radius: 12px;
@@ -45,45 +72,6 @@ h1, h2, h3, h4, .nav-font { font-family: 'Cinzel', serif; }
 }
 @media (min-width: 768px) { .pro-image { height: 450px; } }
 .group:hover .pro-image { transform: scale(1.02); filter: brightness(1.1); box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.9), 0 0 30px rgba(184, 134, 11, 0.3); }
-
-/* === EFEK ASAP (OVERLAY MODE) === */
-/* PERUBAHAN PENTING ADA DI SINI */
-.smoke-container {
-    position: fixed; 
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%;
-    /* Z-Index 40 = Di atas konten (10), tapi di bawah Navbar (50) & Modal (9999) */
-    z-index: 40; 
-    overflow: hidden; 
-    pointer-events: none; /* WAJIB: Agar klik tembus ke tombol di belakang asap */
-}
-
-.smoke-1 {
-    position: absolute; width: 300%; height: 100%;
-    /* Link Gambar Kabut Putih Transparan (Sangat Stabil) */
-    background: url('https://raw.githubusercontent.com/danielstuart14/CSS_FOG_ANIMATION/master/img/fog1.png') repeat-x;
-    background-size: cover; 
-    background-position: center bottom;
-    opacity: 0.3; /* Transparansi asap */
-    animation: moveSmoke 60s linear infinite;
-}
-
-.smoke-2 {
-    position: absolute; width: 300%; height: 100%;
-    background: url('https://raw.githubusercontent.com/danielstuart14/CSS_FOG_ANIMATION/master/img/fog2.png') repeat-x;
-    background-size: cover; 
-    background-position: center bottom;
-    opacity: 0.2; 
-    animation: moveSmoke 45s linear infinite reverse;
-}
-
-@keyframes moveSmoke {
-    0% { transform: translateX(0); }
-    50% { transform: translateX(-20%); }
-    100% { transform: translateX(0); }
-}
 
 /* === MODAL POPUP === */
 .modal {
