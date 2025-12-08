@@ -95,3 +95,28 @@ h1, h2, h3, h4, .nav-font { font-family: 'Cinzel', serif; }
     box-shadow: 0 0 50px rgba(184, 134, 11, 0.2);
 }
 @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+/* === OPTIMASI PERFORMA UNTUK HP === */
+@media (max-width: 768px) {
+    /* 1. Matikan animasi glow/cahaya di belakang produk (Penyebab utama lag) */
+    .group .absolute.inset-0 {
+        display: none !important;
+    }
+
+    /* 2. Kurangi efek blur pada navbar agar GPU tidak panas */
+    nav.backdrop-blur-md {
+        backdrop-filter: none !important;
+        background-color: rgba(0, 0, 0, 0.9) !important; /* Jadi hitam pekat sedikit transparan */
+    }
+    
+    /* 3. Matikan efek blur pada section About & Collection */
+    .backdrop-blur-sm {
+        backdrop-filter: none !important;
+        background-color: rgba(0, 0, 0, 0.85) !important;
+    }
+
+    /* 4. Pastikan video tidak memaksa resolusi tinggi */
+    .bg-video {
+        will-change: transform; /* Memberitahu browser untuk prioritaskan video */
+    }
+}
