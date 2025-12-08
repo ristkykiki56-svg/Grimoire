@@ -14,14 +14,20 @@
 </head>
 <body class="antialiased bg-black text-gray-300">
 
-    <!-- === EFEK ASAP BACKGROUND === -->
-    <div class="smoke-container">
-        <div class="smoke-1"></div>
-        <div class="smoke-2"></div>
+    <!-- === BACKGROUND VIDEO FIXED (Link GitHub via jsDelivr) === -->
+    <div class="video-container">
+        <video autoplay loop muted playsinline class="bg-video">
+            <!-- Link ini sudah dioptimalkan untuk Indonesia (Tanpa VPN) -->
+            <source src="https://cdn.jsdelivr.net/gh/ristkykiki56-svg/Asset-web@main/Dark%20Cinematic%20Background%20without%20Fire%20Sparks.mp4" type="video/mp4">
+            Browser Anda tidak mendukung video tag.
+        </video>
+        <!-- Overlay Hitam Transparan (Agar teks terbaca jelas) -->
+        <div class="video-overlay"></div>
     </div>
+    <!-- ============================== -->
 
     <!-- NAVBAR -->
-    <nav class="fixed w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10 shadow-2xl transition-all duration-300">
+    <nav class="fixed w-full z-50 bg-black/70 backdrop-blur-md border-b border-white/10 shadow-2xl transition-all duration-300">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
             <a href="#" class="nav-font text-sm md:text-xl tracking-widest text-gold font-bold">DIDIK HENDRANATA</a>
             <div class="hidden md:flex space-x-8 text-xs tracking-[0.2em]">
@@ -33,30 +39,32 @@
     </nav>
 
     <!-- HERO SECTION -->
-    <section class="relative flex flex-col justify-start items-center text-center px-4 mystic-bg pt-32 md:pt-48 pb-32 md:pb-48 rounded-b-[3rem] border-b border-white/5">
+    <!-- Background dibuat transparan agar video terlihat -->
+    <section class="relative flex flex-col justify-start items-center text-center px-4 pt-32 md:pt-48 pb-32 md:pb-48 rounded-b-[3rem] border-b border-white/5 bg-gradient-to-b from-transparent to-black/80">
         <div class="max-w-4xl z-10">
-            <div class="inline-block border-t border-b border-yellow-800 py-1 px-4 mb-4">
+            <div class="inline-block border-t border-b border-yellow-800 py-1 px-4 mb-4 backdrop-blur-sm bg-black/20">
                 <p class="text-yellow-600 tracking-[0.2em] text-xs md:text-sm uppercase font-semibold">Spiritual & Occult Masterpiece</p>
             </div>
-            <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 leading-tight text-white drop-shadow-lg">
+            <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 leading-tight text-white drop-shadow-2xl">
                 THE SECRET OF <br> <span class="text-gold">ANCIENT POWER</span>
             </h1>
-            <p class="text-gray-400 text-sm md:text-lg max-w-xl mx-auto mb-8 italic leading-relaxed px-2">
+            <p class="text-gray-300 text-sm md:text-lg max-w-xl mx-auto mb-8 italic leading-relaxed px-2 drop-shadow-md">
                 "Menggali kembali kebijaksanaan leluhur dan rahasia semesta melalui media sarana berkualitas tinggi."
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4 w-full sm:w-auto px-6 sm:px-0">
                 <a href="#collection" class="btn-gold px-8 py-3 font-bold tracking-wider rounded-sm text-sm md:text-base inline-block">LIHAT KOLEKSI</a>
-                <a href="https://www.facebook.com/share/1AHFUWZ6hg/" class="border border-gray-700 text-gray-400 px-8 py-3 tracking-wider hover:border-yellow-500 hover:text-yellow-500 transition rounded-sm text-sm md:text-base inline-block">PROFILE FB</a>
+                <a href="https://www.facebook.com/share/1AHFUWZ6hg/" class="border border-gray-700 text-gray-400 bg-black/50 px-8 py-3 tracking-wider hover:border-yellow-500 hover:text-yellow-500 transition rounded-sm text-sm md:text-base inline-block">PROFILE FB</a>
             </div>
         </div>
     </section>
 
     <!-- ABOUT ME -->
     <section id="about" class="px-4 relative z-20 -mt-20 md:-mt-24">
-        <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-16 bg-[#0a0a0a] p-6 md:p-12 rounded-2xl border border-yellow-600/20 shadow-[0_0_40px_rgba(0,0,0,0.8)]">
+        <!-- Background semi-transparan agar teks terbaca di atas video -->
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-16 bg-black/90 backdrop-blur-sm p-6 md:p-12 rounded-2xl border border-yellow-600/20 shadow-[0_0_40px_rgba(0,0,0,0.8)]">
             <div class="w-full md:w-1/2 relative">
                 <div class="absolute inset-0 bg-yellow-600 blur-[50px] opacity-10 rounded-full"></div>
-                <img src="https://via.placeholder.com/500x500?text=Foto+Didik+Hendranata" alt="Didik Hendranata" class="pro-image grayscale hover:grayscale-0 transition duration-700 relative z-10 h-64 md:h-80 w-full object-cover rounded-xl border border-white/10">
+                <img src="https://cdn.jsdelivr.net/gh/ristkykiki56-svg/Asset-web@main/FB_IMG_1765167427025.jpg" alt="Didik Hendranata" class="pro-image yellow hover:yellow-600 transition duration-700 relative z-10 h-64 md:h-80 w-full object-cover rounded-xl border border-white/10">
             </div>
             <div class="w-full md:w-1/2 text-center md:text-left">
                 <h2 class="text-yellow-600 text-xs tracking-[0.3em] font-bold mb-3">TENTANG SAYA</h2>
@@ -74,7 +82,7 @@
     </section>
 
     <!-- KOLEKSI -->
-    <section id="collection" class="pt-16 pb-20 px-4">
+    <section id="collection" class="pt-16 pb-20 px-4 bg-black/80 mt-20 backdrop-blur-sm">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-12">
                 <h2 class="nav-font text-2xl md:text-4xl text-white mb-3">KOLEKSI MASTERPIECE</h2>
@@ -86,7 +94,7 @@
                 <div class="w-full md:w-1/2 relative group px-2 md:px-0">
                     <div class="absolute inset-0 bg-yellow-600 blur-[60px] opacity-10 group-hover:opacity-20 transition duration-500 rounded-full"></div>
                     <div class="relative overflow-hidden shadow-2xl border border-white/10 rounded-2xl">
-                        <img src="https://i.postimg.cc/zB5DhtK5/IMG_20240330_WA0002.jpg" alt="Grimoire 1818" class="pro-image relative z-10">
+                        <img src="https://cdn.jsdelivr.net/gh/ristkykiki56-svg/Asset-web@main/IMG-20240330-WA0002.jpg" alt="Grimoire 1818" class="pro-image relative z-10">
                     </div>
                 </div>
                 <div class="w-full md:w-1/2 text-center md:text-left px-2">
@@ -96,7 +104,6 @@
                         Kitab fisik eksklusif berisi catatan perjalanan spiritual, tata cara ritual kuno, sigil, dan mantra yang jarang dipublikasikan.
                     </p>
                     <div class="flex gap-4 justify-center md:justify-start mt-2">
-                        <!-- Perhatikan event listener dipindah ke script.js -->
                         <button class="btn-outline-gold px-6 py-2 text-xs md:text-sm tracking-wide rounded-sm trigger-modal" data-target="modal-grimoire">LIHAT DETAIL</button>
                     </div>
                 </div>
@@ -107,7 +114,7 @@
                 <div class="w-full md:w-1/2 relative group px-2 md:px-0">
                     <div class="absolute inset-0 bg-red-900 blur-[60px] opacity-10 group-hover:opacity-20 transition duration-500 rounded-full"></div>
                     <div class="relative overflow-hidden shadow-2xl border border-white/10 rounded-2xl">
-                        <img src="https://i.postimg.cc/NM4sk6kc/IMG_20231223_WA0015(1).jpg" alt="Qosam Amary" class="pro-image relative z-10">
+                        <img src="https://cdn.jsdelivr.net/gh/ristkykiki56-svg/Asset-web@main/IMG-20231223-WA0015(1).jpg" alt="Qosam Amary" class="pro-image relative z-10">
                     </div>
                 </div>
                 <div class="w-full md:w-1/2 text-center md:text-right px-2">
@@ -127,7 +134,7 @@
                 <div class="w-full md:w-1/2 relative group px-2 md:px-0">
                     <div class="absolute inset-0 bg-purple-900 blur-[60px] opacity-10 group-hover:opacity-20 transition duration-500 rounded-full"></div>
                     <div class="relative overflow-hidden shadow-2xl border border-white/10 rounded-2xl">
-                        <img src="https://i.postimg.cc/wvVqQXQq/IMG_20231223_WA0014.jpg" alt="Buhur Alqosam" class="pro-image relative z-10">
+                        <img src="https://cdn.jsdelivr.net/gh/ristkykiki56-svg/Asset-web@main/IMG-20231223-WA0014.jpg" alt="Buhur Alqosam" class="pro-image relative z-10">
                     </div>
                 </div>
                 <div class="w-full md:w-1/2 text-center md:text-left px-2">
@@ -145,7 +152,7 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-black py-8 border-t border-white/10 text-center px-4 mt-8 relative z-20">
+    <footer class="bg-black py-8 border-t border-white/10 text-center px-4 relative z-20">
         <h4 class="text-gold text-base md:text-lg mb-4 font-bold tracking-widest nav-font">DIDIK HENDRANATA</h4>
         <div class="flex justify-center space-x-8 mb-6">
             <a href="https://www.facebook.com/share/1AHFUWZ6hg/" class="text-gray-600 hover:text-white transition"><i class="fab fa-facebook-f text-xl"></i></a>
