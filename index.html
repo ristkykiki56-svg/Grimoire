@@ -12,7 +12,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     
     <!-- LINK KE FILE CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body class="antialiased bg-black">
 
@@ -28,8 +28,7 @@
         </div>
     </nav>
 
-    <!-- Hero Section (DIPERBAIKI TOTAL) -->
-    <!-- min-h-screen DIHAPUS agar tidak maksa tinggi. Ditambah pb-32 untuk memberi ruang overlap -->
+    <!-- Hero Section -->
     <section class="relative flex flex-col justify-start items-center text-center px-4 mystic-bg pt-32 md:pt-44 pb-32 md:pb-40 rounded-b-[3rem] border-b border-white/5">
         <div class="max-w-4xl z-10">
             <div class="inline-block border-t border-b border-yellow-800 py-1 px-4 mb-4">
@@ -48,14 +47,12 @@
         </div>
     </section>
 
-    <!-- SECTION ABOUT ME (OVERLAP) -->
-    <!-- Menggunakan -mt-20 agar kotak ini NAIK ke atas menutupi bagian bawah Hero -->
+    <!-- SECTION ABOUT ME -->
     <section id="about" class="px-4 relative z-20 -mt-20 md:-mt-24">
         <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-16 bg-[#0a0a0a] p-6 md:p-12 rounded-2xl border border-yellow-600/20 shadow-[0_0_40px_rgba(0,0,0,0.8)]">
             <!-- Foto Profil -->
             <div class="w-full md:w-1/2 relative">
                 <div class="absolute inset-0 bg-yellow-600 blur-[50px] opacity-10 rounded-full"></div>
-                <!-- GANTI LINK FOTO PROFIL ANDA DI SINI -->
                 <img src="https://via.placeholder.com/500x500?text=Foto+Didik+Hendranata" alt="Didik Hendranata" class="pro-image grayscale hover:grayscale-0 transition duration-700 relative z-10 h-64 md:h-80 w-full object-cover rounded-xl border border-white/10">
             </div>
             <!-- Teks -->
@@ -69,7 +66,6 @@
                 <p class="text-gray-400 mb-6 leading-relaxed text-sm md:text-base">
                     Melalui riset mendalam terhadap naskah kuno (Grimoire) dan praktik kebatinan, saya menghadirkan sarana spiritual (Masterpiece) yang bernilai seni tinggi dan berenergi terukur.
                 </p>
-                
                 <div class="flex justify-center md:justify-start gap-6 text-xl text-gold">
                     <a href="https://www.facebook.com/share/1AHFUWZ6hg/"><i class="fab fa-facebook hover:text-white transition"></i></a>
                     <a href="https://www.instagram.com/didikhendranata?igsh=MTY5dzg0bzYwMmVuag=="><i class="fab fa-instagram hover:text-white transition"></i></a>
@@ -79,7 +75,6 @@
     </section>
 
     <!-- Collection Section -->
-    <!-- padding top (pt) dikurangi karena sudah dekat dengan About Me -->
     <section id="collection" class="pt-16 pb-20 px-4">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-12">
@@ -87,7 +82,7 @@
                 <div class="w-16 md:w-24 h-0.5 bg-yellow-600 mx-auto"></div>
             </div>
 
-            <!-- Produk 1: GRIMOIRE 1818 -->
+            <!-- Produk 1: GRIMOIRE -->
             <div id="grimoire" class="flex flex-col md:flex-row items-center gap-8 md:gap-12 mb-16 border-b border-white/5 pb-10 last:border-0 last:mb-0">
                 <div class="w-full md:w-1/2 relative group px-2 md:px-0">
                     <div class="absolute inset-0 bg-yellow-600 blur-[60px] opacity-10 group-hover:opacity-20 transition duration-500 rounded-full"></div>
@@ -107,7 +102,7 @@
                 </div>
             </div>
 
-            <!-- Produk 2: QOSAM AMARY -->
+            <!-- Produk 2: QOSAM -->
             <div id="qosam" class="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12 mb-16 border-b border-white/5 pb-10 last:border-0 last:mb-0">
                 <div class="w-full md:w-1/2 relative group px-2 md:px-0">
                     <div class="absolute inset-0 bg-red-900 blur-[60px] opacity-10 group-hover:opacity-20 transition duration-500 rounded-full"></div>
@@ -127,7 +122,7 @@
                 </div>
             </div>
 
-            <!-- Produk 3: BUHUR ALQOSAM -->
+            <!-- Produk 3: BUHUR -->
             <div id="buhur" class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
                 <div class="w-full md:w-1/2 relative group px-2 md:px-0">
                     <div class="absolute inset-0 bg-purple-900 blur-[60px] opacity-10 group-hover:opacity-20 transition duration-500 rounded-full"></div>
@@ -146,7 +141,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -166,10 +160,11 @@
         <i class="fab fa-whatsapp text-3xl"></i>
     </a>
 
-    <!-- === MODAL POPUPS === -->
+    <!-- === POPUPS === -->
+    <!-- PERHATIKAN: style="display: none;" ditambahkan di sini agar tidak double di GitHub -->
     
     <!-- Modal Grimoire -->
-    <div id="modal-grimoire" class="modal" onclick="closeModal(event, 'modal-grimoire')">
+    <div id="modal-grimoire" class="modal" style="display: none;" onclick="closeModal(event, 'modal-grimoire')">
         <div class="modal-content p-6 md:p-8 flex flex-col md:flex-row gap-6">
             <button onclick="closeModalBtn('modal-grimoire')" class="absolute top-3 right-3 text-gray-500 hover:text-white"><i class="fas fa-times text-xl"></i></button>
             <div class="w-full md:w-1/2">
@@ -178,8 +173,7 @@
             <div class="w-full md:w-1/2 text-left">
                 <h3 class="text-2xl text-gold font-bold mb-3 nav-font">GRIMOIRE 1818</h3>
                 <div class="space-y-3 text-gray-300 text-sm leading-relaxed max-h-60 overflow-y-auto pr-2">
-                    <p><strong>Deskripsi Lengkap:</strong><br>
-                    Grimoire 1818 adalah mahakarya literatur okultisme yang disusun oleh Didik Hendranata.</p>
+                    <p><strong>Deskripsi Lengkap:</strong><br>Grimoire 1818 adalah mahakarya literatur okultisme yang disusun oleh Didik Hendranata.</p>
                     <ul class="list-disc pl-5 space-y-1 text-xs">
                         <li>Hardcover Premium dengan Gold Foil</li>
                         <li>Kertas Bookpaper Import</li>
@@ -195,7 +189,7 @@
     </div>
 
     <!-- Modal Qosam -->
-    <div id="modal-qosam" class="modal" onclick="closeModal(event, 'modal-qosam')">
+    <div id="modal-qosam" class="modal" style="display: none;" onclick="closeModal(event, 'modal-qosam')">
         <div class="modal-content p-6 md:p-8 flex flex-col md:flex-row gap-6">
             <button onclick="closeModalBtn('modal-qosam')" class="absolute top-3 right-3 text-gray-500 hover:text-white"><i class="fas fa-times text-xl"></i></button>
             <div class="w-full md:w-1/2">
@@ -204,8 +198,7 @@
             <div class="w-full md:w-1/2 text-left">
                 <h3 class="text-2xl text-red-500 font-bold mb-3 nav-font">QOSAM AMARY</h3>
                 <div class="space-y-3 text-gray-300 text-sm leading-relaxed max-h-60 overflow-y-auto pr-2">
-                    <p><strong>Deskripsi Lengkap:</strong><br>
-                    Media spiritual (Minyak/Ageman) melalui proses Riyadhoh untuk kewibawaan tinggi.</p>
+                    <p><strong>Deskripsi Lengkap:</strong><br>Media spiritual (Minyak/Ageman) melalui proses Riyadhoh untuk kewibawaan tinggi.</p>
                     <ul class="list-disc pl-5 space-y-1 text-xs">
                         <li>Booster Aura Kepemimpinan</li>
                         <li>Daya Tarik & Pengasihan</li>
@@ -220,7 +213,7 @@
     </div>
 
     <!-- Modal Buhur -->
-    <div id="modal-buhur" class="modal" onclick="closeModal(event, 'modal-buhur')">
+    <div id="modal-buhur" class="modal" style="display: none;" onclick="closeModal(event, 'modal-buhur')">
         <div class="modal-content p-6 md:p-8 flex flex-col md:flex-row gap-6">
             <button onclick="closeModalBtn('modal-buhur')" class="absolute top-3 right-3 text-gray-500 hover:text-white"><i class="fas fa-times text-xl"></i></button>
             <div class="w-full md:w-1/2">
@@ -229,8 +222,7 @@
             <div class="w-full md:w-1/2 text-left">
                 <h3 class="text-2xl text-purple-500 font-bold mb-3 nav-font">BUHUR ALQOSAM</h3>
                 <div class="space-y-3 text-gray-300 text-sm leading-relaxed max-h-60 overflow-y-auto pr-2">
-                    <p><strong>Deskripsi Lengkap:</strong><br>
-                    Dupa basah premium dengan racikan rahasia, aroma tahan lama dan magis.</p>
+                    <p><strong>Deskripsi Lengkap:</strong><br>Dupa basah premium dengan racikan rahasia, aroma tahan lama dan magis.</p>
                     <ul class="list-disc pl-5 space-y-1 text-xs">
                         <li>Asap Tebal & Putih</li>
                         <li>Bagus untuk Meditasi Alpha/Theta</li>
