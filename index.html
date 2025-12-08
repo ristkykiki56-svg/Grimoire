@@ -5,19 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Didik Hendranata - Spiritual Masterpiece</title>
     
-    <!-- Load Framework Layout (Tailwind) -->
+    <!-- Framework & Icon -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Load Icon FontAwesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     
-    <!-- LINK KE FILE CSS -->
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body class="antialiased bg-black">
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="style.css">
 
-    <!-- Navbar -->
-    <nav class="fixed w-full z-50 bg-black/90 backdrop-blur-md border-b border-white/10 shadow-2xl">
+    <!-- PENGAMAN POPUP (Agar tidak muncul double di awal) -->
+    <style>
+        .modal { display: none !important; }
+        .modal.show { display: flex !important; }
+    </style>
+</head>
+<body class="antialiased bg-black text-gray-300">
+
+    <!-- === EFEK ASAP BACKGROUND === -->
+    <div class="smoke-container">
+        <div class="smoke-1"></div>
+        <div class="smoke-2"></div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="fixed w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10 shadow-2xl transition-all duration-300">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
             <a href="#" class="nav-font text-sm md:text-xl tracking-widest text-gold font-bold">DIDIK HENDRANATA</a>
             <div class="hidden md:flex space-x-8 text-xs tracking-[0.2em]">
@@ -28,8 +38,8 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="relative flex flex-col justify-start items-center text-center px-4 mystic-bg pt-32 md:pt-44 pb-32 md:pb-40 rounded-b-[3rem] border-b border-white/5">
+    <!-- HERO SECTION -->
+    <section class="relative flex flex-col justify-start items-center text-center px-4 mystic-bg pt-32 md:pt-48 pb-32 md:pb-48 rounded-b-[3rem] border-b border-white/5">
         <div class="max-w-4xl z-10">
             <div class="inline-block border-t border-b border-yellow-800 py-1 px-4 mb-4">
                 <p class="text-yellow-600 tracking-[0.2em] text-xs md:text-sm uppercase font-semibold">Spiritual & Occult Masterpiece</p>
@@ -47,13 +57,14 @@
         </div>
     </section>
 
-    <!-- SECTION ABOUT ME -->
+    <!-- ABOUT ME (Overlap Style) -->
     <section id="about" class="px-4 relative z-20 -mt-20 md:-mt-24">
         <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-16 bg-[#0a0a0a] p-6 md:p-12 rounded-2xl border border-yellow-600/20 shadow-[0_0_40px_rgba(0,0,0,0.8)]">
             <!-- Foto Profil -->
             <div class="w-full md:w-1/2 relative">
                 <div class="absolute inset-0 bg-yellow-600 blur-[50px] opacity-10 rounded-full"></div>
-                <img src="https://i.postimg.cc/KzXhqZGb/FB-IMG-1765167427025.jpg" class="pro-image yellow hover:yellow-600 transition duration-700 relative z-10 h-64 md:h-80 w-full object-cover rounded-xl border border-white/10">
+                <!-- Placeholder Foto Profil (Ganti jika ada link foto diri) -->
+                <img src="https://via.placeholder.com/500x500?text=Foto+Didik+Hendranata" alt="Didik Hendranata" class="pro-image grayscale hover:grayscale-0 transition duration-700 relative z-10 h-64 md:h-80 w-full object-cover rounded-xl border border-white/10">
             </div>
             <!-- Teks -->
             <div class="w-full md:w-1/2 text-center md:text-left">
@@ -74,7 +85,7 @@
         </div>
     </section>
 
-    <!-- Collection Section -->
+    <!-- KOLEKSI PRODUK -->
     <section id="collection" class="pt-16 pb-20 px-4">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-12">
@@ -144,8 +155,8 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-black py-8 border-t border-white/10 text-center px-4 mt-8">
+    <!-- FOOTER -->
+    <footer class="bg-black py-8 border-t border-white/10 text-center px-4 mt-8 relative z-20">
         <h4 class="text-gold text-base md:text-lg mb-4 font-bold tracking-widest nav-font">DIDIK HENDRANATA</h4>
         <div class="flex justify-center space-x-8 mb-6">
             <a href="https://www.facebook.com/share/1AHFUWZ6hg/" class="text-gray-600 hover:text-white transition"><i class="fab fa-facebook-f text-xl"></i></a>
@@ -155,16 +166,15 @@
         <p class="text-gray-700 text-[10px] md:text-xs tracking-wider">&copy; 2024. ALL RIGHTS RESERVED.</p>
     </footer>
 
-    <!-- Floating WA -->
+    <!-- FLOAT WA -->
     <a href="https://wa.me/6282210024076" class="fixed bottom-6 right-6 md:hidden z-50 bg-green-600 text-white p-4 rounded-full shadow-lg">
         <i class="fab fa-whatsapp text-3xl"></i>
     </a>
 
-    <!-- === POPUPS === -->
-    <!-- PERHATIKAN: style="display: none;" ditambahkan di sini agar tidak double di GitHub -->
+    <!-- === POPUPS (HIDDEN) === -->
     
     <!-- Modal Grimoire -->
-    <div id="modal-grimoire" class="modal" style="display: none;" onclick="closeModal(event, 'modal-grimoire')">
+    <div id="modal-grimoire" class="modal" onclick="closeModal(event, 'modal-grimoire')">
         <div class="modal-content p-6 md:p-8 flex flex-col md:flex-row gap-6">
             <button onclick="closeModalBtn('modal-grimoire')" class="absolute top-3 right-3 text-gray-500 hover:text-white"><i class="fas fa-times text-xl"></i></button>
             <div class="w-full md:w-1/2">
@@ -189,7 +199,7 @@
     </div>
 
     <!-- Modal Qosam -->
-    <div id="modal-qosam" class="modal" style="display: none;" onclick="closeModal(event, 'modal-qosam')">
+    <div id="modal-qosam" class="modal" onclick="closeModal(event, 'modal-qosam')">
         <div class="modal-content p-6 md:p-8 flex flex-col md:flex-row gap-6">
             <button onclick="closeModalBtn('modal-qosam')" class="absolute top-3 right-3 text-gray-500 hover:text-white"><i class="fas fa-times text-xl"></i></button>
             <div class="w-full md:w-1/2">
@@ -213,7 +223,7 @@
     </div>
 
     <!-- Modal Buhur -->
-    <div id="modal-buhur" class="modal" style="display: none;" onclick="closeModal(event, 'modal-buhur')">
+    <div id="modal-buhur" class="modal" onclick="closeModal(event, 'modal-buhur')">
         <div class="modal-content p-6 md:p-8 flex flex-col md:flex-row gap-6">
             <button onclick="closeModalBtn('modal-buhur')" class="absolute top-3 right-3 text-gray-500 hover:text-white"><i class="fas fa-times text-xl"></i></button>
             <div class="w-full md:w-1/2">
@@ -236,8 +246,28 @@
         </div>
     </div>
 
-    <!-- LINK KE FILE JS -->
-    <script src="./script.js"></script>
-
+    <!-- SCRIPT POPUP -->
+    <script>
+        function openModal(id) {
+            const modal = document.getElementById(id);
+            if(modal) {
+                modal.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+        function closeModalBtn(id) {
+            const modal = document.getElementById(id);
+            if(modal) {
+                modal.classList.remove('show');
+                document.body.style.overflow = 'auto';
+            }
+        }
+        function closeModal(event, id) {
+            if (event.target.id === id) {
+                document.getElementById(id).classList.remove('show');
+                document.body.style.overflow = 'auto';
+            }
+        }
+    </script>
 </body>
 </html>
