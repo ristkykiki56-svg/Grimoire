@@ -16,29 +16,63 @@
 
     <!-- === BACKGROUND VIDEO FIXED (Link GitHub via jsDelivr) === -->
     <div class="video-container">
-    <video autoplay loop muted playsinline class="bg-video">
-        <source src="https://cdn.jsdelivr.net/gh/ristkykiki56-svg/Asset-web@main/Dark%20Cinematic%20Background%20without%20Fire%20Sparks.mp4" type="video/mp4">
-    </video>
-    <div class="video-overlay"></div>
-</div>
+        <video autoplay loop muted playsinline class="bg-video">
+            <!-- Link ini sudah dioptimalkan untuk Indonesia (Tanpa VPN) -->
+            <source src="https://cdn.jsdelivr.net/gh/ristkykiki56-svg/Asset-web@main/Dark%20Cinematic%20Background%20without%20Fire%20Sparks.mp4" type="video/mp4">
+            Browser Anda tidak mendukung video tag.
+        </video>
+        <!-- Overlay Hitam Transparan (Agar teks terbaca jelas) -->
+        <div class="video-overlay"></div>
+    </div>
     <!-- ============================== -->
 
     <!-- NAVBAR -->
-    <nav class="fixed top-0 left-0 w-full z-50 bg-black/70 backdrop-blur-md border-b border-white/10 shadow-2xl transition-all duration-300">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
-        <a href="#" class="nav-font text-sm md:text-xl tracking-widest text-gold font-bold">DIDIK HENDRANATA</a>
-            <div class="hidden md:flex space-x-8 text-xs tracking-[0.2em]">
-                <a href="#about" class="nav-font text-gray-400 hover:text-yellow-500 transition">TENTANG</a>
-                <a href="#collection" class="nav-font text-gray-400 hover:text-yellow-500 transition">KOLEKSI</a>
-            </div>
-            <a href="https://wa.me/6282210024076" class="nav-font border border-yellow-600 text-yellow-500 px-3 py-2 text-[10px] md:text-xs tracking-widest hover:bg-yellow-600 hover:text-black transition duration-300">WHATSAPP</a>
+<nav class="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10 shadow-2xl transition-all duration-300">
+    <div class="max-w-7xl w-full mx-auto px-6 sm:px-12 py-4 flex justify-between items-center">
+        
+        <!-- 1. LOGO (Kiri) -->
+        <a href="index.html" class="nav-font text-sm md:text-xl tracking-widest text-gold font-bold">DIDIK HENDRANATA</a>
+        
+        <!-- 2. MENU DESKTOP (Tengah - Tersembunyi di HP) -->
+        <div class="hidden md:flex space-x-6 text-[10px] md:text-xs tracking-[0.2em]">
+            <!-- Link ini mengarah ke ID jika satu halaman, atau ke file jika multipage -->
+            <a href="#about" class="nav-font text-gray-400 hover:text-yellow-500 transition">TENTANG</a>
+            <a href="#collection" class="nav-font text-gray-400 hover:text-yellow-500 transition">KOLEKSI</a>
+            <a href="reseller.html" class="nav-font text-gray-400 hover:text-yellow-500 transition">RESELLER</a>
+            <a href="testimoni.html" class="nav-font text-gray-400 hover:text-yellow-500 transition">TESTIMONI</a>
         </div>
-    </nav>
+        
+        <!-- 3. AREA KANAN (WhatsApp + Hamburger) -->
+        <div class="flex items-center gap-3">
+            
+            <!-- Tombol WhatsApp -->
+            <a href="https://wa.me/6282210024076" class="nav-font border border-yellow-600 text-yellow-500 px-3 py-2 text-[10px] md:text-xs tracking-widest hover:bg-yellow-600 hover:text-black transition duration-300">
+                WHATSAPP
+            </a>
+            
+            <!-- Tombol Hamburger (Hanya muncul di HP) -->
+            <button id="mobile-menu-btn" class="md:hidden text-yellow-500 border border-yellow-600 px-3 py-2 hover:bg-yellow-600 hover:text-black transition">
+                <i class="fas fa-bars text-lg"></i>
+            </button>
+        </div>
+    </div>
+    
+    <!-- 4. MENU MOBILE DROPDOWN (Tersembunyi Default) -->
+    <!-- Menu ini akan meluncur ke bawah saat tombol ditekan -->
+    <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-b border-white/10 absolute w-full left-0 top-full">
+        <div class="flex flex-col p-6 space-y-4 text-center tracking-widest text-sm nav-font">
+            <a href="#about" class="mobile-link text-gray-300 hover:text-gold border-b border-white/5 pb-2">TENTANG</a>
+            <a href="#collection" class="mobile-link text-gray-300 hover:text-gold border-b border-white/5 pb-2">KOLEKSI</a>
+            <a href="reseller.html" class="mobile-link text-gray-300 hover:text-gold border-b border-white/5 pb-2">RESELLER</a>
+            <a href="testimoni.html" class="mobile-link text-gray-300 hover:text-gold">TESTIMONI</a>
+        </div>
+    </div>
+</nav>
 
     <!-- HERO SECTION -->
     <!-- Background dibuat transparan agar video terlihat -->
     <section class="relative flex flex-col justify-start items-center text-center px-4 pt-32 md:pt-48 pb-32 md:pb-48 rounded-b-[3rem] border-b border-white/5 bg-gradient-to-b from-transparent to-black/80">
-        <div class="max-w-4xl z-10">
+        <div class="max-w-5xl z-10">
             <div class="inline-block border-t border-b border-yellow-800 py-1 px-4 mb-4 backdrop-blur-sm bg-black/20">
                 <p class="text-yellow-600 tracking-[0.2em] text-xs md:text-sm uppercase font-semibold">Spiritual & Occult Masterpiece</p>
             </div>
@@ -171,7 +205,7 @@
         <div class="modal-content p-6 md:p-8 flex flex-col md:flex-row gap-6">
             <button class="close-modal absolute top-3 right-3 text-gray-500 hover:text-white"><i class="fas fa-times text-xl"></i></button>
             <div class="w-full md:w-1/2">
-                <img src="https://cdn.jsdelivr.net/gh/ristkykiki56-svg/Asset-web@main/IMG-20240330-WA0002.jpg" class="rounded-lg shadow-lg w-full object-cover h-56 md:h-full">
+                <img src="https://i.postimg.cc/zB5DhtK5/IMG_20240330_WA0002.jpg" class="rounded-lg shadow-lg w-full object-cover h-56 md:h-full">
             </div>
             <div class="w-full md:w-1/2 text-left">
                 <h3 class="text-2xl text-gold font-bold mb-3 nav-font">GRIMOIRE 1818</h3>
@@ -196,7 +230,7 @@
         <div class="modal-content p-6 md:p-8 flex flex-col md:flex-row gap-6">
             <button class="close-modal absolute top-3 right-3 text-gray-500 hover:text-white"><i class="fas fa-times text-xl"></i></button>
             <div class="w-full md:w-1/2">
-                <img src="https://cdn.jsdelivr.net/gh/ristkykiki56-svg/Asset-web@main/IMG-20231223-WA0015(1).jpg" class="rounded-lg shadow-lg w-full object-cover h-56 md:h-full">
+                <img src="https://i.postimg.cc/NM4sk6kc/IMG_20231223_WA0015(1).jpg" class="rounded-lg shadow-lg w-full object-cover h-56 md:h-full">
             </div>
             <div class="w-full md:w-1/2 text-left">
                 <h3 class="text-2xl text-red-500 font-bold mb-3 nav-font">QOSAM AMARY</h3>
@@ -220,7 +254,7 @@
         <div class="modal-content p-6 md:p-8 flex flex-col md:flex-row gap-6">
             <button class="close-modal absolute top-3 right-3 text-gray-500 hover:text-white"><i class="fas fa-times text-xl"></i></button>
             <div class="w-full md:w-1/2">
-                <img src="https://cdn.jsdelivr.net/gh/ristkykiki56-svg/Asset-web@main/IMG-20231223-WA0014.jpg" class="rounded-lg shadow-lg w-full object-cover h-56 md:h-full">
+                <img src="https://i.postimg.cc/wvVqQXQq/IMG_20231223_WA0014.jpg" class="rounded-lg shadow-lg w-full object-cover h-56 md:h-full">
             </div>
             <div class="w-full md:w-1/2 text-left">
                 <h3 class="text-2xl text-purple-500 font-bold mb-3 nav-font">BUHUR ALQOSAM</h3>
