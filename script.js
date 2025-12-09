@@ -41,3 +41,34 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   
 });
+
+// === LOGIC HAMBURGER MENU ===
+document.addEventListener('DOMContentLoaded', () => {
+  const mobileBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+  const icon = mobileBtn.querySelector('i');
+  
+  // Toggle Menu saat tombol diklik
+  mobileBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+    
+    // Ubah icon dari Baris (Bars) ke Silang (Times)
+    if (mobileMenu.classList.contains('hidden')) {
+      icon.classList.remove('fa-times');
+      icon.classList.add('fa-bars');
+    } else {
+      icon.classList.remove('fa-bars');
+      icon.classList.add('fa-times');
+    }
+  });
+  
+  // Tutup menu otomatis saat salah satu link diklik
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      icon.classList.remove('fa-times');
+      icon.classList.add('fa-bars');
+    });
+  });
+});
