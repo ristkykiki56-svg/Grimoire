@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Reseller Resmi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body class="antialiased bg-black text-gray-300">
+
+    <!-- 1. BACKGROUND VIDEO (Sama Persis) -->
+    <div class="video-container">
+        <video autoplay loop muted playsinline class="bg-video">
+            <source src="https://cdn.jsdelivr.net/gh/ristkykiki56-svg/Asset-web@main/Dark%20Cinematic%20Background%20without%20Fire%20Sparks.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+
+<!-- NAVBAR (Pasang ini di reseller.html & testimoni.html) -->
+<nav class="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10 shadow-2xl transition-all duration-300">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+        
+        <!-- LOGO -->
+        <a href="index.html" class="nav-font text-sm md:text-xl tracking-widest text-gold font-bold">DIDIK HENDRANATA</a>
+        
+        <!-- MENU DESKTOP -->
+        <div class="hidden md:flex space-x-6 text-[10px] md:text-xs tracking-[0.2em]">
+            <!-- Perhatikan: Pakai index.html#... karena kita sedang di halaman lain -->
+            <a href="index.html#about" class="nav-font text-gray-400 hover:text-yellow-500 transition">TENTANG</a>
+            <a href="index.html#collection" class="nav-font text-gray-400 hover:text-yellow-500 transition">KOLEKSI</a>
+            <<a href="reseller.html" class="nav-font text-yellow-500 font-bold transition">RESELLER</a>
+            <a href="testimoni.html" class="nav-font text-gray-400 hover:text-yellow-500 transition">TESTIMONI</a>
+        </div>
+        
+        <!-- AREA KANAN (WA + HAMBURGER) -->
+        <div class="flex items-center gap-3">
+            <a href="https://wa.me/6282210024076" class="nav-font border border-yellow-600 text-yellow-500 px-3 py-2 text-[10px] md:text-xs tracking-widest hover:bg-yellow-600 hover:text-black transition duration-300">
+                WHATSAPP
+            </a>
+            <!-- Tombol Hamburger -->
+            <button id="mobile-menu-btn" class="md:hidden text-yellow-500 border border-yellow-600 px-3 py-2 hover:bg-yellow-600 hover:text-black transition">
+                <i class="fas fa-bars text-lg"></i>
+            </button>
+        </div>
+    </div>
+    
+    <!-- MENU MOBILE DROPDOWN -->
+    <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-b border-white/10 absolute w-full left-0 top-full">
+        <div class="flex flex-col p-6 space-y-4 text-center tracking-widest text-sm nav-font">
+            <!-- Link Mobile juga harus diarahkan ke index.html -->
+            <a href="index.html#about" class="mobile-link text-gray-300 hover:text-gold border-b border-white/5 pb-2">TENTANG</a>
+            <a href="index.html#collection" class="mobile-link text-gray-300 hover:text-gold border-b border-white/5 pb-2">KOLEKSI</a>
+            <a href="reseller.html" class="mobile-link text-gray-300 hover:text-gold border-b border-white/5 pb-2">RESELLER</a>
+            <a href="testimoni.html" class="mobile-link text-gray-300 hover:text-gold">TESTIMONI</a>
+        </div>
+    </div>
+</nav>
+
+    <!-- 3. KONTEN KHUSUS RESELLER -->
+    <main class="pt-32 pb-20 px-6 min-h-screen">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="nav-font text-2xl md:text-4xl text-white mb-3">RESELLER RESMI</h2>
+                <div class="w-16 md:w-24 h-0.5 bg-yellow-600 mx-auto mb-4"></div>
+                <p class="text-gray-400 text-sm">Pastikan Anda memesan produk asli melalui reseller terdaftar di bawah ini.</p>
+            </div>
+
+            <!-- Grid Daftar Reseller -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Reseller 1 -->
+                <div class="bg-black/80 backdrop-blur-md border border-white/10 p-6 rounded-xl hover:border-yellow-600 transition duration-300 group">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-yellow-900/30 rounded-full flex items-center justify-center text-gold">
+                            <i class="fas fa-user-shield text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-bold nav-font">BAPAK BUDI</h3>
+                            <p class="text-xs text-yellow-500 tracking-wider">JAKARTA SELATAN</p>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/628123456789" class="block w-full text-center py-2 border border-white/20 text-gray-400 text-xs hover:bg-yellow-600 hover:text-black hover:border-yellow-600 transition rounded">HUBUNGI WHATSAPP</a>
+                </div>
+
+                <!-- Reseller 2 -->
+                <div class="bg-black/80 backdrop-blur-md border border-white/10 p-6 rounded-xl hover:border-yellow-600 transition duration-300 group">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-yellow-900/30 rounded-full flex items-center justify-center text-gold">
+                            <i class="fas fa-user-shield text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-bold nav-font">IBU SITI</h3>
+                            <p class="text-xs text-yellow-500 tracking-wider">SURABAYA</p>
+                        </div>
+                    </div>
+                    <a href="#" class="block w-full text-center py-2 border border-white/20 text-gray-400 text-xs hover:bg-yellow-600 hover:text-black hover:border-yellow-600 transition rounded">HUBUNGI WHATSAPP</a>
+                </div>
+
+                <!-- Reseller 3 -->
+                <div class="bg-black/80 backdrop-blur-md border border-white/10 p-6 rounded-xl hover:border-yellow-600 transition duration-300 group">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-yellow-900/30 rounded-full flex items-center justify-center text-gold">
+                            <i class="fas fa-user-shield text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-bold nav-font">MAS EKO</h3>
+                            <p class="text-xs text-yellow-500 tracking-wider">BANDUNG</p>
+                        </div>
+                    </div>
+                    <a href="#" class="block w-full text-center py-2 border border-white/20 text-gray-400 text-xs hover:bg-yellow-600 hover:text-black hover:border-yellow-600 transition rounded">HUBUNGI WHATSAPP</a>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- 4. FOOTER (Sama Persis) -->
+    <footer class="bg-black py-8 border-t border-white/10 text-center px-4 relative z-20">
+        <p class="text-gray-700 text-[10px] md:text-xs tracking-wider">&copy; 2024. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+<!-- PANGGIL JS (Wajib ada agar hamburger jalan) -->
+    <script src="./script.js"></script>
+</body>
+</html>
