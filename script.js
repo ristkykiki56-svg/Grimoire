@@ -1,41 +1,66 @@
+// Tunggu sampai kerangka HTML selesai dimuat
 document.addEventListener('DOMContentLoaded', () => {
-    
+
     // ==========================================
-    // 1. LOGIC HAMBURGER MENU (MOBILE)
+    // 1. LOGIC PRELOADER (DIPINDAHKAN DARI HTML)
+    // ==========================================
+    const preloader = document.getElementById('preloader');
+    
+    // Fungsi penghilang preloader
+    const hidePreloader = () => {
+        if (preloader) {
+            preloader.style.transition = 'opacity 0.7s ease';
+            preloader.style.opacity = '0';
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 700);
+        }
+    };
+
+    // A. Hilang saat website selesai loading 100% (Gambar & Video)
+    window.addEventListener('load', hidePreloader);
+
+    // B. Hilang paksa setelah 3.5 detik (Backup jika koneksi lambat)
+    setTimeout(hidePreloader, 3500);
+
+
+    // ==========================================
+    // 2. LOGIC HAMBURGER MENU (MOBILE)
     // ==========================================
     const mobileBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     
-    // Cek apakah elemen ada di halaman ini (Mencegah error di console)
+    // Pastikan elemen ada sebelum dijalankan
     if (mobileBtn && mobileMenu) {
         
-        // Event saat tombol diklik
+        // Event saat tombol hamburger diklik
         mobileBtn.addEventListener('click', (e) => {
-            e.preventDefault(); // Mencegah tombol loncat/refresh
-            e.stopPropagation(); // Mencegah klik tembus
-
+            e.stopPropagation(); // Stop klik tembus
+            
             // Toggle Class Hidden (Buka/Tutup)
             mobileMenu.classList.toggle('hidden');
             
-            // Ubah Ikon
+            // Logika Ganti Ikon
             const icon = mobileBtn.querySelector('i');
             if (icon) {
-                if (mobileMenu.classList.contains('hidden')) {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                } else {
+                // Jika menu TERBUKA (tidak ada class hidden)
+                if (!mobileMenu.classList.contains('hidden')) {
                     icon.classList.remove('fa-bars');
                     icon.classList.add('fa-times');
+                } else {
+                    // Jika menu TERTUTUP
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
                 }
             }
         });
 
-        // Event saat Link di dalam menu diklik (Tutup menu otomatis)
+        // Event: Tutup menu saat salah satu link diklik
         const mobileLinks = document.querySelectorAll('.mobile-link');
         mobileLinks.forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
-                // Reset ikon jadi garis 3
+                // Reset ikon
                 const icon = mobileBtn.querySelector('i');
                 if (icon) {
                     icon.classList.remove('fa-times');
@@ -44,9 +69,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Event Klik di Luar Menu (Tutup otomatis)
+        // Event: Tutup menu jika klik sembarang tempat (bukan di menu)
         document.addEventListener('click', (e) => {
-            // Jika yang diklik BUKAN tombol DAN BUKAN menu
             if (!mobileBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
                 if (!mobileMenu.classList.contains('hidden')) {
                     mobileMenu.classList.add('hidden');
@@ -60,8 +84,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+
     // ==========================================
-    // 2. LOGIC MODAL POPUP (PRODUK)
+    // 3. LOGIC MODAL POPUP (PRODUK)
     // ==========================================
     const triggers = document.querySelectorAll('.trigger-modal');
     const closers = document.querySelectorAll('.close-modal');
@@ -70,12 +95,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Buka Modal
     triggers.forEach(btn => {
         btn.addEventListener('click', (e) => {
-            e.preventDefault(); // Mencegah scroll ke atas
+            e.preventDefault();
             const targetId = btn.getAttribute('data-target');
             const targetModal = document.getElementById(targetId);
             if (targetModal) {
                 targetModal.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Kunci scroll belakang
+                document.body.style.overflow = 'hidden'; // Kunci scroll
             }
         });
     });
@@ -86,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const modal = btn.closest('.modal');
             if (modal) {
                 modal.classList.remove('active');
-                document.body.style.overflow = 'auto'; // Buka scroll
+                document.body.style.overflow = 'auto';
             }
         });
     });
@@ -100,24 +125,5 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-
-    // ==========================================
-    // 3. LOGIC PRELOADER (SAFETY REMOVAL)
-    // ==========================================
-    // Cek jika preloader masih nyangkut, hapus paksa
-    const preloader = document.getElementById('preloader');
-    if (preloader) {
-        // Hapus jika window sudah load
-        window.addEventListener('load', () => {
-            preloader.style.opacity = '0';
-            setTimeout(() => { preloader.style.display = 'none'; }, 700);
-        });
-        
-        // Hapus paksa setelah 3 detik (Backup)
-        setTimeout(() => {
-            preloader.style.opacity = '0';
-            setTimeout(() => { preloader.style.display = 'none'; }, 700);
-        }, 3000);
-    }
 
 });
