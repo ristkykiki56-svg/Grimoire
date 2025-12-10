@@ -1,47 +1,73 @@
+// ==========================================
+// 0. RESET POSISI (SCROLL KE ATAS)
+// ==========================================
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+
+// ==========================================
+// KODE UTAMA
+// ==========================================
 document.addEventListener('DOMContentLoaded', () => {
-    // ... (kode lama Anda di bawah sini)
-
-document.addEventListener('DOMContentLoaded', () => {
 
     // ==========================================
-    // 1. INISIALISASI AOS (ANIMATE ON SCROLL)
-    // ==========================================
-    // Mengecek apakah library AOS sudah dimuat di HTML
-    if (typeof AOS !== 'undefined') {
-        AOS.init({
-            duration: 1000, // Durasi animasi 1 detik
-            once: true,     // Animasi hanya berjalan sekali (biar tidak pusing saat scroll naik turun)
-            offset: 50,     // Mulai animasi sedikit lebih awal
-            easing: 'ease-out-cubic' // Gerakan lebih natural
-        });
-    }
-
-    // ==========================================
-    // 2. LOGIC PRELOADER (LOADING SCREEN)
+    // 1. LOGIC PRELOADER (ANTI-STUCK / MACET)
     // ==========================================
     const preloader = document.getElementById('preloader');
     
+    // Fungsi Penghilang Preloader
     const hidePreloader = () => {
-        if (preloader) {
-            preloader.style.transition = 'opacity 0.8s ease';
+        if (preloader && preloader.style.display !== 'none') {
+            // Pastikan scroll dikunci ke atas saat preloader hilang
+            window.scrollTo(0, 0);
+            
+            preloader.style.transition = 'opacity 0.5s ease';
             preloader.style.opacity = '0';
+            
             setTimeout(() => {
                 preloader.style.display = 'none';
-                
-                // Pemicu ulang animasi AOS setelah loading selesai
+                // Trigger ulang animasi AOS setelah loading selesai
                 if (typeof AOS !== 'undefined') {
                     AOS.refresh(); 
                 }
-            }, 800);
+            }, 500); // Waktu dipercepat jadi 0.5 detik agar lebih responsif
         }
     };
 
-    // A. Hilang saat website selesai loading 100% (Gambar & Aset)
+    // A. Event saat loading normal selesai
     window.addEventListener('load', hidePreloader);
 
-    // B. Hilang paksa setelah 3 detik (Backup jika koneksi lambat)
+    // B. Event KHUSUS "Bolak-Balik" (Back/Forward Cache) - INI SOLUSINYA
+    window.addEventListener('pageshow', (event) => {
+        // Jika halaman diambil dari cache (memori HP), paksa hilangkan preloader
+        if (event.persisted) {
+            hidePreloader();
+        }
+        // Tetap jalankan hidePreloader setiap kali halaman tampil
+        hidePreloader(); 
+    });
+
+    // C. Backup jika browser sangat lambat atau event load gagal
+    // Cek jika halaman sebenarnya sudah ready tapi script telat jalan
+    if (document.readyState === "complete" || document.readyState === "interactive") {
+        hidePreloader();
+    }
+    
+    // D. Backup terakhir (Timer)
     setTimeout(hidePreloader, 3000);
 
+
+    // ==========================================
+    // 2. INISIALISASI AOS (ANIMASI SCROLL)
+    // ==========================================
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 1000, 
+            once: true,     
+            offset: 50,     
+            easing: 'ease-out-cubic' 
+        });
+    }
 
     // ==========================================
     // 3. LOGIC HAMBURGER MENU (MOBILE)
@@ -50,13 +76,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenu = document.getElementById('mobile-menu');
     
     if (mobileBtn && mobileMenu) {
-        
-        // Event saat tombol hamburger diklik
         mobileBtn.addEventListener('click', (e) => {
-            e.stopPropagation(); // Mencegah klik tembus
+            e.stopPropagation(); 
             mobileMenu.classList.toggle('hidden');
             
-            // Ganti Ikon (Baris ke Silang)
             const icon = mobileBtn.querySelector('i');
             if (icon) {
                 if (!mobileMenu.classList.contains('hidden')) {
@@ -69,7 +92,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Event: Tutup menu saat link diklik
         const mobileLinks = document.querySelectorAll('.mobile-link');
         mobileLinks.forEach(link => {
             link.addEventListener('click', () => {
@@ -79,7 +101,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Event: Tutup menu jika klik sembarang tempat (bukan di menu)
         document.addEventListener('click', (e) => {
             if (!mobileBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
                 if (!mobileMenu.classList.contains('hidden')) {
@@ -91,19 +112,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-
     // ==========================================
-    // 4. LOGIC MODAL POPUP (SAFE MODE)
+    // 4. LOGIC MODAL POPUP
     // ==========================================
     const triggers = document.querySelectorAll('.trigger-modal');
     
-    // PENTING: Cek dulu apakah ada trigger modal di halaman ini?
-    // Jika tidak ada (misal di halaman Reseller), kode di bawah tidak akan dijalankan (Mencegah Error)
     if (triggers.length > 0) {
         const closers = document.querySelectorAll('.close-modal');
         const modals = document.querySelectorAll('.modal');
       
-        // Buka Modal
         triggers.forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -112,23 +129,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 if (targetModal) {
                     targetModal.classList.add('active');
-                    document.body.style.overflow = 'hidden'; // Kunci scroll background
+                    document.body.style.overflow = 'hidden'; 
                 }
             });
         });
       
-        // Tutup Modal (Tombol X)
         closers.forEach(btn => {
             btn.addEventListener('click', () => {
                 const modal = btn.closest('.modal');
                 if (modal) {
                     modal.classList.remove('active');
-                    document.body.style.overflow = 'auto'; // Aktifkan scroll lagi
+                    document.body.style.overflow = 'auto'; 
                 }
             });
         });
       
-        // Tutup Modal (Klik Background Gelap)
         modals.forEach(modal => {
             modal.addEventListener('click', (e) => {
                 if (e.target === modal) {
