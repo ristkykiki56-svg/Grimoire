@@ -1,105 +1,201 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
-
-/* === GLOBAL === */
+/* =========================================
+   1. GLOBAL & TYPOGRAPHY
+   ========================================= */
 body { 
     font-family: 'Lora', serif; 
     background-color: #050505; 
     color: #d4d4d4; 
-    overflow-x: hidden; 
+    overflow-x: hidden;
+    /* SARAN 3: Readability - Jarak antar baris lebih lega */
+    line-height: 1.8; 
 }
 
-h1, h2, h3, h4, .nav-font { font-family: 'Cinzel', serif; }
+h1, h2, h3, h4, .nav-font { 
+    font-family: 'Cinzel', serif; 
+    /* Judul lebih rapat sedikit line-heightnya agar kokoh */
+    line-height: 1.2; 
+}
 
-/* === VIDEO BACKGROUND (FIXED - Z-INDEX 0) === */
-.video-container {
+/* =========================================
+   2. BACKGROUND SYSTEM (FIXED IMAGE)
+   ========================================= */
+.bg-fixed-container {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     overflow: hidden;
-    
-    /* PERBAIKAN: Ubah jadi 0 agar di depan background hitam, tapi di belakang konten */
     z-index: 0; 
-    
-    pointer-events: none; /* Video tidak menghalangi klik */
+    pointer-events: none;
 }
 
-.bg-video {
+.bg-fixed-image {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100vw; 
-    height: 100vh;
-    object-fit: cover;
-    will-change: transform; 
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%;
+    object-fit: cover; 
+    object-position: center;
 }
 
-.video-overlay {
+.bg-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6); /* Overlay Gelap */
+    /* Overlay sedikit gelap agar teks putih terbaca jelas */
+    background: rgba(0, 0, 0, 0.75); 
     z-index: 1;
 }
 
-/* === WARNA & TOMBOL === */
+/* =========================================
+   3. WARNA & TOMBOL (IMPROVED CTA)
+   ========================================= */
 .text-gold { 
     background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c); 
-    -webkit-background-clip: text; background-clip: text; color: transparent; 
+    -webkit-background-clip: text; 
+    background-clip: text; 
+    color: transparent; 
 }
 
+/* Tombol Emas (Untuk Navigasi / Lihat Detail) */
 .btn-gold {
     background: linear-gradient(to bottom, #cfc09f 5%, #ffecb3 100%); 
-    color: #3e2723; transition: all 0.3s ease; text-decoration: none;
+    color: #3e2723; 
+    transition: all 0.3s ease; 
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
 }
 .btn-gold:hover {
     background: linear-gradient(to bottom, #ffecb3 5%, #cfc09f 100%); 
-    transform: translateY(-2px); box-shadow: 0 0 15px rgba(191, 149, 63, 0.4);
+    transform: translateY(-2px); 
+    box-shadow: 0 0 25px rgba(191, 149, 63, 0.6); /* Glow Emas Lebih Kuat */
 }
 
+/* Tombol Outline Emas */
 .btn-outline-gold {
-    border: 1px solid #b38728; color: #b38728; transition: all 0.3s ease; background: transparent;
+    border: 1px solid #b38728; 
+    color: #b38728; 
+    transition: all 0.3s ease; 
+    background: transparent;
+    cursor: pointer;
 }
 .btn-outline-gold:hover {
-    background: #b38728; color: #000; box-shadow: 0 0 10px rgba(191, 149, 63, 0.4);
+    background: #b38728; 
+    color: #000; 
+    box-shadow: 0 0 15px rgba(191, 149, 63, 0.5);
 }
 
-/* === GAMBAR PRODUK === */
+/* SARAN 2: Tombol WhatsApp (Hijau Glowing) */
+.btn-wa {
+    background: linear-gradient(to right, #128c7e, #25d366); 
+    color: #ffffff;
+    border: none;
+    transition: all 0.3s ease;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    box-shadow: 0 0 10px rgba(37, 211, 102, 0.3);
+}
+.btn-wa:hover {
+    background: linear-gradient(to right, #0e6b5e, #1da851);
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(37, 211, 102, 0.8); /* Glow Hijau Kuat */
+}
+
+/* =========================================
+   4. GAMBAR PRODUK & EFEK VISUAL
+   ========================================= */
 .pro-image {
-    width: 100%; height: 350px; object-fit: cover; border-radius: 12px;
+    width: 100%; 
+    height: 350px; 
+    object-fit: cover; 
+    border-radius: 12px;
     border: 1px solid rgba(255, 215, 0, 0.3);
     box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(184, 134, 11, 0.1);
-    transition: transform 0.5s ease, filter 0.5s ease;
+    transition: transform 0.5s ease, filter 0.5s ease, box-shadow 0.5s ease;
 }
-@media (min-width: 768px) { .pro-image { height: 450px; } }
-.group:hover .pro-image { transform: scale(1.02); filter: brightness(1.1); box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.9), 0 0 30px rgba(184, 134, 11, 0.3); }
 
-/* === MODAL POPUP === */
+@media (min-width: 768px) { 
+    .pro-image { height: 450px; } 
+}
+
+/* Hover Effect pada Gambar */
+.group:hover .pro-image { 
+    transform: scale(1.03); 
+    filter: brightness(1.1); 
+    box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.9), 0 0 40px rgba(184, 134, 11, 0.4); 
+}
+
+/* Efek Floating (Melayang Halus) untuk Produk */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* =========================================
+   5. MODAL POPUP
+   ========================================= */
 .modal {
     display: none; 
-    position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%;
-    overflow: auto; background-color: rgba(0,0,0,0.9); backdrop-filter: blur(5px);
-    align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease;
+    position: fixed; 
+    z-index: 9999; 
+    left: 0; 
+    top: 0; 
+    width: 100%; 
+    height: 100%;
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.9); 
+    backdrop-filter: blur(8px); /* Blur lebih kuat di background modal */
+    align-items: center; 
+    justify-content: center; 
+    opacity: 0; 
+    transition: opacity 0.3s ease;
 }
-.modal.active {
-    display: flex; opacity: 1;
-}
-.modal-content {
-    background: #0f0f0f; border: 1px solid #b38728; border-radius: 12px;
-    width: 90%; max-width: 800px; max-height: 90vh; overflow-y: auto;
-    position: relative; animation: slideUp 0.4s ease;
-    box-shadow: 0 0 50px rgba(184, 134, 11, 0.2);
-}
-@keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
-/* === FITUR ANTI-LAG === */
+.modal.active {
+    display: flex; 
+    opacity: 1;
+}
+
+.modal-content {
+    background: #0f0f0f; 
+    border: 1px solid #b38728; 
+    border-radius: 12px;
+    width: 90%; 
+    max-width: 800px; 
+    max-height: 90vh; 
+    overflow-y: auto;
+    position: relative; 
+    animation: slideUp 0.4s ease;
+    box-shadow: 0 0 60px rgba(184, 134, 11, 0.15);
+}
+
+@keyframes slideUp { 
+    from { transform: translateY(50px); opacity: 0; } 
+    to { transform: translateY(0); opacity: 1; } 
+}
+
+/* =========================================
+   6. RESPONSIF & FIXES
+   ========================================= */
 @media (max-width: 768px) {
+    /* Matikan glow background di HP agar performa kencang */
     .group .absolute.inset-0 { display: none !important; }
-    nav.backdrop-blur-md { backdrop-filter: none !important; background-color: rgba(0, 0, 0, 0.9) !important; }
-    .backdrop-blur-sm { backdrop-filter: none !important; background-color: rgba(0, 0, 0, 0.85) !important; }
-    .bg-video { transform: translate(-50%, -50%) scale(1.0); }
+    
+    /* Matikan backdrop blur berat di HP low-end */
+    nav.backdrop-blur-md { 
+        backdrop-filter: none !important; 
+        background-color: rgba(0, 0, 0, 0.95) !important; 
+    }
+    .backdrop-blur-sm { 
+        backdrop-filter: none !important; 
+        background-color: rgba(0, 0, 0, 0.9) !important; 
+    }
 }
