@@ -78,29 +78,30 @@
             <a href="testimoni.html" class="nav-font text-gray-400 hover:text-yellow-500 transition">TESTIMONI</a>
         </div>
         
-        <!-- 3. AREA KANAN (WhatsApp + Hamburger) -->
-        <div class="flex items-center gap-3">
-            
-            <!-- Tombol WhatsApp -->
-            <a href="https://wa.me/6282210024076" class="nav-font border border-yellow-600 text-yellow-500 px-3 py-2 text-[10px] md:text-xs tracking-widest hover:bg-yellow-600 hover:text-black transition duration-300">
-                WHATSAPP
-            </a>
-            
-            <!-- Tombol Hamburger (Hanya muncul di HP) -->
-            <button id="mobile-menu-btn" class="md:hidden text-yellow-500 border border-yellow-600 px-3 py-2 hover:bg-yellow-600 hover:text-black transition z-50 relative">
-        <i class="fas fa-bars text-lg"></i>
+        <!-- === AREA TOMBOL KANAN === -->
+<div class="flex items-center gap-3">
+    <!-- Tombol WA -->
+    <a href="https://wa.me/6282210024076" class="nav-font border border-yellow-600 text-yellow-500 px-3 py-2 text-[10px] md:text-xs tracking-widest hover:bg-yellow-600 hover:text-black transition duration-300">
+        WHATSAPP
+    </a>
+
+    <!-- TOMBOL HAMBURGER (PERBAIKAN) -->
+    <!-- onclick="toggleMenu()" adalah kuncinya -->
+    <button onclick="toggleMenu()" id="mobile-menu-btn" class="md:hidden text-yellow-500 border border-yellow-600 px-3 py-2 hover:bg-yellow-600 hover:text-black transition z-50 focus:outline-none">
+        <!-- Ikon default -->
+        <i id="menu-icon" class="fas fa-bars text-lg"></i>
     </button>
-        </div>
-    </div>
-    
-    <!-- 4. MENU MOBILE DROPDOWN (Tersembunyi Default) -->
-    <!-- Menu ini akan meluncur ke bawah saat tombol ditekan -->
-    <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-b border-white/10 absolute w-full left-0 top-full shadow-2xl transition-all duration-300 transform origin-top z-40">
+</div>
+
+<!-- === MENU DROPDOWN (PERBAIKAN) === -->
+<!-- id="mobile-menu" wajib ada -->
+<div id="mobile-menu" class="hidden md:hidden bg-black/95 border-b border-white/10 absolute w-full left-0 top-full shadow-2xl z-40">
     <div class="flex flex-col p-6 space-y-4 text-center tracking-widest text-sm nav-font">
-        <a href="index.html#about" class="mobile-link text-gray-300 hover:text-gold border-b border-white/5 pb-2">TENTANG</a>
-        <a href="index.html#collection" class="mobile-link text-gray-300 hover:text-gold border-b border-white/5 pb-2">KOLEKSI</a>
-        <a href="reseller.html" class="mobile-link text-gray-300 hover:text-gold border-b border-white/5 pb-2">RESELLER</a>
-        <a href="testimoni.html" class="mobile-link text-gray-300 hover:text-gold">TESTIMONI</a>
+        <!-- Tambahkan onclick="toggleMenu()" di link juga agar menu nutup pas diklik -->
+        <a href="index.html#about" onclick="toggleMenu()" class="text-gray-300 hover:text-gold border-b border-white/5 pb-2 block">TENTANG</a>
+        <a href="index.html#collection" onclick="toggleMenu()" class="text-gray-300 hover:text-gold border-b border-white/5 pb-2 block">KOLEKSI</a>
+        <a href="reseller.html" onclick="toggleMenu()" class="text-gray-300 hover:text-gold border-b border-white/5 pb-2 block">RESELLER</a>
+        <a href="testimoni.html" onclick="toggleMenu()" class="text-gray-300 hover:text-gold block">TESTIMONI</a>
     </div>
 </div>
 </nav>
