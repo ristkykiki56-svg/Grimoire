@@ -5,21 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Testimoni - Didik Hendranata</title>
     
-    <!-- CSS DARURAT -->
     <style>
         html, body { background-color: #000000 !important; }
     </style>
 
-    <!-- FAVICON -->
     <link rel="icon" type="image/jpeg" href="https://cdn.jsdelivr.net/gh/ristkykiki56-svg/Asset-web@main/FB_IMG_1765334930535.jpg">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <link rel="stylesheet" href="./style.css">
 </head>
 <body class="antialiased bg-black text-gray-300" style="background-color: #000000;">
 
-    <!-- 1. PRELOADER -->
     <div id="preloader" class="fixed inset-0 bg-black z-[99999] flex items-center justify-center transition-opacity duration-700">
         <div class="text-center">
             <h1 class="text-gold text-2xl md:text-4xl font-bold tracking-[0.5em] animate-pulse nav-font">1818</h1>
@@ -27,31 +31,23 @@
         </div>
     </div>
 
-    <!-- 2. BACKGROUND VIDEO -->
-    <div class="video-container">
-        <video autoplay loop muted playsinline class="bg-video">
-            <source src="https://cdn.jsdelivr.net/gh/ristkykiki56-svg/Asset-web@main/Dark%20Cinematic%20Background%20without%20Fire%20Sparks.mp4" type="video/mp4">
-        </video>
-        <div class="video-overlay"></div>
+    <div class="bg-fixed-container">
+        <img src="https://raw.githubusercontent.com/ristkykiki56-svg/Asset-web/main/Gemini_Generated_Image_pygf2pygf2pygf2p.png" alt="Background Mistis" class="bg-fixed-image" fetchpriority="high">
+        <div class="bg-overlay"></div>
     </div>
 
-    <!-- 3. NAVBAR -->
     <nav class="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10 shadow-2xl transition-all duration-300">
         <div class="max-w-7xl w-full mx-auto px-6 sm:px-12 py-4 flex justify-between items-center">
             
-            <!-- LOGO -->
             <a href="index.html" class="nav-font text-sm md:text-xl tracking-widest text-gold font-bold">DIDIK HENDRANATA</a>
             
-            <!-- MENU DESKTOP -->
             <div class="hidden md:flex space-x-6 text-[10px] md:text-xs tracking-[0.2em]">
                 <a href="index.html#about" class="nav-font text-gray-400 hover:text-yellow-500 transition">TENTANG</a>
                 <a href="index.html#collection" class="nav-font text-gray-400 hover:text-yellow-500 transition">KOLEKSI</a>
                 <a href="reseller.html" class="nav-font text-gray-400 hover:text-yellow-500 transition">RESELLER</a>
-                <!-- Link Aktif -->
                 <a href="testimoni.html" class="nav-font text-yellow-500 font-bold transition">TESTIMONI</a>
             </div>
             
-            <!-- AREA KANAN -->
             <div class="flex items-center gap-3">
                 <a href="https://wa.me/6282210024076" class="nav-font border border-yellow-600 text-yellow-500 px-3 py-2 text-[10px] md:text-xs tracking-widest hover:bg-yellow-600 hover:text-black transition duration-300">
                     WHATSAPP
@@ -62,7 +58,6 @@
             </div>
         </div>
         
-        <!-- MENU MOBILE -->
         <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-b border-white/10 absolute w-full left-0 top-full shadow-2xl z-40 transition-all duration-300">
             <div class="flex flex-col p-6 space-y-4 text-center tracking-widest text-sm nav-font">
                 <a href="index.html#about" class="mobile-link text-gray-300 hover:text-gold border-b border-white/5 pb-2 block">TENTANG</a>
@@ -73,50 +68,65 @@
         </div>
     </nav>
 
-    <!-- 4. KONTEN TESTIMONI -->
-    <!-- PENTING: relative z-10 agar di atas video -->
     <main class="relative z-10 pt-32 pb-20 px-6 min-h-screen">
         <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-12">
+            <div class="text-center mb-12" data-aos="fade-down">
                 <h2 class="nav-font text-2xl md:text-4xl text-white mb-3">KATA MEREKA</h2>
                 <div class="w-16 md:w-24 h-0.5 bg-yellow-600 mx-auto"></div>
             </div>
 
-            <!-- List Testimoni -->
-            <div class="space-y-6">
-                <!-- Testimoni 1 -->
-                <div class="bg-black/80 backdrop-blur-sm border-l-4 border-yellow-600 p-6 md:p-8 rounded-r-xl shadow-lg relative">
-                    <i class="fas fa-quote-right absolute top-4 right-6 text-white/10 text-4xl"></i>
+            <div class="space-y-8">
+                
+                <div class="bg-black/80 backdrop-blur-sm border-l-4 border-yellow-600 p-6 md:p-8 rounded-r-xl shadow-2xl relative hover:bg-black/90 transition duration-500" data-aos="fade-right" data-aos-duration="1000">
+                    <i class="fas fa-quote-right absolute top-4 right-6 text-white/5 text-5xl"></i>
+                    
                     <div class="flex text-yellow-500 mb-3 text-xs">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
-                    <p class="text-gray-300 italic mb-4 leading-relaxed">
-                        "Energi dari Qosam Amary benar-benar terasa. Kewibawaan saya di kantor meningkat drastis. Terima kasih Master Didik."
+                    
+                    <p class="text-gray-300 italic mb-4 leading-relaxed relative z-10">
+                        "Energi dari Qosam Amary benar-benar terasa. Kewibawaan saya di kantor meningkat drastis. Saya merasa lebih percaya diri saat memimpin rapat. Terima kasih Master Didik."
                     </p>
-                    <h4 class="text-white font-bold text-sm nav-font">— Bpk. Hartono, Pengusaha</h4>
+                    
+                    <div class="flex items-center gap-3 border-t border-white/10 pt-4 mt-2">
+                        <div class="w-8 h-8 rounded-full bg-yellow-900/50 flex items-center justify-center text-gold text-xs font-bold">H</div>
+                        <div>
+                            <h4 class="text-white font-bold text-sm nav-font tracking-wide">BPK. HARTONO</h4>
+                            <p class="text-[10px] text-gray-500 uppercase tracking-widest">Pengusaha</p>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Testimoni 2 -->
-                <div class="bg-black/80 backdrop-blur-sm border-l-4 border-yellow-600 p-6 md:p-8 rounded-r-xl shadow-lg relative">
-                    <i class="fas fa-quote-right absolute top-4 right-6 text-white/10 text-4xl"></i>
-                    <div class="flex text-yellow-500 mb-3 text-xs">
+                <div class="bg-black/80 backdrop-blur-sm border-r-4 border-yellow-600 p-6 md:p-8 rounded-l-xl shadow-2xl relative hover:bg-black/90 transition duration-500 text-right md:text-left" data-aos="fade-left" data-aos-duration="1000">
+                    <i class="fas fa-quote-left absolute top-4 left-6 text-white/5 text-5xl hidden md:block"></i>
+                    
+                    <div class="flex justify-end md:justify-start text-yellow-500 mb-3 text-xs">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
-                    <p class="text-gray-300 italic mb-4 leading-relaxed">
-                        "Buhur Alqosam aromanya sangat menenangkan untuk meditasi. Kualitas premium beda dengan pasaran."
+                    
+                    <p class="text-gray-300 italic mb-4 leading-relaxed relative z-10">
+                        "Buhur Alqosam aromanya sangat menenangkan untuk meditasi. Kualitas premium beda dengan pasaran. Energinya terasa sangat bersih dan membuang stress seketika."
                     </p>
-                    <h4 class="text-white font-bold text-sm nav-font">— Ibu Laras, Instruktur Yoga</h4>
+                    
+                    <div class="flex items-center gap-3 border-t border-white/10 pt-4 mt-2 justify-end md:justify-start">
+                         <div class="text-right md:text-left">
+                            <h4 class="text-white font-bold text-sm nav-font tracking-wide">IBU LARAS</h4>
+                            <p class="text-[10px] text-gray-500 uppercase tracking-widest">Instruktur Yoga</p>
+                        </div>
+                        <div class="w-8 h-8 rounded-full bg-yellow-900/50 flex items-center justify-center text-gold text-xs font-bold">L</div>
+                    </div>
                 </div>
+
             </div>
         </div>
     </main>
 
-    <!-- 5. FOOTER -->
     <footer class="bg-black py-8 border-t border-white/10 text-center px-4 relative z-20">
         <p class="text-gray-700 text-[10px] md:text-xs tracking-wider">&copy; 2024. ALL RIGHTS RESERVED.</p>
     </footer>
 
-    <!-- JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <script src="./script.js"></script>
 </body>
 </html>
