@@ -5,39 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Didik Hendranata - Spiritual Masterpiece</title>
 
-    <!-- CSS DARURAT (Anti-Flash Putih) -->
     <style>
-        html, body {
-            background-color: #000000 !important;
-            background: #000000 !important;
-        }
+        html, body { background-color: #000000 !important; background: #000000 !important; }
     </style>
 
-    <!-- === META TAGS & SOCIAL SHARE === -->
     <meta property="og:title" content="Didik Hendranata - Spiritual Masterpiece">
     <meta property="og:description" content="Temukan rahasia kekuatan kuno dan koleksi masterpiece spiritual: Grimoire 1818, Qosam Amary, dan Buhur Alqosam.">
     <meta property="og:image" content="https://cdn.jsdelivr.net/gh/ristkykiki56-svg/Asset-web@main/FB_IMG_1765334930535.jpg">
     <meta property="og:url" content="https://ristkykiki56-svg.github.io/Grimoire/">
     <meta property="og:type" content="website">
 
-    <!-- Twitter Meta -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Didik Hendranata - Spiritual Masterpiece">
     <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/ristkykiki56-svg/Asset-web@main/FB_IMG_1765334930535.jpg">
 
-    <!-- === FAVICON === -->
     <link rel="icon" type="image/jpeg" href="https://cdn.jsdelivr.net/gh/ristkykiki56-svg/Asset-web@main/FB_IMG_1765334930535.jpg">
     <link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/ristkykiki56-svg/Asset-web@main/FB_IMG_1765334930535.jpg">
 
-    <!-- Framework & CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <link rel="stylesheet" href="./style.css">
 </head>
 
 <body class="antialiased bg-black text-gray-300" style="background-color: #000000;">
 
-    <!-- 1. PRELOADER -->
     <div id="preloader" class="fixed inset-0 bg-black z-[99999] flex items-center justify-center transition-opacity duration-700">
         <div class="text-center">
             <h1 class="text-gold text-2xl md:text-4xl font-bold tracking-[0.5em] animate-pulse nav-font">1818</h1>
@@ -45,23 +43,16 @@
         </div>
     </div>
 
-    <!-- 2. BACKGROUND VIDEO (Z-Index 0) -->
-    <div class="video-container">
-        <video autoplay loop muted playsinline class="bg-video">
-            <source src="https://cdn.jsdelivr.net/gh/ristkykiki56-svg/Asset-web@main/Dark%20Cinematic%20Background%20without%20Fire%20Sparks.mp4" type="video/mp4">
-            Browser Anda tidak mendukung video tag.
-        </video>
-        <div class="video-overlay"></div>
+    <div class="bg-fixed-container">
+        <img src="https://raw.githubusercontent.com/ristkykiki56-svg/Asset-web/main/Gemini_Generated_Image_pygf2pygf2pygf2p.png" alt="Background Mistis" class="bg-fixed-image" fetchpriority="high">
+        <div class="bg-overlay"></div>
     </div>
 
-    <!-- 3. NAVBAR (Z-Index 50) -->
     <nav class="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10 shadow-2xl transition-all duration-300">
         <div class="max-w-7xl w-full mx-auto px-6 sm:px-12 py-4 flex justify-between items-center">
             
-            <!-- LOGO -->
             <a href="index.html" class="nav-font text-sm md:text-xl tracking-widest text-gold font-bold">DIDIK HENDRANATA</a>
             
-            <!-- MENU DESKTOP -->
             <div class="hidden md:flex space-x-6 text-[10px] md:text-xs tracking-[0.2em]">
                 <a href="#about" class="nav-font text-gray-400 hover:text-yellow-500 transition">TENTANG</a>
                 <a href="#collection" class="nav-font text-gray-400 hover:text-yellow-500 transition">KOLEKSI</a>
@@ -69,7 +60,6 @@
                 <a href="testimoni.html" class="nav-font text-gray-400 hover:text-yellow-500 transition">TESTIMONI</a>
             </div>
 
-            <!-- AREA KANAN (WA + HAMBURGER) -->
             <div class="flex items-center gap-3">
                 <a href="https://wa.me/6282210024076" class="nav-font border border-yellow-600 text-yellow-500 px-3 py-2 text-[10px] md:text-xs tracking-widest hover:bg-yellow-600 hover:text-black transition duration-300">WHATSAPP</a>
                 <button id="mobile-menu-btn" class="md:hidden text-yellow-500 border border-yellow-600 px-3 py-2 hover:bg-yellow-600 hover:text-black transition z-50">
@@ -78,7 +68,6 @@
             </div>
         </div>
 
-        <!-- MENU MOBILE -->
         <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-b border-white/10 absolute w-full left-0 top-full shadow-2xl z-40 transition-all duration-300">
             <div class="flex flex-col p-6 space-y-4 text-center tracking-widest text-sm nav-font">
                 <a href="index.html#about" class="mobile-link text-gray-300 hover:text-gold border-b border-white/5 pb-2 block">TENTANG</a>
@@ -89,9 +78,8 @@
         </div>
     </nav>
 
-    <!-- 4. HERO SECTION (Wajib Z-10 agar di atas video) -->
     <section class="relative z-10 flex flex-col justify-start items-center text-center px-4 pt-32 md:pt-48 pb-32 md:pb-48 rounded-b-[3rem] border-b border-white/5 bg-gradient-to-b from-transparent to-black/80">
-        <div class="max-w-5xl z-10">
+        <div class="max-w-5xl z-10" data-aos="fade-up" data-aos-duration="1200">
             <div class="inline-block border-t border-b border-yellow-800 py-1 px-4 mb-4 backdrop-blur-sm bg-black/20">
                 <p class="text-yellow-600 tracking-[0.2em] text-xs md:text-sm uppercase font-semibold">Spiritual & Occult Masterpiece</p>
             </div>
@@ -102,20 +90,21 @@
                 "Menggali kembali kebijaksanaan leluhur dan rahasia semesta melalui media sarana berkualitas tinggi."
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4 w-full sm:w-auto px-6 sm:px-0">
-                <a href="#collection" class="btn-gold px-8 py-3 font-bold tracking-wider rounded-sm text-sm md:text-base inline-block">LIHAT KOLEKSI</a>
+                <a href="#collection" class="btn-gold px-8 py-3 font-bold tracking-wider rounded-sm text-sm md:text-base inline-block shadow-lg">LIHAT KOLEKSI</a>
                 <a href="https://www.facebook.com/share/1AHFUWZ6hg/" class="border border-gray-700 text-gray-400 bg-black/50 px-8 py-3 tracking-wider hover:border-yellow-500 hover:text-yellow-500 transition rounded-sm text-sm md:text-base inline-block">PROFILE FB</a>
             </div>
         </div>
     </section>
 
-    <!-- 5. ABOUT ME (Z-20) -->
     <section id="about" class="px-4 relative z-20 -mt-20 md:-mt-24">
         <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-16 bg-black/90 backdrop-blur-sm p-6 md:p-12 rounded-2xl border border-yellow-600/20 shadow-[0_0_40px_rgba(0,0,0,0.8)]">
-            <div class="w-full md:w-1/2 relative">
+            
+            <div class="w-full md:w-1/2 relative" data-aos="fade-right">
                 <div class="absolute inset-0 bg-yellow-600 blur-[50px] opacity-10 rounded-full"></div>
-                <img src="https://cdn.jsdelivr.net/gh/ristkykiki56-svg/Asset-web@main/FB_IMG_1765167427025.jpg" alt="Didik Hendranata" class="pro-image transition duration-700 relative z-10 h-64 md:h-80 w-full object-cover rounded-xl border border-white/10">
+                <img src="https://cdn.jsdelivr.net/gh/ristkykiki56-svg/Asset-web@main/FB_IMG_1765167427025.jpg" alt="Didik Hendranata" class="pro-image transition duration-700 relative z-10 h-64 md:h-80 w-full object-cover rounded-xl border border-white/10" loading="lazy">
             </div>
-            <div class="w-full md:w-1/2 text-center md:text-left">
+
+            <div class="w-full md:w-1/2 text-center md:text-left" data-aos="fade-left">
                 <h2 class="text-yellow-600 text-xs tracking-[0.3em] font-bold mb-3">TENTANG SAYA</h2>
                 <h3 class="text-3xl md:text-4xl text-white font-bold mb-4 nav-font">DIDIK HENDRANATA</h3>
                 <div class="w-16 h-0.5 bg-yellow-600 mx-auto md:mx-0 mb-6"></div>
@@ -130,23 +119,21 @@
         </div>
     </section>
 
-    <!-- 6. KOLEKSI (Z-20) -->
     <section id="collection" class="pt-16 pb-20 px-4 bg-black/80 mt-20 backdrop-blur-sm relative z-20">
         <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-12">
+            <div class="text-center mb-12" data-aos="fade-up">
                 <h2 class="nav-font text-2xl md:text-4xl text-white mb-3">KOLEKSI MASTERPIECE</h2>
                 <div class="w-16 md:w-24 h-0.5 bg-yellow-600 mx-auto"></div>
             </div>
 
-            <!-- Produk 1 -->
             <div id="grimoire" class="flex flex-col md:flex-row items-center gap-8 md:gap-12 mb-16 border-b border-white/5 pb-10 last:border-0 last:mb-0">
-                <div class="w-full md:w-1/2 relative group px-2 md:px-0">
+                <div class="w-full md:w-1/2 relative group px-2 md:px-0" data-aos="fade-right">
                     <div class="absolute inset-0 bg-yellow-600 blur-[60px] opacity-10 group-hover:opacity-20 transition duration-500 rounded-full"></div>
                     <div class="relative overflow-hidden shadow-2xl border border-white/10 rounded-2xl">
-                        <img src="https://cdn.jsdelivr.net/gh/ristkykiki56-svg/Asset-web@main/IMG-20240330-WA0002.jpg" alt="Grimoire 1818" class="pro-image relative z-10">
+                        <img src="https://cdn.jsdelivr.net/gh/ristkykiki56-svg/Asset-web@main/IMG-20240330-WA0002.jpg" alt="Grimoire 1818" class="pro-image animate-float relative z-10" loading="lazy">
                     </div>
                 </div>
-                <div class="w-full md:w-1/2 text-center md:text-left px-2">
+                <div class="w-full md:w-1/2 text-center md:text-left px-2" data-aos="fade-left">
                     <span class="text-yellow-600 text-[10px] md:text-xs tracking-[0.3em] mb-2 block font-bold">THE BOOK OF SHADOWS</span>
                     <h3 class="text-xl md:text-3xl text-white mb-3 md:mb-4">GRIMOIRE 1818</h3>
                     <p class="text-gray-400 mb-4 text-sm leading-relaxed">
@@ -158,15 +145,14 @@
                 </div>
             </div>
 
-            <!-- Produk 2 -->
             <div id="qosam" class="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12 mb-16 border-b border-white/5 pb-10 last:border-0 last:mb-0">
-                <div class="w-full md:w-1/2 relative group px-2 md:px-0">
+                <div class="w-full md:w-1/2 relative group px-2 md:px-0" data-aos="fade-left">
                     <div class="absolute inset-0 bg-red-900 blur-[60px] opacity-10 group-hover:opacity-20 transition duration-500 rounded-full"></div>
                     <div class="relative overflow-hidden shadow-2xl border border-white/10 rounded-2xl">
-                        <img src="https://cdn.jsdelivr.net/gh/ristkykiki56-svg/Asset-web@main/IMG-20231223-WA0015(1).jpg" alt="Qosam Amary" class="pro-image relative z-10">
+                        <img src="https://cdn.jsdelivr.net/gh/ristkykiki56-svg/Asset-web@main/IMG-20231223-WA0015(1).jpg" alt="Qosam Amary" class="pro-image animate-float relative z-10" loading="lazy">
                     </div>
                 </div>
-                <div class="w-full md:w-1/2 text-center md:text-right px-2">
+                <div class="w-full md:w-1/2 text-center md:text-right px-2" data-aos="fade-right">
                     <span class="text-red-500 text-[10px] md:text-xs tracking-[0.3em] mb-2 block font-bold">THE SACRED OATH</span>
                     <h3 class="text-xl md:text-3xl text-white mb-3 md:mb-4">QOSAM AMARY</h3>
                     <p class="text-gray-400 mb-4 text-sm leading-relaxed">
@@ -178,15 +164,14 @@
                 </div>
             </div>
 
-            <!-- Produk 3 -->
             <div id="buhur" class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-                <div class="w-full md:w-1/2 relative group px-2 md:px-0">
+                <div class="w-full md:w-1/2 relative group px-2 md:px-0" data-aos="fade-right">
                     <div class="absolute inset-0 bg-purple-900 blur-[60px] opacity-10 group-hover:opacity-20 transition duration-500 rounded-full"></div>
                     <div class="relative overflow-hidden shadow-2xl border border-white/10 rounded-2xl">
-                        <img src="https://cdn.jsdelivr.net/gh/ristkykiki56-svg/Asset-web@main/IMG-20231223-WA0014.jpg" alt="Buhur Alqosam" class="pro-image relative z-10">
+                        <img src="https://cdn.jsdelivr.net/gh/ristkykiki56-svg/Asset-web@main/IMG-20231223-WA0014.jpg" alt="Buhur Alqosam" class="pro-image animate-float relative z-10" loading="lazy">
                     </div>
                 </div>
-                <div class="w-full md:w-1/2 text-center md:text-left px-2">
+                <div class="w-full md:w-1/2 text-center md:text-left px-2" data-aos="fade-left">
                     <span class="text-purple-500 text-[10px] md:text-xs tracking-[0.3em] mb-2 block font-bold">RITUAL INCENSE</span>
                     <h3 class="text-xl md:text-3xl text-white mb-3 md:mb-4">BUHUR ALQOSAM</h3>
                     <p class="text-gray-400 mb-4 text-sm leading-relaxed">
@@ -200,7 +185,6 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer class="bg-black py-8 border-t border-white/10 text-center px-4 relative z-20">
         <h4 class="text-gold text-base md:text-lg mb-4 font-bold tracking-widest nav-font">DIDIK HENDRANATA</h4>
         <div class="flex justify-center space-x-8 mb-6">
@@ -208,22 +192,21 @@
             <a href="https://www.instagram.com/didikhendranata?igsh=MTY5dzg0bzYwMmVuag==" class="text-gray-600 hover:text-white transition"><i class="fab fa-instagram text-xl"></i></a>
             <a href="#" class="text-gray-600 hover:text-white transition"><i class="fab fa-tiktok text-xl"></i></a>
         </div>
-        <p class="text-gray-700 text-[10px] md:text-xs tracking-wider">&copy; 2024. ALL RIGHTS RESERVED.</p>
+        <p class="text-gray-700 text-[10px] md:text-xs tracking-wider">
+            &copy; 2024. ALL RIGHTS RESERVED. <br>
+            <span class="text-gray-800 text-[9px] mt-1 block"><i class="fas fa-lock"></i> ORIGINAL MASTERPIECE GUARANTEED</span>
+        </p>
     </footer>
 
-    <!-- Floating WA -->
-    <a href="https://wa.me/6282210024076" class="fixed bottom-6 right-6 md:hidden z-50 bg-green-600 text-white p-4 rounded-full shadow-lg">
+    <a href="https://wa.me/6282210024076" class="fixed bottom-6 right-6 md:hidden z-50 bg-green-600 text-white p-4 rounded-full shadow-lg border border-white/20 animate-bounce">
         <i class="fab fa-whatsapp text-3xl"></i>
     </a>
 
-    <!-- === MODALS (POPUPS) === -->
-    
-    <!-- Modal 1 -->
     <div id="modal-grimoire" class="modal">
         <div class="modal-content p-6 md:p-8 flex flex-col md:flex-row gap-6">
             <button class="close-modal absolute top-3 right-3 text-gray-500 hover:text-white"><i class="fas fa-times text-xl"></i></button>
             <div class="w-full md:w-1/2">
-                <img src="https://cdn.jsdelivr.net/gh/ristkykiki56-svg/Asset-web@main/IMG-20240330-WA0002.jpg" class="rounded-lg shadow-lg w-full object-cover h-56 md:h-full">
+                <img src="https://cdn.jsdelivr.net/gh/ristkykiki56-svg/Asset-web@main/IMG-20240330-WA0002.jpg" class="rounded-lg shadow-lg w-full object-cover h-56 md:h-full" loading="lazy">
             </div>
             <div class="w-full md:w-1/2 text-left">
                 <h3 class="text-2xl text-gold font-bold mb-3 nav-font">GRIMOIRE 1818</h3>
@@ -237,18 +220,19 @@
                     </ul>
                 </div>
                 <div class="mt-6 pt-3 border-t border-white/10">
-                    <a href="https://wa.me/6282210024076?text=Halo+Master,+saya+ingin+memesan+Grimoire+1818" class="btn-gold w-full block text-center py-2 font-bold rounded-sm text-sm">PESAN KITAB INI</a>
+                    <a href="https://wa.me/6282210024076?text=Halo+Master,+saya+ingin+memesan+Grimoire+1818" class="btn-wa w-full block text-center py-3 font-bold rounded-sm text-sm tracking-widest">
+                        <i class="fab fa-whatsapp mr-2"></i> PESAN KITAB INI
+                    </a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Modal 2 -->
     <div id="modal-qosam" class="modal">
         <div class="modal-content p-6 md:p-8 flex flex-col md:flex-row gap-6">
             <button class="close-modal absolute top-3 right-3 text-gray-500 hover:text-white"><i class="fas fa-times text-xl"></i></button>
             <div class="w-full md:w-1/2">
-                <img src="https://cdn.jsdelivr.net/gh/ristkykiki56-svg/Asset-web@main/IMG-20231223-WA0015(1).jpg" class="rounded-lg shadow-lg w-full object-cover h-56 md:h-full">
+                <img src="https://cdn.jsdelivr.net/gh/ristkykiki56-svg/Asset-web@main/IMG-20231223-WA0015(1).jpg" class="rounded-lg shadow-lg w-full object-cover h-56 md:h-full" loading="lazy">
             </div>
             <div class="w-full md:w-1/2 text-left">
                 <h3 class="text-2xl text-red-500 font-bold mb-3 nav-font">QOSAM AMARY</h3>
@@ -261,18 +245,19 @@
                     </ul>
                 </div>
                 <div class="mt-6 pt-3 border-t border-white/10">
-                    <a href="https://wa.me/6282210024076?text=Halo+Master,+saya+ingin+konsultasi+mahar+Qosam+Amary" class="bg-red-900 hover:bg-red-800 text-white transition w-full block text-center py-2 font-bold rounded-sm border border-red-700 text-sm">KONSULTASI MAHAR</a>
+                    <a href="https://wa.me/6282210024076?text=Halo+Master,+saya+ingin+konsultasi+mahar+Qosam+Amary" class="btn-wa w-full block text-center py-3 font-bold rounded-sm text-sm tracking-widest">
+                        <i class="fab fa-whatsapp mr-2"></i> KONSULTASI MAHAR
+                    </a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Modal 3 -->
     <div id="modal-buhur" class="modal">
         <div class="modal-content p-6 md:p-8 flex flex-col md:flex-row gap-6">
             <button class="close-modal absolute top-3 right-3 text-gray-500 hover:text-white"><i class="fas fa-times text-xl"></i></button>
             <div class="w-full md:w-1/2">
-                <img src="https://cdn.jsdelivr.net/gh/ristkykiki56-svg/Asset-web@main/IMG-20231223-WA0014.jpg" class="rounded-lg shadow-lg w-full object-cover h-56 md:h-full">
+                <img src="https://cdn.jsdelivr.net/gh/ristkykiki56-svg/Asset-web@main/IMG-20231223-WA0014.jpg" class="rounded-lg shadow-lg w-full object-cover h-56 md:h-full" loading="lazy">
             </div>
             <div class="w-full md:w-1/2 text-left">
                 <h3 class="text-2xl text-purple-500 font-bold mb-3 nav-font">BUHUR ALQOSAM</h3>
@@ -285,13 +270,16 @@
                     </ul>
                 </div>
                 <div class="mt-6 pt-3 border-t border-white/10">
-                    <a href="https://wa.me/6282210024076?text=Halo+Master,+saya+ingin+memesan+Buhur+Alqosam" class="bg-purple-900 hover:bg-purple-800 text-white transition w-full block text-center py-2 font-bold rounded-sm border border-purple-700 text-sm">PESAN SEKARANG</a>
+                    <a href="https://wa.me/6282210024076?text=Halo+Master,+saya+ingin+memesan+Buhur+Alqosam" class="btn-wa w-full block text-center py-3 font-bold rounded-sm text-sm tracking-widest">
+                        <i class="fab fa-whatsapp mr-2"></i> PESAN SEKARANG
+                    </a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- PANGGIL JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
     <script src="./script.js"></script>
 
 </body>
