@@ -338,5 +338,31 @@
 <!-- Script Utama -->
 <script src="./script.js"></script>
 
+<!-- SCRIPT ANTI-GAGAL HAMBURGER MENU -->
+<script>
+    function toggleMenu() {
+        // 1. Ambil elemen menu dan ikon
+        const menu = document.getElementById('mobile-menu');
+        const icon = document.getElementById('menu-icon');
+
+        // 2. Cek apakah menu sedang sembunyi (hidden)
+        if (menu.classList.contains('hidden')) {
+            // JIKA TERTUTUP -> BUKA
+            menu.classList.remove('hidden');
+            // Ganti ikon jadi X
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+        } else {
+            // JIKA TERBUKA -> TUTUP
+            menu.classList.add('hidden');
+            // Ganti ikon jadi Garis 3
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    }
+</script>
+
+<!-- Script file eksternal tetap biarkan ada di bawahnya -->
+<script src="./script.js"></script>
 </body>
 </html>
