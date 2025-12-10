@@ -1,19 +1,3 @@
-// ==========================================
-// 0. FORCE SCROLL TO TOP (RESET POSISI)
-// ==========================================
-// Ini mematikan fitur "ingat posisi" browser HP
-if (history.scrollRestoration) {
-    history.scrollRestoration = 'manual';
-}
-
-// Paksa layar ke koordinat 0,0 (Pojok Kiri Atas) saat loading
-window.onbeforeunload = function () {
-    window.scrollTo(0, 0);
-}
-window.scrollTo(0, 0);
-
-// --- BATAS KODE BARU ---
-
 document.addEventListener('DOMContentLoaded', () => {
     // ... (kode lama Anda di bawah sini)
 
