@@ -285,5 +285,33 @@
     <!-- PANGGIL JS -->
     <script src="./script.js"></script>
 
+<!-- ... (Kode footer dan lainnya di atas) ... -->
+
+<!-- SCRIPT PENGHILANG PRELOADER (SAFETY MODE) -->
+<script>
+    // Fungsi untuk menghilangkan preloader
+    function removePreloader() {
+        const preloader = document.getElementById('preloader');
+        if (preloader) {
+            preloader.style.opacity = '0'; // Buat transparan pelan-pelan
+            setTimeout(() => {
+                preloader.style.display = 'none'; // Hilangkan total setelah transisi
+            }, 700); // Waktu transisi (sesuai css duration-700)
+        }
+    }
+
+    // CARA 1: Hilang jika website sudah selesai loading 100%
+    window.addEventListener('load', removePreloader);
+
+    // CARA 2 (BACKUP): Paksa hilang setelah 3 detik (Jaga-jaga jika loading video macet)
+    setTimeout(removePreloader, 3000); 
+</script>
+
+<!-- Script Utama -->
+<script src="./script.js"></script>
+
+</body>
+</html>
+
 </body>
 </html>
