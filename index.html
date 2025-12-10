@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Didik Hendranata - Spiritual Masterpiece
-       <link rel="canonical"     href="https://ristkykiki56-svg.github.io/Grimoire/">
-    </title>
+    
+    <title>Didik Hendranata - Spiritual Masterpiece</title>
+    <link rel="canonical" href="https://ristkykiki56-svg.github.io/Grimoire/">
 
-        <style>
+    <style>
         html, body { 
             background-color: #000000 !important; 
             background: #000000 !important;
-            overflow-x: hidden !important; /* INI KUNCINYA */
+            overflow-x: hidden !important;
             width: 100% !important;
+            max-width: 100% !important;
         }
     </style>
-
 
     <meta property="og:title" content="Didik Hendranata - Spiritual Masterpiece">
     <meta property="og:description" content="Temukan rahasia kekuatan kuno dan koleksi masterpiece spiritual: Grimoire 1818, Qosam Amary, dan Buhur Alqosam.">
@@ -38,7 +38,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
     <link rel="stylesheet" href="./style.css">
 </head>
 
@@ -58,16 +57,13 @@
 
     <nav class="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10 shadow-2xl transition-all duration-300">
         <div class="max-w-7xl w-full mx-auto px-6 sm:px-12 py-4 flex justify-between items-center">
-            
             <a href="index.html" class="nav-font text-sm md:text-xl tracking-widest text-gold font-bold">DIDIK HENDRANATA</a>
-            
             <div class="hidden md:flex space-x-6 text-[10px] md:text-xs tracking-[0.2em]">
                 <a href="#about" class="nav-font text-gray-400 hover:text-yellow-500 transition">TENTANG</a>
                 <a href="#collection" class="nav-font text-gray-400 hover:text-yellow-500 transition">KOLEKSI</a>
                 <a href="reseller.html" class="nav-font text-gray-400 hover:text-yellow-500 transition">RESELLER</a>
                 <a href="testimoni.html" class="nav-font text-gray-400 hover:text-yellow-500 transition">TESTIMONI</a>
             </div>
-
             <div class="flex items-center gap-3">
                 <a href="https://wa.me/6282210024076" class="nav-font border border-yellow-600 text-yellow-500 px-3 py-2 text-[10px] md:text-xs tracking-widest hover:bg-yellow-600 hover:text-black transition duration-300">WHATSAPP</a>
                 <button id="mobile-menu-btn" class="md:hidden text-yellow-500 border border-yellow-600 px-3 py-2 hover:bg-yellow-600 hover:text-black transition z-50">
@@ -75,7 +71,6 @@
                 </button>
             </div>
         </div>
-
         <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-b border-white/10 absolute w-full left-0 top-full shadow-2xl z-40 transition-all duration-300">
             <div class="flex flex-col p-6 space-y-4 text-center tracking-widest text-sm nav-font">
                 <a href="index.html#about" class="mobile-link text-gray-300 hover:text-gold border-b border-white/5 pb-2 block">TENTANG</a>
@@ -106,12 +101,10 @@
 
     <section id="about" class="px-4 relative z-20 -mt-20 md:-mt-24">
         <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-16 bg-black/90 backdrop-blur-sm p-6 md:p-12 rounded-2xl border border-yellow-600/20 shadow-[0_0_40px_rgba(0,0,0,0.8)]">
-            
             <div class="w-full md:w-1/2 relative" data-aos="fade-right">
                 <div class="absolute inset-0 bg-yellow-600 blur-[50px] opacity-10 rounded-full"></div>
                 <img src="https://cdn.jsdelivr.net/gh/ristkykiki56-svg/Asset-web@main/FB_IMG_1765167427025.jpg" alt="Didik Hendranata" class="pro-image transition duration-700 relative z-10 h-64 md:h-80 w-full object-cover rounded-xl border border-white/10" loading="lazy">
             </div>
-
             <div class="w-full md:w-1/2 text-center md:text-left" data-aos="fade-left">
                 <h2 class="text-yellow-600 text-xs tracking-[0.3em] font-bold mb-3">TENTANG SAYA</h2>
                 <h3 class="text-3xl md:text-4xl text-white font-bold mb-4 nav-font">DIDIK HENDRANATA</h3>
@@ -287,8 +280,16 @@
     </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
     <script src="./script.js"></script>
+
+    <script>
+        // Paksa Hapus Tanda Pagar (#) di URL Jika Ada
+        // Ini menjamin setiap kali orang buka link, HASH dihapus dan scroll dikunci ke atas
+        if (window.location.hash) {
+            history.replaceState(null, null, ' '); // Hapus #about dari address bar
+            window.scrollTo(0, 0); // Paksa Scroll ke Paling Atas
+        }
+    </script>
 
 </body>
 </html>
