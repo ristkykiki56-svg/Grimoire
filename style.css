@@ -10,7 +10,7 @@ body {
 
 h1, h2, h3, h4, .nav-font { font-family: 'Cinzel', serif; }
 
-/* === VIDEO BACKGROUND (Full Screen + Optimized) === */
+/* === VIDEO BACKGROUND (FIXED - Z-INDEX 0) === */
 .video-container {
     position: fixed;
     top: 0;
@@ -18,9 +18,11 @@ h1, h2, h3, h4, .nav-font { font-family: 'Cinzel', serif; }
     width: 100%;
     height: 100%;
     overflow: hidden;
-    z-index: -9999;
-    /* PENTING: Mencegah video "makan" area klik mouse */
-    pointer-events: none; 
+    
+    /* PERBAIKAN: Ubah jadi 0 agar di depan background hitam, tapi di belakang konten */
+    z-index: 0; 
+    
+    pointer-events: none; /* Video tidak menghalangi klik */
 }
 
 .bg-video {
@@ -28,13 +30,9 @@ h1, h2, h3, h4, .nav-font { font-family: 'Cinzel', serif; }
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    
-    /* Agar video full cover di resolusi berapapun */
     width: 100vw; 
     height: 100vh;
     object-fit: cover;
-    
-    /* OPTIMASI: Memberitahu browser untuk pakai GPU */
     will-change: transform; 
 }
 
@@ -44,7 +42,7 @@ h1, h2, h3, h4, .nav-font { font-family: 'Cinzel', serif; }
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6); /* Gelap 60% */
+    background: rgba(0, 0, 0, 0.6); /* Overlay Gelap */
     z-index: 1;
 }
 
@@ -98,35 +96,10 @@ h1, h2, h3, h4, .nav-font { font-family: 'Cinzel', serif; }
 }
 @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
-/* ========================================= */
-/* === FITUR ANTI-LAG / PERFORMANCE MODE === */
-/* ========================================= */
-
-/* Matikan Glow & Blur di HP (Layar < 768px) agar Scroll Ringan */
+/* === FITUR ANTI-LAG === */
 @media (max-width: 768px) {
-    
-    /* 1. Matikan Cahaya Belakang Produk (Glow) */
-    .group .absolute.inset-0 {
-        display: none !important;
-    }
-
-    /* 2. Matikan Blur di Navbar (Ganti warna solid transparan) */
-    nav.backdrop-blur-md {
-        backdrop-filter: none !important;
-        -webkit-backdrop-filter: none !important;
-        background-color: rgba(0, 0, 0, 0.9) !important; 
-    }
-    
-    /* 3. Matikan Blur di Section About & Collection */
-    .backdrop-blur-sm {
-        backdrop-filter: none !important;
-        -webkit-backdrop-filter: none !important;
-        background-color: rgba(0, 0, 0, 0.85) !important;
-    }
-
-    /* 4. Optimasi Video di HP */
-    .bg-video {
-        /* Sedikit zoom di HP agar rendering lebih gampang */
-        transform: translate(-50%, -50%) scale(1.0); 
-    }
+    .group .absolute.inset-0 { display: none !important; }
+    nav.backdrop-blur-md { backdrop-filter: none !important; background-color: rgba(0, 0, 0, 0.9) !important; }
+    .backdrop-blur-sm { backdrop-filter: none !important; background-color: rgba(0, 0, 0, 0.85) !important; }
+    .bg-video { transform: translate(-50%, -50%) scale(1.0); }
 }
