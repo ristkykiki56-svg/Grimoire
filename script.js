@@ -1,19 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // === 1. LOGIC HAMBURGER MENU ===
+    // ==========================================
+    // 1. LOGIC HAMBURGER MENU (MOBILE)
+    // ==========================================
     const mobileBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
-    const icon = mobileBtn ? mobileBtn.querySelector('i') : null; // Cek dulu apakah tombol ada
-    const mobileLinks = document.querySelectorAll('.mobile-link');
-
-    // Hanya jalankan jika tombol dan menu ditemukan di halaman tersebut
+    
+    // Cek apakah elemen ada di halaman ini (Mencegah error di console)
     if (mobileBtn && mobileMenu) {
         
+        // Event saat tombol diklik
         mobileBtn.addEventListener('click', (e) => {
-            e.stopPropagation(); // Mencegah klik tembus ke elemen lain
+            e.preventDefault(); // Mencegah tombol loncat/refresh
+            e.stopPropagation(); // Mencegah klik tembus
+
+            // Toggle Class Hidden (Buka/Tutup)
             mobileMenu.classList.toggle('hidden');
             
-            // Ubah Ikon (Bars <-> Times) dengan aman
+            // Ubah Ikon
+            const icon = mobileBtn.querySelector('i');
             if (icon) {
                 if (mobileMenu.classList.contains('hidden')) {
                     icon.classList.remove('fa-times');
@@ -25,10 +30,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Tutup menu saat link diklik
+        // Event saat Link di dalam menu diklik (Tutup menu otomatis)
+        const mobileLinks = document.querySelectorAll('.mobile-link');
         mobileLinks.forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
+                // Reset ikon jadi garis 3
+                const icon = mobileBtn.querySelector('i');
                 if (icon) {
                     icon.classList.remove('fa-times');
                     icon.classList.add('fa-bars');
@@ -36,44 +44,54 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Tutup menu jika klik di LUAR menu (Area kosong)
+        // Event Klik di Luar Menu (Tutup otomatis)
         document.addEventListener('click', (e) => {
+            // Jika yang diklik BUKAN tombol DAN BUKAN menu
             if (!mobileBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
-                mobileMenu.classList.add('hidden');
-                if (icon) {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    const icon = mobileBtn.querySelector('i');
+                    if (icon) {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
                 }
             }
         });
     }
 
-    // === 2. LOGIC MODAL POPUP (PRODUK) ===
+    // ==========================================
+    // 2. LOGIC MODAL POPUP (PRODUK)
+    // ==========================================
     const triggers = document.querySelectorAll('.trigger-modal');
     const closers = document.querySelectorAll('.close-modal');
     const modals = document.querySelectorAll('.modal');
   
+    // Buka Modal
     triggers.forEach(btn => {
         btn.addEventListener('click', (e) => {
+            e.preventDefault(); // Mencegah scroll ke atas
             const targetId = btn.getAttribute('data-target');
             const targetModal = document.getElementById(targetId);
             if (targetModal) {
                 targetModal.classList.add('active');
-                document.body.style.overflow = 'hidden'; 
+                document.body.style.overflow = 'hidden'; // Kunci scroll belakang
             }
         });
     });
   
+    // Tutup Modal (Tombol X)
     closers.forEach(btn => {
         btn.addEventListener('click', () => {
             const modal = btn.closest('.modal');
             if (modal) {
                 modal.classList.remove('active');
-                document.body.style.overflow = 'auto'; 
+                document.body.style.overflow = 'auto'; // Buka scroll
             }
         });
     });
   
+    // Tutup Modal (Klik Background Gelap)
     modals.forEach(modal => {
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
@@ -82,4 +100,24 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // ==========================================
+    // 3. LOGIC PRELOADER (SAFETY REMOVAL)
+    // ==========================================
+    // Cek jika preloader masih nyangkut, hapus paksa
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        // Hapus jika window sudah load
+        window.addEventListener('load', () => {
+            preloader.style.opacity = '0';
+            setTimeout(() => { preloader.style.display = 'none'; }, 700);
+        });
+        
+        // Hapus paksa setelah 3 detik (Backup)
+        setTimeout(() => {
+            preloader.style.opacity = '0';
+            setTimeout(() => { preloader.style.display = 'none'; }, 700);
+        }, 3000);
+    }
+
 });
