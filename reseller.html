@@ -5,22 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daftar Reseller Resmi</title>
     
-    <!-- CSS DARURAT (Anti-Flash Putih) -->
     <style>
         html, body { background-color: #000000 !important; }
     </style>
 
-    <!-- FAVICON -->
     <link rel="icon" type="image/jpeg" href="https://cdn.jsdelivr.net/gh/ristkykiki56-svg/Asset-web@main/FB_IMG_1765334930535.jpg">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <link rel="stylesheet" href="./style.css">
 </head>
 
 <body class="antialiased bg-black text-gray-300" style="background-color: #000000;">
 
-    <!-- 1. PRELOADER -->
     <div id="preloader" class="fixed inset-0 bg-black z-[99999] flex items-center justify-center transition-opacity duration-700">
         <div class="text-center">
             <h1 class="text-gold text-2xl md:text-4xl font-bold tracking-[0.5em] animate-pulse nav-font">1818</h1>
@@ -28,32 +32,23 @@
         </div>
     </div>
 
-    <!-- 2. BACKGROUND VIDEO -->
-    <div class="video-container">
-        <video autoplay loop muted playsinline class="bg-video">
-            <source src="https://cdn.jsdelivr.net/gh/ristkykiki56-svg/Asset-web@main/Dark%20Cinematic%20Background%20without%20Fire%20Sparks.mp4" type="video/mp4">
-        </video>
-        <div class="video-overlay"></div>
+    <div class="bg-fixed-container">
+        <img src="https://raw.githubusercontent.com/ristkykiki56-svg/Asset-web/main/Gemini_Generated_Image_pygf2pygf2pygf2p.png" alt="Background Mistis" class="bg-fixed-image" fetchpriority="high">
+        <div class="bg-overlay"></div>
     </div>
 
-    <!-- 3. NAVBAR -->
     <nav class="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10 shadow-2xl transition-all duration-300">
-        <!-- Update lebar ke max-w-7xl agar konsisten dengan Index -->
         <div class="max-w-7xl w-full mx-auto px-6 sm:px-12 py-4 flex justify-between items-center">
             
-            <!-- LOGO -->
             <a href="index.html" class="nav-font text-sm md:text-xl tracking-widest text-gold font-bold">DIDIK HENDRANATA</a>
             
-            <!-- MENU DESKTOP -->
             <div class="hidden md:flex space-x-6 text-[10px] md:text-xs tracking-[0.2em]">
                 <a href="index.html#about" class="nav-font text-gray-400 hover:text-yellow-500 transition">TENTANG</a>
                 <a href="index.html#collection" class="nav-font text-gray-400 hover:text-yellow-500 transition">KOLEKSI</a>
-                <!-- Link Aktif -->
                 <a href="reseller.html" class="nav-font text-yellow-500 font-bold transition">RESELLER</a>
                 <a href="testimoni.html" class="nav-font text-gray-400 hover:text-yellow-500 transition">TESTIMONI</a>
             </div>
             
-            <!-- AREA KANAN -->
             <div class="flex items-center gap-3">
                 <a href="https://wa.me/6282210024076" class="nav-font border border-yellow-600 text-yellow-500 px-3 py-2 text-[10px] md:text-xs tracking-widest hover:bg-yellow-600 hover:text-black transition duration-300">
                     WHATSAPP
@@ -64,7 +59,6 @@
             </div>
         </div>
         
-        <!-- MENU MOBILE -->
         <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-b border-white/10 absolute w-full left-0 top-full shadow-2xl z-40 transition-all duration-300">
             <div class="flex flex-col p-6 space-y-4 text-center tracking-widest text-sm nav-font">
                 <a href="index.html#about" class="mobile-link text-gray-300 hover:text-gold border-b border-white/5 pb-2 block">TENTANG</a>
@@ -75,71 +69,71 @@
         </div>
     </nav>
 
-    <!-- 4. KONTEN KHUSUS RESELLER -->
-    <!-- PENTING: Ditambahkan 'relative z-10' agar konten berada DI ATAS video -->
     <main class="relative z-10 pt-32 pb-20 px-6 min-h-screen">
         <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-12">
+            <div class="text-center mb-12" data-aos="fade-down">
                 <h2 class="nav-font text-2xl md:text-4xl text-white mb-3">RESELLER RESMI</h2>
                 <div class="w-16 md:w-24 h-0.5 bg-yellow-600 mx-auto mb-4"></div>
                 <p class="text-gray-400 text-sm">Pastikan Anda memesan produk asli melalui reseller terdaftar di bawah ini.</p>
             </div>
 
-            <!-- Grid Daftar Reseller -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 
-                <!-- Reseller 1 -->
-                <div class="bg-black/80 backdrop-blur-md border border-white/10 p-6 rounded-xl hover:border-yellow-600 transition duration-300 group">
+                <div class="bg-black/80 backdrop-blur-md border border-white/10 p-6 rounded-xl hover:border-yellow-600 transition duration-300 group shadow-lg" data-aos="fade-up" data-aos-delay="0">
                     <div class="flex items-center gap-4 mb-4">
-                        <div class="w-12 h-12 bg-yellow-900/30 rounded-full flex items-center justify-center text-gold">
-                            <i class="fas fa-user-shield text-xl"></i>
+                        <div class="w-12 h-12 bg-yellow-900/30 rounded-full flex items-center justify-center text-gold border border-yellow-600/30">
+                            <i class="fas fa-user-shield text-xl animate-float"></i>
                         </div>
                         <div>
                             <h3 class="text-white font-bold nav-font">BAPAK BUDI</h3>
                             <p class="text-xs text-yellow-500 tracking-wider">JAKARTA SELATAN</p>
                         </div>
                     </div>
-                    <a href="https://wa.me/628123456789" class="block w-full text-center py-2 border border-white/20 text-gray-400 text-xs hover:bg-yellow-600 hover:text-black hover:border-yellow-600 transition rounded">HUBUNGI WHATSAPP</a>
+                    <a href="https://wa.me/628123456789" class="btn-wa block w-full text-center py-2 rounded text-xs font-bold tracking-wide">
+                        <i class="fab fa-whatsapp mr-2"></i> HUBUNGI WHATSAPP
+                    </a>
                 </div>
 
-                <!-- Reseller 2 -->
-                <div class="bg-black/80 backdrop-blur-md border border-white/10 p-6 rounded-xl hover:border-yellow-600 transition duration-300 group">
+                <div class="bg-black/80 backdrop-blur-md border border-white/10 p-6 rounded-xl hover:border-yellow-600 transition duration-300 group shadow-lg" data-aos="fade-up" data-aos-delay="150">
                     <div class="flex items-center gap-4 mb-4">
-                        <div class="w-12 h-12 bg-yellow-900/30 rounded-full flex items-center justify-center text-gold">
-                            <i class="fas fa-user-shield text-xl"></i>
+                        <div class="w-12 h-12 bg-yellow-900/30 rounded-full flex items-center justify-center text-gold border border-yellow-600/30">
+                            <i class="fas fa-user-shield text-xl animate-float"></i>
                         </div>
                         <div>
                             <h3 class="text-white font-bold nav-font">IBU SITI</h3>
                             <p class="text-xs text-yellow-500 tracking-wider">SURABAYA</p>
                         </div>
                     </div>
-                    <a href="#" class="block w-full text-center py-2 border border-white/20 text-gray-400 text-xs hover:bg-yellow-600 hover:text-black hover:border-yellow-600 transition rounded">HUBUNGI WHATSAPP</a>
+                    <a href="#" class="btn-wa block w-full text-center py-2 rounded text-xs font-bold tracking-wide">
+                        <i class="fab fa-whatsapp mr-2"></i> HUBUNGI WHATSAPP
+                    </a>
                 </div>
 
-                <!-- Reseller 3 -->
-                <div class="bg-black/80 backdrop-blur-md border border-white/10 p-6 rounded-xl hover:border-yellow-600 transition duration-300 group">
+                <div class="bg-black/80 backdrop-blur-md border border-white/10 p-6 rounded-xl hover:border-yellow-600 transition duration-300 group shadow-lg" data-aos="fade-up" data-aos-delay="300">
                     <div class="flex items-center gap-4 mb-4">
-                        <div class="w-12 h-12 bg-yellow-900/30 rounded-full flex items-center justify-center text-gold">
-                            <i class="fas fa-user-shield text-xl"></i>
+                        <div class="w-12 h-12 bg-yellow-900/30 rounded-full flex items-center justify-center text-gold border border-yellow-600/30">
+                            <i class="fas fa-user-shield text-xl animate-float"></i>
                         </div>
                         <div>
                             <h3 class="text-white font-bold nav-font">MAS EKO</h3>
                             <p class="text-xs text-yellow-500 tracking-wider">BANDUNG</p>
                         </div>
                     </div>
-                    <a href="#" class="block w-full text-center py-2 border border-white/20 text-gray-400 text-xs hover:bg-yellow-600 hover:text-black hover:border-yellow-600 transition rounded">HUBUNGI WHATSAPP</a>
+                    <a href="#" class="btn-wa block w-full text-center py-2 rounded text-xs font-bold tracking-wide">
+                        <i class="fab fa-whatsapp mr-2"></i> HUBUNGI WHATSAPP
+                    </a>
                 </div>
 
             </div>
         </div>
     </main>
 
-    <!-- 5. FOOTER (Relative Z-20 agar di atas video) -->
     <footer class="bg-black py-8 border-t border-white/10 text-center px-4 relative z-20">
         <p class="text-gray-700 text-[10px] md:text-xs tracking-wider">&copy; 2024. ALL RIGHTS RESERVED.</p>
     </footer>
 
-    <!-- JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <script src="./script.js"></script>
 </body>
 </html>
