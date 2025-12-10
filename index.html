@@ -103,6 +103,31 @@
         <a href="reseller.html" onclick="toggleMenu()" class="text-gray-300 hover:text-gold border-b border-white/5 pb-2 block">RESELLER</a>
         <a href="testimoni.html" onclick="toggleMenu()" class="text-gray-300 hover:text-gold block">TESTIMONI</a>
     </div>
+
+<!-- === AREA TOMBOL KANAN === -->
+<div class="flex items-center gap-3">
+    <!-- Tombol WA -->
+    <a href="https://wa.me/6282210024076" class="nav-font border border-yellow-600 text-yellow-500 px-3 py-2 text-[10px] md:text-xs tracking-widest hover:bg-yellow-600 hover:text-black transition duration-300">
+        WHATSAPP
+    </a>
+
+    <!-- TOMBOL HAMBURGER (SUDAH DIBERSIHKAN DARI ONCLICK) -->
+    <!-- Pastikan ID nya: mobile-menu-btn -->
+    <button id="mobile-menu-btn" class="md:hidden text-yellow-500 border border-yellow-600 px-3 py-2 hover:bg-yellow-600 hover:text-black transition z-50">
+        <i class="fas fa-bars text-lg"></i>
+    </button>
+</div>
+
+<!-- === MENU DROPDOWN === -->
+<!-- Pastikan ID nya: mobile-menu -->
+<div id="mobile-menu" class="hidden md:hidden bg-black/95 border-b border-white/10 absolute w-full left-0 top-full shadow-2xl z-40 transition-all duration-300">
+    <div class="flex flex-col p-6 space-y-4 text-center tracking-widest text-sm nav-font">
+        <!-- class mobile-link penting untuk JS -->
+        <a href="index.html#about" class="mobile-link text-gray-300 hover:text-gold border-b border-white/5 pb-2 block">TENTANG</a>
+        <a href="index.html#collection" class="mobile-link text-gray-300 hover:text-gold border-b border-white/5 pb-2 block">KOLEKSI</a>
+        <a href="reseller.html" class="mobile-link text-gray-300 hover:text-gold border-b border-white/5 pb-2 block">RESELLER</a>
+        <a href="testimoni.html" class="mobile-link text-gray-300 hover:text-gold block">TESTIMONI</a>
+    </div>
 </div>
 </nav>
 
@@ -338,31 +363,5 @@
 <!-- Script Utama -->
 <script src="./script.js"></script>
 
-<!-- SCRIPT ANTI-GAGAL HAMBURGER MENU -->
-<script>
-    function toggleMenu() {
-        // 1. Ambil elemen menu dan ikon
-        const menu = document.getElementById('mobile-menu');
-        const icon = document.getElementById('menu-icon');
-
-        // 2. Cek apakah menu sedang sembunyi (hidden)
-        if (menu.classList.contains('hidden')) {
-            // JIKA TERTUTUP -> BUKA
-            menu.classList.remove('hidden');
-            // Ganti ikon jadi X
-            icon.classList.remove('fa-bars');
-            icon.classList.add('fa-times');
-        } else {
-            // JIKA TERBUKA -> TUTUP
-            menu.classList.add('hidden');
-            // Ganti ikon jadi Garis 3
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-        }
-    }
-</script>
-
-<!-- Script file eksternal tetap biarkan ada di bawahnya -->
-<script src="./script.js"></script>
 </body>
 </html>
