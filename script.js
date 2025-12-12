@@ -1,65 +1,27 @@
 // ==========================================
-// 0. RESET POSISI (SCROLL KE ATAS)
+// 0. SYSTEM CONFIG (Jalan Paling Awal)
 // ==========================================
+
+// A. Hapus Tanda Pagar (#) di URL (Anti-Loncat)
+if (window.location.hash) {
+    history.replaceState(null, null, ' '); 
+}
+
+// B. Paksa Scroll ke Paling Atas (Reset Posisi)
 if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
 }
 
+window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+}
+
 // ==========================================
-// KODE UTAMA
+// KODE UTAMA (Setelah HTML Siap)
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
 
-    // ==========================================
-    // 1. LOGIC PRELOADER (ANTI-STUCK / MACET)
-    // ==========================================
-    const preloader = document.getElementById('preloader');
-    
-    // Fungsi Penghilang Preloader
-    const hidePreloader = () => {
-        if (preloader && preloader.style.display !== 'none') {
-            // Pastikan scroll dikunci ke atas saat preloader hilang
-            window.scrollTo(0, 0);
-            
-            preloader.style.transition = 'opacity 0.5s ease';
-            preloader.style.opacity = '0';
-            
-            setTimeout(() => {
-                preloader.style.display = 'none';
-                // Trigger ulang animasi AOS setelah loading selesai
-                if (typeof AOS !== 'undefined') {
-                    AOS.refresh(); 
-                }
-            }, 500); // Waktu dipercepat jadi 0.5 detik agar lebih responsif
-        }
-    };
-
-    // A. Event saat loading normal selesai
-    window.addEventListener('load', hidePreloader);
-
-    // B. Event KHUSUS "Bolak-Balik" (Back/Forward Cache) - INI SOLUSINYA
-    window.addEventListener('pageshow', (event) => {
-        // Jika halaman diambil dari cache (memori HP), paksa hilangkan preloader
-        if (event.persisted) {
-            hidePreloader();
-        }
-        // Tetap jalankan hidePreloader setiap kali halaman tampil
-        hidePreloader(); 
-    });
-
-    // C. Backup jika browser sangat lambat atau event load gagal
-    // Cek jika halaman sebenarnya sudah ready tapi script telat jalan
-    if (document.readyState === "complete" || document.readyState === "interactive") {
-        hidePreloader();
-    }
-    
-    // D. Backup terakhir (Timer)
-    setTimeout(hidePreloader, 3000);
-
-
-    // ==========================================
-    // 2. INISIALISASI AOS (ANIMASI SCROLL)
-    // ==========================================
+    // 1. INISIALISASI AOS (ANIMASI SCROLL)
     if (typeof AOS !== 'undefined') {
         AOS.init({
             duration: 1000, 
@@ -69,9 +31,39 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ==========================================
+    // 2. LOGIC PRELOADER (ANTI-STUCK)
+    const preloader = document.getElementById('preloader');
+    
+    const hidePreloader = () => {
+        if (preloader && preloader.style.display !== 'none') {
+            window.scrollTo(0, 0); // Pastikan posisi di atas
+            
+            preloader.style.transition = 'opacity 0.6s ease';
+            preloader.style.opacity = '0';
+            
+            setTimeout(() => {
+                preloader.style.display = 'none';
+                // Refresh animasi AOS setelah loading kelar
+                if (typeof AOS !== 'undefined') {
+                    AOS.refresh(); 
+                }
+            }, 600);
+        }
+    };
+
+    // Trigger saat loading selesai sempurna
+    window.addEventListener('load', hidePreloader);
+    
+    // Trigger saat tombol Back ditekan (Cache Memory)
+    window.addEventListener('pageshow', (event) => {
+        if (event.persisted) hidePreloader();
+    });
+
+    // Backup timer (jika koneksi lambat sekali)
+    setTimeout(hidePreloader, 3000);
+
+
     // 3. LOGIC HAMBURGER MENU (MOBILE)
-    // ==========================================
     const mobileBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     
@@ -92,6 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
+        // Tutup menu saat link diklik
         const mobileLinks = document.querySelectorAll('.mobile-link');
         mobileLinks.forEach(link => {
             link.addEventListener('click', () => {
@@ -101,6 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
+        // Tutup menu jika klik di luar
         document.addEventListener('click', (e) => {
             if (!mobileBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
                 if (!mobileMenu.classList.contains('hidden')) {
@@ -112,11 +106,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ==========================================
-    // 4. LOGIC MODAL POPUP
-    // ==========================================
+
+    // 4. LOGIC MODAL POPUP (SAFE MODE)
     const triggers = document.querySelectorAll('.trigger-modal');
     
+    // Cek apakah ada modal di halaman ini? (Supaya tidak error di halaman lain)
     if (triggers.length > 0) {
         const closers = document.querySelectorAll('.close-modal');
         const modals = document.querySelectorAll('.modal');
