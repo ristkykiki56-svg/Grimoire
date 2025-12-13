@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ristkykiki56-svg.github.io/Grimoire/sitemap.xml
