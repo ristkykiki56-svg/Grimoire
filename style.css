@@ -55,7 +55,7 @@ h1, h2, h3, h4, .nav-font {
 .bg-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.6); 
+    background: rgba(0, 0, 0, 0.3); 
     z-index: 1;
 }
 
@@ -160,7 +160,7 @@ dialog::backdrop { background: rgba(0, 0, 0, 0.9); }
     }
     
     .bg-overlay {
-        background: rgba(0, 0, 0, 0.85);
+        background: rgba(0, 0, 0, 0.4) !important;
     }
 
     /* 3. Hover Effects (Hanya nyala kalau ada mouse) */
