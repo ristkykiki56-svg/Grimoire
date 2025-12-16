@@ -33,28 +33,27 @@ h1, h2, h3, h4, .nav-font {
     display: none; 
 }
 
-/* === 3. BACKGROUND FIXED (Stabilized) === */
+/* === 3. BACKGROUND FIXED (Anti-Zoom / Anti-Resize) === */
 .bg-fixed-container {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     
-    /* FIX: Jangan pakai 100dvh, bikin jitter saat scroll di HP */
-    height: 100vh; 
+    /* FALLBACK untuk browser lama */
+    height: 100vh;
     
-    /* TRICK: Lebihkan sedikit tingginya (110%) untuk menutupi celah 
-       saat address bar browser HP naik-turun */
-    min-height: 110vh; 
+    /* SOLUSI FINAL: Gunakan 'svh' (Smallest Viewport Height) */
+    /* Ini mengunci tinggi background agar TIDAK ikut membesar saat address bar HP hilang */
+    height: 100svh; 
     
     z-index: 0;
     pointer-events: none;
+    overflow: hidden; /* Mencegah kebocoran */
     
-    /* GPU ACCELERATION: Memaksa HP menggunakan Hardware Grafis 
-       agar gambar 'dikunci' dan tidak patah-patah */
+    /* Mengunci rendering di GPU */
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
-    will-change: transform;
 }
 
 .bg-fixed-image {
@@ -62,10 +61,15 @@ h1, h2, h3, h4, .nav-font {
     height: 100%;
     object-fit: cover;
     
-    /* Pastikan gambar tidak bergeser */
+    /* PASTIKAN gambar absolut dan diam */
     position: absolute;
     top: 0;
     left: 0;
+    
+    /* MATIKAN semua transisi agar gambar tidak mencoba animasi resize */
+    transition: none !important;
+    transform: none !important; 
+    will-change: auto;
 }
 
 /* Overlay Default (Solid Transparan untuk HP) */
