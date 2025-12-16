@@ -17,7 +17,7 @@ body {
     padding: 0;
     font-family: 'Lora', serif;
     background-color: var(--black-deep);
-    color: #d4d4d4; /* Kontras teks ditingkatkan untuk keterbacaan */
+    color: #d4d4d4;
     line-height: 1.8;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -28,27 +28,20 @@ h1, h2, h3, h4, .nav-font {
     line-height: 1.2;
 }
 
-/* === 2. TEXTURE SYSTEM (Noise Effect) === */
+/* === 2. TEXTURE SYSTEM (Optimized Performance) === */
+/* DEFAULT (HP): Dimatikan agar tidak berat */
 .bg-noise {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1;
-    opacity: 0.05;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    display: none; 
 }
 
-/* === 3. BACKGROUND FIXED (Mobile Optimized) === */
+/* === 3. BACKGROUND FIXED === */
 .bg-fixed-container {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh; /* Fallback untuk browser lama */
-    height: 100dvh; /* Dynamic Viewport Height: Fix untuk Safari/Chrome Mobile */
+    height: 100vh; 
+    height: 100dvh; 
     z-index: 0;
     pointer-events: none;
 }
@@ -62,7 +55,7 @@ h1, h2, h3, h4, .nav-font {
 .bg-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(0, 0, 0, 0.9); /* HP: Lebih gelap karena tidak ada blur */
     z-index: 1;
 }
 
@@ -94,34 +87,11 @@ h1, h2, h3, h4, .nav-font {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* === 5. HOVER EFFECTS (Mobile Safe) === */
-/* Media query ini mencegah tombol "nyangkut" warnanya di layar sentuh/HP */
-@media (hover: hover) {
-    .btn-gold:hover {
-        background: linear-gradient(to bottom, #ffecb3 5%, #cfc09f 100%);
-        transform: translateY(-2px);
-        box-shadow: 0 0 30px rgba(191, 149, 63, 0.4);
-    }
-
-    .btn-outline-gold:hover {
-        background: var(--gold-primary);
-        color: #000;
-        box-shadow: 0 0 20px rgba(179, 135, 40, 0.3);
-        border-color: transparent;
-    }
-
-    .btn-wa:hover {
-        filter: brightness(1.1);
-        transform: translateY(-2px);
-    }
-}
-
-/* === 6. IMAGE STYLING & MASKING === */
+/* === 5. IMAGE STYLING === */
 .pro-image {
     width: 100%;
     height: 350px;
     object-fit: cover;
-    /* Efek pudar ke hitam di bawah gambar agar menyatu dengan background */
     -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
     mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
     transition: transform 0.7s ease;
@@ -130,44 +100,76 @@ h1, h2, h3, h4, .nav-font {
     .pro-image { height: 450px; }
 }
 
-/* === 7. CUSTOM SCROLLBAR (Tema Emas & Hitam) === */
-::-webkit-scrollbar {
-    width: 8px;
-}
-::-webkit-scrollbar-track {
-    background: #0a0a0a; 
-}
-::-webkit-scrollbar-thumb {
-    background: #333; 
-    border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-    background: var(--gold-primary); 
-}
+/* === 6. CUSTOM SCROLLBAR === */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #0a0a0a; }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold-primary); }
 
-/* Scrollbar khusus untuk Modal/Dialog */
-.custom-scrollbar::-webkit-scrollbar {
-    width: 4px;
-}
-.custom-scrollbar::-webkit-scrollbar-track {
-    background: transparent; 
-}
-.custom-scrollbar::-webkit-scrollbar-thumb {
-    background: rgba(179, 135, 40, 0.5); 
-    border-radius: 10px;
-}
+.custom-scrollbar::-webkit-scrollbar { width: 4px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(179, 135, 40, 0.5); border-radius: 10px; }
 
-/* === 8. ANIMASI MODAL (NATIVE) === */
+/* === 7. ANIMASI MODAL === */
 @keyframes fadeInScale {
     from { opacity: 0; transform: scale(0.95); }
     to { opacity: 1; transform: scale(1); }
 }
+dialog[open] { animation: fadeInScale 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
+dialog::backdrop { background: rgba(0, 0, 0, 0.9); }
 
-dialog[open] {
-    animation: fadeInScale 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+/* =========================================
+   PERFORMANCE & DESKTOP ENHANCEMENTS
+   (Bagian Kunci agar HP tidak Lag)
+   ========================================= */
+
+/* DEFAULT (HP): Override efek berat Tailwind */
+.backdrop-blur-md {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background-color: rgba(10, 10, 10, 0.95) !important; /* Ganti blur dengan solid transparan */
 }
 
-dialog::backdrop {
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(8px);
+/* DESKTOP ONLY (Layar > 1024px): Nyalakan semua efek mewah */
+@media (min-width: 1024px) {
+    /* 1. Nyalakan Noise Texture */
+    .bg-noise {
+        display: block;
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        pointer-events: none; z-index: 1; opacity: 0.05;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    /* 2. Nyalakan Blur Glassmorphism */
+    .backdrop-blur-md {
+        backdrop-filter: blur(12px) !important;
+        -webkit-backdrop-filter: blur(12px) !important;
+        background-color: rgba(0, 0, 0, 0.6) !important; /* Lebih transparan karena ada blur */
+    }
+    
+    .bg-overlay {
+        background: rgba(0, 0, 0, 0.85); /* Overlay sedikit lebih terang di PC */
+    }
+
+    /* 3. Hover Effects (Hanya di PC agar tombol tidak 'nyangkut' di HP) */
+    .btn-gold:hover {
+        background: linear-gradient(to bottom, #ffecb3 5%, #cfc09f 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 0 30px rgba(191, 149, 63, 0.4);
+    }
+    .btn-outline-gold:hover {
+        background: var(--gold-primary);
+        color: #000;
+        box-shadow: 0 0 20px rgba(179, 135, 40, 0.3);
+        border-color: transparent;
+    }
+    .btn-wa:hover {
+        filter: brightness(1.1);
+        transform: translateY(-2px);
+    }
+    .btn-shopee:hover {
+        box-shadow: 0 0 20px rgba(238, 77, 45, 0.4);
+        transform: translateY(-2px);
+    }
 }
