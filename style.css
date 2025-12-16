@@ -28,8 +28,7 @@ h1, h2, h3, h4, .nav-font {
     line-height: 1.2;
 }
 
-/* === 2. TEXTURE SYSTEM (Optimized Performance) === */
-/* DEFAULT (HP): Dimatikan agar tidak berat */
+/* === 2. TEXTURE SYSTEM (Default: Mati agar Ringan di HP) === */
 .bg-noise {
     display: none; 
 }
@@ -41,7 +40,7 @@ h1, h2, h3, h4, .nav-font {
     left: 0;
     width: 100%;
     height: 100vh; 
-    height: 100dvh; 
+    height: 100dvh; /* Fix untuk browser mobile modern */
     z-index: 0;
     pointer-events: none;
 }
@@ -52,10 +51,11 @@ h1, h2, h3, h4, .nav-font {
     object-fit: cover;
 }
 
+/* Overlay Default (Solid Transparan untuk HP) */
 .bg-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.9); /* HP: Lebih gelap karena tidak ada blur */
+    background: rgba(0, 0, 0, 0.9); 
     z-index: 1;
 }
 
@@ -67,6 +67,7 @@ h1, h2, h3, h4, .nav-font {
     color: transparent;
 }
 
+/* Button Styles */
 .btn-gold {
     background: linear-gradient(to bottom, #cfc09f 5%, #ffecb3 100%);
     color: #3e2723;
@@ -85,6 +86,12 @@ h1, h2, h3, h4, .nav-font {
     background: linear-gradient(to right, #128c7e, #25d366);
     color: white;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-shopee {
+    background: linear-gradient(to right, #ee4d2d, #ff7337);
+    color: white;
+    transition: all 0.3s ease;
 }
 
 /* === 5. IMAGE STYLING === */
@@ -118,20 +125,24 @@ h1, h2, h3, h4, .nav-font {
 dialog[open] { animation: fadeInScale 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
 dialog::backdrop { background: rgba(0, 0, 0, 0.9); }
 
-/* =========================================
-   PERFORMANCE & DESKTOP ENHANCEMENTS
-   (Bagian Kunci agar HP tidak Lag)
-   ========================================= */
-
-/* DEFAULT (HP): Override efek berat Tailwind */
+/* === 8. DEFAULT MOBILE PERFORMANCE (Anti-Lag) === */
+/* Mematikan efek blur berat secara default di semua device */
 .backdrop-blur-md {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
     background-color: rgba(10, 10, 10, 0.95) !important; /* Ganti blur dengan solid transparan */
 }
 
-/* DESKTOP ONLY (Layar > 1024px): Nyalakan semua efek mewah */
-@media (min-width: 1024px) {
+/* ============================================================
+   PERFORMANCE LOCK: DESKTOP & MOUSE ONLY
+   Efek berat (Noise, Blur, Hover) HANYA aktif jika:
+   1. Layar Besar (>1024px)
+   2. DAN menggunakan Mouse (hover: hover)
+   
+   Ini menjamin HP (Touchscreen) tidak akan pernah lag,
+   meskipun dipaksa masuk "Desktop Mode".
+   ============================================================ */
+@media (min-width: 1024px) and (hover: hover) {
     /* 1. Nyalakan Noise Texture */
     .bg-noise {
         display: block;
@@ -145,14 +156,14 @@ dialog::backdrop { background: rgba(0, 0, 0, 0.9); }
     .backdrop-blur-md {
         backdrop-filter: blur(12px) !important;
         -webkit-backdrop-filter: blur(12px) !important;
-        background-color: rgba(0, 0, 0, 0.6) !important; /* Lebih transparan karena ada blur */
+        background-color: rgba(0, 0, 0, 0.6) !important;
     }
     
     .bg-overlay {
-        background: rgba(0, 0, 0, 0.85); /* Overlay sedikit lebih terang di PC */
+        background: rgba(0, 0, 0, 0.85);
     }
 
-    /* 3. Hover Effects (Hanya di PC agar tombol tidak 'nyangkut' di HP) */
+    /* 3. Hover Effects (Hanya nyala kalau ada mouse) */
     .btn-gold:hover {
         background: linear-gradient(to bottom, #ffecb3 5%, #cfc09f 100%);
         transform: translateY(-2px);
