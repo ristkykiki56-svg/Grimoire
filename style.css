@@ -17,10 +17,9 @@ body {
     padding: 0;
     font-family: 'Lora', serif;
     background-color: var(--black-deep);
-    color: #d4d4d4; /* Sedikit lebih terang dari gray-400 untuk keterbacaan */
+    color: #d4d4d4; /* Kontras teks ditingkatkan */
     line-height: 1.8;
-    -webkit-font-smoothing: antialiased; /* Font lebih tajam di Mac/iOS */
-    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4, .nav-font {
@@ -37,7 +36,7 @@ h1, h2, h3, h4, .nav-font {
     height: 100%;
     pointer-events: none;
     z-index: 1;
-    opacity: 0.05; /* Dinaikkan sedikit untuk tekstur lebih tegas */
+    opacity: 0.05;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
@@ -47,8 +46,8 @@ h1, h2, h3, h4, .nav-font {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh; /* Fallback */
-    height: 100dvh; /* Dynamic Viewport Height untuk Mobile Browser modern */
+    height: 100vh;
+    height: 100dvh; /* Fix untuk iOS Safari Address Bar */
     z-index: 0;
     pointer-events: none;
 }
@@ -66,35 +65,7 @@ h1, h2, h3, h4, .nav-font {
     z-index: 1;
 }
 
-/* === 4. CUSTOM SCROLLBAR (Untuk Modal & Body) === */
-/* Styling scrollbar agar sesuai tema (Emas & Hitam) */
-::-webkit-scrollbar {
-    width: 8px;
-}
-::-webkit-scrollbar-track {
-    background: #0a0a0a; 
-}
-::-webkit-scrollbar-thumb {
-    background: #333; 
-    border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-    background: var(--gold-primary); 
-}
-
-/* Class khusus yang Anda pakai di HTML Modal */
-.custom-scrollbar::-webkit-scrollbar {
-    width: 4px; /* Lebih tipis untuk dalam modal */
-}
-.custom-scrollbar::-webkit-scrollbar-track {
-    background: transparent; 
-}
-.custom-scrollbar::-webkit-scrollbar-thumb {
-    background: rgba(179, 135, 40, 0.5); 
-    border-radius: 10px;
-}
-
-/* === 5. COMPONENT COLORS & BUTTONS === */
+/* === 4. COMPONENT COLORS === */
 .text-gold {
     background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
     -webkit-background-clip: text;
@@ -102,7 +73,6 @@ h1, h2, h3, h4, .nav-font {
     color: transparent;
 }
 
-/* Base Button Styles */
 .btn-gold {
     background: linear-gradient(to bottom, #cfc09f 5%, #ffecb3 100%);
     color: #3e2723;
@@ -123,58 +93,52 @@ h1, h2, h3, h4, .nav-font {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* === 6. HOVER EFFECTS (Desktop Only) === */
-/* Media query ini mencegah tombol "nyangkut" warnanya di layar sentuh/HP */
+/* === 5. HOVER EFFECTS (Desktop Only) === */
+/* Mencegah sticky hover di Mobile */
 @media (hover: hover) {
     .btn-gold:hover {
         background: linear-gradient(to bottom, #ffecb3 5%, #cfc09f 100%);
         transform: translateY(-2px);
         box-shadow: 0 0 30px rgba(191, 149, 63, 0.4);
     }
-
     .btn-outline-gold:hover {
         background: var(--gold-primary);
         color: #000;
         box-shadow: 0 0 20px rgba(179, 135, 40, 0.3);
         border-color: transparent;
     }
-
     .btn-wa:hover {
         filter: brightness(1.1);
         transform: translateY(-2px);
     }
 }
 
-/* === 7. IMAGE STYLING & MASKING === */
+/* === 6. IMAGE STYLING === */
 .pro-image {
     width: 100%;
     height: 350px;
     object-fit: cover;
-    /* Efek pudar ke hitam di bawah gambar */
     -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
     mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-    transition: transform 0.7s ease; /* Transisi lebih halus */
+    transition: transform 0.7s ease;
 }
 @media (min-width: 768px) {
     .pro-image { height: 450px; }
 }
 
-/* === 8. ANIMASI MODAL (NATIVE) === */
+/* === 7. CUSTOM SCROLLBAR === */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #0a0a0a; }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold-primary); }
+
+.custom-scrollbar::-webkit-scrollbar { width: 4px; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(179, 135, 40, 0.5); border-radius: 10px; }
+
+/* === 8. MODAL ANIMATION === */
 @keyframes fadeInScale {
     from { opacity: 0; transform: scale(0.95); }
     to { opacity: 1; transform: scale(1); }
 }
-
-dialog[open] {
-    animation: fadeInScale 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-dialog::backdrop {
-    background: rgba(0, 0, 0, 0.85); /* Sedikit lebih transparan */
-    backdrop-filter: blur(8px); /* Blur lebih kuat agar fokus ke konten */
-}
-
-/* Fix animasi close (opsional, perlu JS tambahan untuk trigger, tapi styling disiapkan) */
-dialog.closing {
-    animation: fadeOut 0.3s forwards;
-}
+dialog[open] { animation: fadeInScale 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
+dialog::backdrop { background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(8px); }
