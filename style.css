@@ -33,29 +33,46 @@ h1, h2, h3, h4, .nav-font {
     display: none; 
 }
 
-/* === 3. BACKGROUND FIXED === */
+/* === 3. BACKGROUND FIXED (Stabilized) === */
 .bg-fixed-container {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
+    
+    /* FIX: Jangan pakai 100dvh, bikin jitter saat scroll di HP */
     height: 100vh; 
-    height: 100dvh; /* Fix untuk browser mobile modern */
+    
+    /* TRICK: Lebihkan sedikit tingginya (110%) untuk menutupi celah 
+       saat address bar browser HP naik-turun */
+    min-height: 110vh; 
+    
     z-index: 0;
     pointer-events: none;
+    
+    /* GPU ACCELERATION: Memaksa HP menggunakan Hardware Grafis 
+       agar gambar 'dikunci' dan tidak patah-patah */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform;
 }
 
 .bg-fixed-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    
+    /* Pastikan gambar tidak bergeser */
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 /* Overlay Default (Solid Transparan untuk HP) */
 .bg-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.3); 
+    background: rgba(0, 0, 0, 0.4); 
     z-index: 1;
 }
 
