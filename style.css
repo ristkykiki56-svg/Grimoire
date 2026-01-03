@@ -206,9 +206,9 @@ dialog::backdrop { background: rgba(0, 0, 0, 0.9); }
     }
 }
 
-/* =========================================
-   SECURITY: ANTI-COPY MOBILE & DESKTOP
-   ========================================= */
+/* ======================================================
+   SECURITY SECTION (TEMPEL DI PALING BAWAH STYLE.CSS)
+   ====================================================== */
 
 /* 1. Matikan Seleksi Teks (Agar tulisan tidak bisa diblok biru) */
 html, body {
@@ -216,31 +216,30 @@ html, body {
     -moz-user-select: none;    /* Firefox */
     -ms-user-select: none;     /* IE/Edge */
     user-select: none;         /* Standar Global */
-    
-    /* Matikan menu popup saat tekan tahan di iOS/Android */
-    -webkit-touch-callout: none; 
+    -webkit-touch-callout: none; /* Matikan menu popup tekan tahan di iOS */
 }
 
 /* 2. Matikan Interaksi Gambar (Agar tidak bisa tekan tahan -> Download Image) */
 img {
     -webkit-user-drag: none;     /* Mencegah gambar digeser-geser */
-    pointer-events: none;        /* Gambar dianggap "tembus pandang" oleh sentuhan jari */
+    pointer-events: none;        /* Gambar jadi "hantu" (tembus pandang), tidak bisa diklik kanan/tahan */
 }
 
-/* 3. PENGECUALIAN WAJIB (Agar website tidak rusak) */
-/* Kita harus mengizinkan User menyentuh Tombol, Link, dan Form Input */
+/* 3. PENGECUALIAN WAJIB (Agar website tetap bisa dipakai) */
+/* Kita harus mengizinkan User mengklik Tombol, Link, dan Form Input */
 a, button, input, textarea, select {
-    -webkit-user-select: auto;   /* Izinkan seleksi teks di kolom input */
+    -webkit-user-select: auto;   
     user-select: auto;
     pointer-events: auto;        /* Izinkan diklik */
     -webkit-touch-callout: default;
 }
 
-/* Khusus untuk Link yang berisi Gambar (jika ada), izinkan diklik */
+/* Khusus Link Gambar (Misal: Thumbnail produk yang bisa diklik) */
 a img {
-    pointer-events: none; /* Tetap matikan save image */
+    pointer-events: none; /* Gambar tetap tidak bisa disave */
 }
 a {
-    pointer-events: auto; /* Tapi link-nya tetap jalan */
+    pointer-events: auto; /* Tapi link pembungkusnya tetap jalan */
 }
+
 
