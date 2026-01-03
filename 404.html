@@ -1,23 +1,70 @@
 <!DOCTYPE html>
-<html lang="id" class="bg-black h-full">
+<html lang="id" class="bg-black">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halaman Tidak Ditemukan - 404</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./style.css">
-    <script>tailwind.config = { theme: { extend: { colors: { gold: '#b38728' } } } }</script>
-</head>
-<body class="h-full flex flex-col items-center justify-center text-center px-4 bg-black relative overflow-hidden">
-    <div class="bg-noise"></div>
-    <div class="absolute inset-0 bg-[url('https://cdn.jsdelivr.net/gh/ristkykiki56-svg/Asset-web@main/Gemini_Generated_Image_pygf2pygf2pygf2p.png')] opacity-30 bg-cover bg-center"></div>
+    <title>Halaman Tidak Ditemukan | Didik Hendranata</title>
     
-    <div class="relative z-10">
-        <h1 class="text-9xl text-gold font-bold font-['Cinzel'] opacity-50">404</h1>
-        <h2 class="text-2xl md:text-3xl text-white font-['Cinzel'] mb-4 mt-4">DIMENSI TIDAK DITEMUKAN</h2>
-        <p class="text-gray-400 mb-8 max-w-md mx-auto">Energi halaman yang Anda cari tidak terdeteksi di alam ini. Kembalilah sebelum tersesat lebih jauh.</p>
-        <a href="index.html" class="btn-gold px-8 py-3 font-bold tracking-wider rounded-sm text-sm inline-block">KEMBALI KE REALITA</a>
+    <meta name="robots" content="noindex, nofollow">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: '#b38728',
+                        'gold-light': '#d4a036',
+                    },
+                    fontFamily: {
+                        cinzel: ['Cinzel', 'serif'],
+                        lora: ['Lora', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .gold-gradient {
+            background: linear-gradient(to right, #b38728, #f0e68c, #b38728);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-black text-gray-300 min-h-screen flex items-center justify-center p-4">
+
+    <div class="text-center max-w-lg border border-gold/30 p-8 rounded-lg shadow-[0_0_30px_rgba(179,135,40,0.1)]">
+        
+        <div class="mb-6">
+            <i class="fas fa-compass text-6xl text-gold animate-pulse"></i>
+        </div>
+
+        <h1 class="text-5xl font-cinzel font-bold mb-4 gold-gradient">404</h1>
+        <h2 class="text-2xl font-cinzel text-gold mb-4">Halaman Hilang dalam Dimensi Lain</h2>
+        
+        <p class="font-lora text-gray-400 mb-8 leading-relaxed">
+            Maaf, halaman yang Anda cari tidak ditemukan atau telah berpindah alam. 
+            Silakan kembali ke padepokan utama.
+        </p>
+
+        <a href="https://didikhendranata.netlify.app/" 
+           class="inline-block px-8 py-3 bg-gradient-to-r from-gold to-gold-light text-black font-cinzel font-bold rounded hover:scale-105 transition-transform duration-300 shadow-[0_0_20px_rgba(179,135,40,0.4)]">
+           <i class="fas fa-home mr-2"></i> Kembali ke Beranda
+        </a>
+
     </div>
+
+    <script>
+        // Mengarahkan otomatis ke Home dalam 10 detik jika user diam saja
+        setTimeout(function(){
+            window.location.href = "https://didikhendranata.netlify.app/";
+        }, 10000);
+    </script>
+
 </body>
 </html>
