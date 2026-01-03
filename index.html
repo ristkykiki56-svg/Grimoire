@@ -47,32 +47,131 @@
     ]
     </script>
 
-    <style>
-        html, body {
-            width: 100%; max-width: 100%; overflow-x: hidden !important;
-            margin: 0; padding: 0; background-color: #050505;
-        }
-        img { max-width: 100%; height: auto; display: block; }
-        .fouc-protect { opacity: 0; animation: revealContent 0.8s ease forwards; animation-delay: 0.2s; }
-        @keyframes revealContent { to { opacity: 1; } }
-        #preloader {
-            position: fixed; inset: 0; z-index: 99999;
-            display: flex; align-items: center; justify-content: center;
-            background-color: #000; width: 100%; height: 100%;
-        }
-    </style>
-
     <link rel="icon" type="image/jpeg" href="https://cdn.jsdelivr.net/gh/ristkykiki56-svg/Asset-web@main/FB_IMG_1765334930535.jpg">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="./style.css?v=17122025_FIX_B">
-    <script>tailwind.config = { theme: { extend: { colors: { gold: '#b38728' } } } }</script>
+    
+    <script>
+        tailwind.config = { 
+            theme: { 
+                extend: { 
+                    colors: { 
+                        gold: '#b38728' 
+                    } 
+                } 
+            } 
+        }
+    </script>
+
+    <style>
+        /* === RESET & BASIC === */
+        html, body {
+            width: 100%; max-width: 100%; overflow-x: hidden !important;
+            margin: 0; padding: 0; background-color: #050505;
+            font-family: 'Lora', serif;
+        }
+        
+        /* Font Judul yang Kuat */
+        h1, h2, h3, h4, .nav-font {
+            font-family: 'Cinzel', serif;
+        }
+
+        /* === PERBAIKAN BACKGROUND (CRITICAL FIX) === */
+        /* Ini memperbaiki layout yang 'rusak' agar background tetap di belakang */
+        .bg-fixed-container {
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100vh;
+            z-index: -1; /* PENTING: Agar tidak menutupi teks */
+        }
+        .bg-fixed-image {
+            width: 100%; height: 100%; object-fit: cover;
+            filter: brightness(0.4) contrast(1.1); /* Menggelapkan gambar agar teks terbaca */
+        }
+        .bg-overlay {
+            position: absolute; inset: 0;
+            background: rgba(0,0,0,0.6);
+            z-index: 0;
+        }
+
+        /* === DRIBBBLE STANDARD STYLING === */
+        
+        /* 1. Teks Emas Mewah (Gradient) */
+        .text-gold {
+            background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent !important; /* Force transparent agar gradient keluar */
+            text-shadow: 0px 2px 10px rgba(179, 135, 40, 0.2);
+        }
+
+        /* 2. Tombol Emas */
+        .btn-gold {
+            background: linear-gradient(to bottom, #cfc09f 5%, #ffecb3 100%);
+            color: #3e2723;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(179, 135, 40, 0.3);
+            border: none;
+        }
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(179, 135, 40, 0.6);
+        }
+
+        /* 3. Glassmorphism Card (Menggantikan style standar Tailwind) */
+        /* Target elemen yang Anda beri class 'bg-white/5' atau 'bg-white/20' */
+        .bg-white\/5, .bg-white\/20, .backdrop-blur-md {
+            background: rgba(255, 255, 255, 0.03) !important;
+            backdrop-filter: blur(12px) !important;
+            -webkit-backdrop-filter: blur(12px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        }
+
+        /* 4. Gambar dengan Efek Depth */
+        .pro-image {
+            max-width: 100%; height: auto; display: block;
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border-radius: 8px;
+        }
+        .group:hover .pro-image {
+            transform: scale(1.05);
+        }
+
+        /* === ANIMASI & UTILS === */
+        .fouc-protect { opacity: 0; animation: revealContent 0.8s ease forwards; animation-delay: 0.2s; }
+        @keyframes revealContent { to { opacity: 1; } }
+        
+        #preloader {
+            position: fixed; inset: 0; z-index: 99999;
+            display: flex; align-items: center; justify-content: center;
+            background-color: #000; width: 100%; height: 100%;
+        }
+
+        /* Modal / Dialog Styles */
+        dialog::backdrop {
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(5px);
+        }
+        /* Scrollbar untuk modal */
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(179, 135, 40, 0.5); border-radius: 10px; }
+        
+        /* Tombol WA di Modal */
+        .btn-wa {
+            background: linear-gradient(to right, #128c7e, #25d366);
+            color: white;
+            transition: 0.3s;
+        }
+    </style>
 </head>
 
 <body class="antialiased text-gray-300 overflow-x-hidden relative">
-    <div class="bg-noise"></div>
     
     <div id="preloader">
         <div class="text-center">
@@ -174,7 +273,7 @@
                     <p class="text-gray-400 mb-6 text-sm leading-relaxed">
                         Menyusuri sisi gaib dunia tumbuhan yang jarang terungkap. Bukan sekadar herbal medis, tapi kunci rahasia energi alam untuk proteksi, penyembuhan non-medis, dan formula <em>magick</em> kuno.
                     </p>
-                    <button class="btn-outline-gold px-8 py-3 text-xs md:text-sm tracking-widest rounded-sm" onclick="document.getElementById('dialog-grimoire').showModal()">LIHAT DETAIL</button>
+                    <button class="btn-outline-gold px-8 py-3 text-xs md:text-sm tracking-widest rounded-sm border border-yellow-600 text-yellow-500 hover:bg-yellow-600 hover:text-black transition" onclick="document.getElementById('dialog-grimoire').showModal()">LIHAT DETAIL</button>
                 </div>
             </div>
 
@@ -192,11 +291,11 @@
                     <p class="text-gray-400 mb-6 text-sm leading-relaxed">
                         Bukan sekadar teks amalan, melainkan intisari pengalaman nyata selama 1,5 tahun menyelami ilmu kuno Qosam Amary. Fakta spiritual yang tidak akan Anda temukan di ijazah manapun.
                     </p>
-                    <button class="btn-outline-gold px-8 py-3 text-xs md:text-sm tracking-widest rounded-sm hover:border-red-500 hover:text-red-500" onclick="document.getElementById('dialog-qosam').showModal()">LIHAT DETAIL</button>
+                    <button class="btn-outline-gold px-8 py-3 text-xs md:text-sm tracking-widest rounded-sm border border-red-500 text-red-500 hover:bg-red-900 hover:text-white transition" onclick="document.getElementById('dialog-qosam').showModal()">LIHAT DETAIL</button>
                 </div>
             </div>
 
-             <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
                 <div class="w-full md:w-1/2 relative px-2 md:px-0" data-aos="fade-right">
                     <div class="relative rounded-2xl p-[1px] bg-gradient-to-b from-white/20 via-purple-900/40 to-transparent">
                         <div class="relative overflow-hidden rounded-2xl bg-black">
@@ -210,7 +309,7 @@
                     <p class="text-gray-400 mb-6 text-sm leading-relaxed">
                         Racikan premium Gaharu Merauke & Cendana Kupang. Manifestasi nyata Buku Ausadhi untuk menghantarkan hajat menembus Arasy dan pendamping wajib ritual Qosam Amary.
                     </p>
-                    <button class="btn-outline-gold px-8 py-3 text-xs md:text-sm tracking-widest rounded-sm hover:border-purple-500 hover:text-purple-500" onclick="document.getElementById('dialog-buhur').showModal()">LIHAT DETAIL</button>
+                    <button class="btn-outline-gold px-8 py-3 text-xs md:text-sm tracking-widest rounded-sm border border-purple-500 text-purple-500 hover:bg-purple-900 hover:text-white transition" onclick="document.getElementById('dialog-buhur').showModal()">LIHAT DETAIL</button>
                 </div>
             </div>
         </div>
@@ -338,6 +437,59 @@
     </dialog>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="./script.js?v=17122025"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // 1. INITIALIZE AOS
+            if (typeof AOS !== 'undefined') {
+                AOS.init({ duration: 800, once: true, offset: 50 });
+            }
+
+            // 2. PRELOADER
+            const preloader = document.getElementById('preloader');
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    if (preloader) {
+                        preloader.style.transition = 'opacity 0.8s ease';
+                        preloader.style.opacity = '0';
+                        setTimeout(() => { preloader.style.display = 'none'; }, 800);
+                    }
+                }, 1000);
+            });
+
+            // 3. MOBILE MENU
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    mobileMenu.classList.toggle('hidden');
+                    
+                    const icon = mobileBtn.querySelector('i');
+                    if (icon) {
+                        if (mobileMenu.classList.contains('hidden')) {
+                            icon.classList.remove('fa-times');
+                            icon.classList.add('fa-bars');
+                        } else {
+                            icon.classList.remove('fa-bars');
+                            icon.classList.add('fa-times');
+                        }
+                    }
+                });
+
+                document.addEventListener('click', (e) => {
+                    if (!mobileBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+                        mobileMenu.classList.add('hidden');
+                        const icon = mobileBtn.querySelector('i');
+                        if (icon) {
+                            icon.classList.add('fa-bars');
+                            icon.classList.remove('fa-times');
+                        }
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
