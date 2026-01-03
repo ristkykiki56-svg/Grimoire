@@ -66,21 +66,33 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* =========================================
-   4. SECURITY: CONTENT PROTECTION (Anti-Steal)
+   5. SECURITY: ULTIMATE CONTENT PROTECTION (PC & MOBILE)
    ========================================= */
-document.addEventListener('contextmenu', function(e) {
-    e.preventDefault(); // Matikan Klik Kanan
-    // Opsional: Munculkan peringatan halus
-    // alert('Maaf, konten dilindungi hak cipta Grimoire 1818.'); 
-});
 
+// 1. Matikan Klik Kanan & Tahan Lama (Mobile Long Press)
+// Menggunakan { capture: true } agar lebih agresif menangkap event sebelum browser
+const disableContext = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    return false;
+};
+
+window.addEventListener('contextmenu', disableContext, { capture: true });
+
+// 2. Matikan Shortcut Developer Tools & Save (Keyboard)
 document.addEventListener('keydown', function(e) {
-    // Matikan F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U (View Source)
     if (
-        e.key === 'F12' ||
-        (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) ||
-        (e.ctrlKey && e.key === 'U')
+        e.key === 'F12' || 
+        (e.ctrlKey && e.key === 'u') || 
+        (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+        (e.ctrlKey && e.shiftKey && e.key === 'J') ||
+        (e.ctrlKey && e.key === 's') // Matikan Ctrl+S (Save Page)
     ) {
         e.preventDefault();
     }
+});
+
+// 3. Matikan Drag & Drop Gambar (Agar gambar tidak bisa diseret ke tab baru)
+window.addEventListener('dragstart', (e) => {
+    e.preventDefault();
 });
