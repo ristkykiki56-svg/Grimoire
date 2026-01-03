@@ -1,3 +1,5 @@
 User-agent: *
 Allow: /
-Sitemap: https://ristkykiki56-svg.github.io/Grimoire/sitemap.xml
+
+# Peta Situs Resmi Netlify
+Sitemap: https://didikhendranata.netlify.app/sitemap.xml
