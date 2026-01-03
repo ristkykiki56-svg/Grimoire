@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-   
+
    <url>
-      <loc>https://ristkykiki56-svg.github.io/Grimoire/index.html</loc>
-      <lastmod>2026-01-03</lastmod>  <changefreq>weekly</changefreq>
-      <priority>1.0</priority>
+      <loc>https://didikhendranata.netlify.app/</loc>
+      <lastmod>2026-01-04</lastmod>
+      <changefreq>daily</changefreq>
+      <priority>1.00</priority>
    </url>
 
    <url>
-      <loc>https://ristkykiki56-svg.github.io/Grimoire/reseller.html</loc>
-      <lastmod>2026-01-03</lastmod>  <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
+      <loc>https://didikhendranata.netlify.app/reseller.html</loc>
+      <lastmod>2026-01-04</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.80</priority>
    </url>
 
    <url>
-      <loc>https://ristkykiki56-svg.github.io/Grimoire/testimoni.html</loc>
-      <lastmod>2026-01-03</lastmod>  <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
+      <loc>https://didikhendranata.netlify.app/testimoni.html</loc>
+      <lastmod>2026-01-04</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.80</priority>
    </url>
 
 </urlset>
