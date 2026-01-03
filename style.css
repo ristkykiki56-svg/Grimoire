@@ -205,3 +205,42 @@ dialog::backdrop { background: rgba(0, 0, 0, 0.9); }
         transform: translateY(-2px);
     }
 }
+
+/* =========================================
+   SECURITY: ANTI-COPY MOBILE & DESKTOP
+   ========================================= */
+
+/* 1. Matikan Seleksi Teks (Agar tulisan tidak bisa diblok biru) */
+html, body {
+    -webkit-user-select: none; /* Chrome/Safari/Android */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* IE/Edge */
+    user-select: none;         /* Standar Global */
+    
+    /* Matikan menu popup saat tekan tahan di iOS/Android */
+    -webkit-touch-callout: none; 
+}
+
+/* 2. Matikan Interaksi Gambar (Agar tidak bisa tekan tahan -> Download Image) */
+img {
+    -webkit-user-drag: none;     /* Mencegah gambar digeser-geser */
+    pointer-events: none;        /* Gambar dianggap "tembus pandang" oleh sentuhan jari */
+}
+
+/* 3. PENGECUALIAN WAJIB (Agar website tidak rusak) */
+/* Kita harus mengizinkan User menyentuh Tombol, Link, dan Form Input */
+a, button, input, textarea, select {
+    -webkit-user-select: auto;   /* Izinkan seleksi teks di kolom input */
+    user-select: auto;
+    pointer-events: auto;        /* Izinkan diklik */
+    -webkit-touch-callout: default;
+}
+
+/* Khusus untuk Link yang berisi Gambar (jika ada), izinkan diklik */
+a img {
+    pointer-events: none; /* Tetap matikan save image */
+}
+a {
+    pointer-events: auto; /* Tapi link-nya tetap jalan */
+}
+
