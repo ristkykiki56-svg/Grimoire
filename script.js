@@ -64,3 +64,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+/* =========================================
+   4. SECURITY: CONTENT PROTECTION (Anti-Steal)
+   ========================================= */
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault(); // Matikan Klik Kanan
+    // Opsional: Munculkan peringatan halus
+    // alert('Maaf, konten dilindungi hak cipta Grimoire 1818.'); 
+});
+
+document.addEventListener('keydown', function(e) {
+    // Matikan F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U (View Source)
+    if (
+        e.key === 'F12' ||
+        (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) ||
+        (e.ctrlKey && e.key === 'U')
+    ) {
+        e.preventDefault();
+    }
+});
